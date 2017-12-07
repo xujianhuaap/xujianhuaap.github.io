@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/4/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-java-study-concurrent-hashmap" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/20/java-study-concurrent-hashmap/" class="article-date">
+  <time datetime="2016-03-20T05:06:45.000Z" itemprop="datePublished">2016-03-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/20/java-study-concurrent-hashmap/">java_study_concurrent_hashmap</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/20/java-study-concurrent-hashmap/" data-id="cjaw2567q002cwsnmq6sjqrid" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java-study_jvm_gc" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/13/java-study_jvm_gc/" class="article-date">
+  <time datetime="2016-03-13T12:08:36.000Z" itemprop="datePublished">2016-03-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/13/java-study_jvm_gc/">java_jvm_gc</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">GC主要用于回收<span class="keyword">Java </span>Heap中的对象实例，如何判断那些对象需要回收呢，<span class="keyword">JVM使用的是可达性分析法，</span></span><br><span class="line"><span class="keyword">即 </span>只要某对象引用存在到GC roots的路径，那么该对象即不能GC处理．最后又进行了扩展，对于若该</span><br><span class="line">路径上存在强引用，那么该对象不能被GC处理，若该对象可达路径上在不存在强引用，但存在软引用在，</span><br><span class="line">内存紧张的情况下，该对象会被GC处理．若在该对象的可达路径上不存在强引用和软引用，但存在弱引</span><br><span class="line">用，会被GC处理．</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/13/java-study_jvm_gc/" data-id="cjaw2567x002kwsnmju0kl4i3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/GC/">GC</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java-jvm-gc" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/10/java-jvm-gc/" class="article-date">
+  <time datetime="2016-03-10T11:30:22.000Z" itemprop="datePublished">2016-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/10/java-jvm-gc/">java-jvm-gc</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/10/java-jvm-gc/" data-id="cjaw2567p002bwsnmpka2nfje" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-tool-svn" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/05/tool-svn/" class="article-date">
+  <time datetime="2016-03-05T08:24:51.000Z" itemprop="datePublished">2016-03-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/05/tool-svn/">tool-svn</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1. svn基本概念</span><br><span class="line"><span class="meta">1&gt;</span><span class="bash">reposity　库--file库</span></span><br><span class="line"><span class="meta">2&gt;</span><span class="bash">work copies 工作副本</span></span><br><span class="line"><span class="meta">3&gt;</span><span class="bash">reversion 修订版本号</span></span><br><span class="line"><span class="meta">4&gt;</span><span class="bash">基本原理</span></span><br><span class="line">复制－修改－合并　subversion</span><br><span class="line">从库拉代码到本地工作副本，每个客户端都对副本进行修改，在进行修改后</span><br><span class="line">在提交之前，必须拉最新的库，在进行合并．</span><br><span class="line">svn merge命令</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/05/tool-svn/" data-id="cjaw2568e003dwsnmcusl8r28" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svn/">svn</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-android-application-security" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/02/29/android-application-security/" class="article-date">
+  <time datetime="2016-02-29T02:50:07.000Z" itemprop="datePublished">2016-02-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/29/android-application-security/">android-application-security</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> RSA 加密算法是一种基于非对称加密的算法，在两台机器之间传递的是<span class="keyword">Public</span>　<span class="keyword">key</span>．</span><br><span class="line">原理是若干个素数相乘容易得到一个乘积，但该乘积不容易被分解若干个素数．公开密钥用</span><br><span class="line">来加密，私钥用来解密．公开密钥由私钥得到，但是由公开密钥确很难得到私钥，这就是RSA</span><br><span class="line">加密的基本原理．</span><br><span class="line"><span class="number">2.</span> ssh登录的原理：</span><br><span class="line">在远端产生一对密钥，将密钥对存储到远程端，在本地申请登录的时候，远程端发过来一</span><br><span class="line">个公开密钥，若本地加密信息，并把解密信息返回远端，远端解密验证通过后，成功</span><br><span class="line">登录．</span><br><span class="line"><span class="number">3.</span> http与https的区别</span><br><span class="line">https需要在SSL(安全套接字层)实现信息加密和身份验证．一般来说，服务器需要一个由机构颁发的</span><br><span class="line">CA证书（相当于我们的身份证），表示server的身份合法性．在客户端创建密钥，并且由Server的CA,</span><br><span class="line">来换取密钥．CA实质上是<span class="keyword">public</span>　crt和<span class="keyword">private</span> crt;当客户端发送请求时，用户端把<span class="keyword">public</span>　crt,</span><br><span class="line">发给客户端，如果<span class="keyword">public</span>　crt 是真实的，那么，客户端产生一个随机<span class="keyword">key</span>,并且由<span class="keyword">public</span> crt加密</span><br><span class="line">该<span class="keyword">key</span>并且发送给服务端，服务端把<span class="keyword">key</span>用<span class="keyword">private</span> crt以解密，用<span class="keyword">key</span>加密response的内容，发给客</span><br><span class="line">户端，客户端用<span class="keyword">key</span>解密．</span><br><span class="line">http使用的默认端口<span class="number">80</span>,https使用的端口是<span class="number">443</span>．</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/02/29/android-application-security/" data-id="cjaw2566j000qwsnm37u244r2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/">security</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-android-application-customer-view" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/02/26/android-application-customer-view/" class="article-date">
+  <time datetime="2016-02-26T10:17:59.000Z" itemprop="datePublished">2016-02-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/26/android-application-customer-view/">android-application-customer-view</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> View <span class="keyword">layout</span>有两个过程，一个measure,另一个是<span class="keyword">layout</span>,其中measure主要是测量View以及子</span><br><span class="line">View的大小，<span class="keyword">layout</span>主要是控制View以及子View相对于父控件的位置的过程．</span><br><span class="line"><span class="number">2.</span> MotionEvent</span><br><span class="line">运动事件包括鼠标，笔，指尖，轨迹球，MotionEvent所包含的事件既有相对运动也有绝对运动，取决与</span><br><span class="line">设备．对运动的描述主要包括Action和axis值的集合(压力值，x,y,)．</span><br><span class="line">单点触摸：ACTION_UP ACTION_DOWN ACTION_MOVE</span><br><span class="line">多点触摸：ACTION_POINTER_UP ACTION_PINTERDOWN ACTION_MOVE</span><br><span class="line"><span class="number">3.</span> KeyEvent</span><br><span class="line"><span class="number">4.</span> InputEvent 无论是键盘事件还是运动事件都是输入事件．对于输入事件android有不止一种方式</span><br><span class="line">来截取事件，对于输入事件的操作一般是通过接口回调来实现的，例如<span class="keyword">event</span> listener和<span class="keyword">event</span></span><br><span class="line">handler．事实上<span class="keyword">event</span> listener是android 定义好的<span class="keyword">event</span> handler,即这个方法被调用的时机，</span><br><span class="line">已经被android框架设置好了，我们所需要做的就是实现这个listener 所要执行的业务逻辑．</span><br><span class="line"><span class="number">5.</span> 接口回调</span><br><span class="line">在声明一个接口，把类的实现类的实例作为调用者的成员变量，在执行调用者的某个方法(功能)时执行</span><br><span class="line">该实现类的定义的方法．在为该实现者设置对应的成员变量的地方实现实现类的方法．</span><br><span class="line"><span class="number">6.</span> android 首先会调用<span class="keyword">event</span>　handler ,其次才会调用<span class="keyword">event</span> listener;这也以为如果<span class="keyword">event</span></span><br><span class="line">handler 消费了事件那么　<span class="keyword">event</span> listener就没机会了．</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/02/26/android-application-customer-view/" data-id="cjaw2566c000jwsnmfsxirp1s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/motion-event-multify-touch/">motion_event multify_touch</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-android-application-long-running-operation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/02/20/android-application-long-running-operation/" class="article-date">
+  <time datetime="2016-02-19T23:45:07.000Z" itemprop="datePublished">2016-02-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/20/android-application-long-running-operation/">android-application-long-running-operation</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1. 耗时操作在android你会想起什么，Service Thread Asynctask,它们的区别又是什么？</span><br><span class="line">2. 异步任务，是android设计的初衷是合理利用UI线程，避免开启新的线程和使用hanlder实</span><br><span class="line">现线程间的通信来进行耗时操作．异步任务运行在一个后台的线程里，最多几秒的耗时任务，再长，</span><br><span class="line">推荐使用并发的ThreadPoolExcutor FutureTask．异步任务只能被执行一次，第二次执行时</span><br><span class="line">会报异常．在android3.0之后excute()无法并发，要并发需要使用excuteonPoolExcutor().</span><br><span class="line">Service 是不与用户进行交互的这时候可以选用．其他时候可以选用Thread.  </span><br><span class="line">3. 一般来说，一个应用中的组件都运行在同一个进程中．这些进程可以根据生命周期可以划分为，前台</span><br><span class="line">进程，可见进程，服务进程，后台进程，空进程．进程被杀的可能性依序增大．进程的生命周期阶段取决</span><br><span class="line">与这个应用所在的组件的状态．例如：如果一个应用Activity还处于交互状态，或者bound service</span><br><span class="line">还在与绑定它的组件在交互．正在执行onRecive()的Receiver,那么此时该进程处于前台进程．如果</span><br><span class="line">一个Activity(onPauser()被调用)或者被绑定的组件进入可见状态的bound<span class="built_in"> service </span>,那么该进程</span><br><span class="line">处于可见进程．如果一个service 启动了startService(),拥有这样组件的进程是服务进程．对于</span><br><span class="line">Activity已经调用onStop()后，就不可见了，它即使被杀死也不影响用户体验．这样的进程成为后台</span><br><span class="line">进程．</span><br><span class="line">4. android将线程分为主线程（UI线程）或工作线程．在一个应用启动后，开启一个Linux进程后会</span><br><span class="line">有运行一个线程这个线程成为主线程．在这个线程主要是访问UI工具库，因此又称为UI线程．一下是两</span><br><span class="line">个记住的规则：UI线程不能堵塞，不能在UI线程外访问UI工具库．</span><br><span class="line">5. 线程安全</span><br><span class="line">某些情况下，一个方法可能在不同的线程中执行，例如在bound service中的方法，</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/02/20/android-application-long-running-operation/" data-id="cjaw2566g000nwsnmzu7gqqj7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/long-running-operation/">long_running_operation</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java-study-jvm" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/02/19/java-study-jvm/" class="article-date">
+  <time datetime="2016-02-19T01:37:42.000Z" itemprop="datePublished">2016-02-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/19/java-study-jvm/">java_study_jvm</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> jvm java虚拟机使java这门高级语言实现了跨平台性．jvm将字节码转换成具体平台的机器代码．</span><br><span class="line"><span class="number">2.</span> jvm也是一个进程，也有自己的代码，和自己的生命周期．调用java 命令就是启动该进程</span><br><span class="line"><span class="number">3.</span> jvm处理代码的过程，加载class文件，检验，解释执行．</span><br><span class="line"><span class="number">4.</span> jvm将执行程序所占用的内存划分为方法区，java虚拟机栈，本地方法栈，程序计数器，java堆．</span><br><span class="line">其中方法区和java堆是线程间共享的，其他是线程独享的内存．</span><br><span class="line">  方法区主要是是常量和静态变量，被虚拟机加载的类信息，以及运行时常量池．</span><br><span class="line">  程序计数器，是指该线程执行的刻度，来表示该线程执行的进度．这个计数器记录的是执行的java方法，</span><br><span class="line">正在执行的字节码指令的地址．</span><br><span class="line">  java虚拟机栈是指该线程正在执行的方法所占用的内存，每一个方法对应一个栈帧，当一个方法执行时，</span><br><span class="line">在虚拟机栈创建一个栈帧，当该方法执行完后，该栈帧消失．可能会出现栈溢出异常或者内存溢出异常．</span><br><span class="line">栈帧包括一下内容：局部变量表，操作数栈，动态链接，方法出口等信息．</span><br><span class="line">  java堆可以处于物理不连续的内存空间上，只要逻辑是连续的．</span><br><span class="line">  直接内存,不属于以上内存管理的范畴，是jdk1<span class="number">.4</span>引入的NIO类（new　input/output），他可以使用，</span><br><span class="line">Native函数库直接分配堆外内存，然后通过一个存储在java堆中的DirectByteBuffer对象作为这块，</span><br><span class="line">内存引用进行操作．</span><br><span class="line"><span class="number">5.</span>对象创建的过程</span><br><span class="line">  <span class="number">1</span>&gt;在运行时常量池中，检查是否存在这个类的引用，没有的话要进行类的加载．</span><br><span class="line">  <span class="number">2</span>&gt;分配内存（若内存是连续的可以采用指针碰撞法）</span><br><span class="line">  <span class="number">3</span>&gt;对象的必要设置（header)</span><br><span class="line">  <span class="number">4</span>&gt;对象初始化</span><br><span class="line">  对象主要包括三部分：header instanceData padding（对齐补充）</span><br><span class="line">  其中header组成主要有一下几部分：自身运行时数据和类型指针;</span><br><span class="line">  其中，自身运行时数据有主要有，hash码，GC分代年龄，锁状态标志，线程持有的锁，偏向线程，</span><br><span class="line">  偏向时间戳．</span><br><span class="line">  而类型指针是指向他的类元数据的指针．来判断是那个类的实例．</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/02/19/java-study-jvm/" data-id="cjaw2567s002fwsnm9o2n1qkj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-jvm/">java jvm</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java_study_thread" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/02/13/java_study_thread/" class="article-date">
+  <time datetime="2016-02-13T03:27:38.000Z" itemprop="datePublished">2016-02-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/13/java_study_thread/">android-frameworks</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1. Thread 线程是进程的组成单元，一个进程由一个或多个线程组成，而每个线程通常代表一个任务．</span><br><span class="line">2. 多线程的存在在于并发的需要．更准确的说是轻量级并发的需要．这里的轻量级是与进程并发相比，</span><br><span class="line">毕竟创建和撤销线程要比创建和撤销进程消耗的计算机资源要小的多．</span><br><span class="line">3. 线程有一下四个状态：创建　可运行　堵塞　等待　退出</span><br><span class="line">当new一个线程后，线程处于创建状态，</span><br><span class="line">当<span class="keyword">start</span>之后处于　可运行装态</span><br><span class="line">当线程获取不到对象锁时就会进入堵塞状态</span><br><span class="line">当线程调用<span class="keyword">wait</span>或者<span class="keyword">join</span>就会进入等待状态，当其等到通知时才会被唤醒</span><br><span class="line">当该线程运行任务执行完，或者出现未捕获的异常时就退出</span><br><span class="line"><span class="number">4.</span> <span class="keyword">sleep</span>()让其他低的优先级的线程获得执行的机会，但不释放锁</span><br><span class="line">   yiled()只是让该线程回到可执行状态，它可能回来又马上执行</span><br><span class="line">   <span class="keyword">wait</span>()释放锁,只能在同步方法中使用，线程进入等待状态直到被唤醒</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/02/13/java_study_thread/" data-id="cjaw2567y002mwsnmu6ezi37o" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-thread/">java thread</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-android-application-handler" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/27/android-application-handler/" class="article-date">
+  <time datetime="2016-01-27T05:01:32.000Z" itemprop="datePublished">2016-01-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/27/android-application-handler/">android-application-handler</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>参考文件<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">core<span class="regexp">/java/</span>android<span class="regexp">/os/</span>Looper.java</span><br><span class="line">core<span class="regexp">/java/</span>android<span class="regexp">/os/</span>Handler.java</span><br><span class="line">java<span class="regexp">/lang/</span>Thread.java</span><br><span class="line">java<span class="regexp">/lang/</span>ThreadLocal.java</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>2.Thread<br><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">１＞在一个线程中启动一个新的线程，我们称为线程为原线程的子线程，因此一个<span class="keyword">Thread</span>可能会有Parent</span><br><span class="line"><span class="built_in">Thread,</span>也可能有自己的Child <span class="keyword">Thread</span>．当我们每创建新线程的时候，都会调用Create()方法，在</span><br><span class="line">这个方法中，主要执行一下逻辑，获得当前的线程（<span class="keyword">Thread</span>.currentThread()native），给当前线</span><br><span class="line">程设置相关变量，threadGroup（线程属于那一组），线程的target(runnable),线程的名字(thre</span><br><span class="line">adName),线程的优先级（priority),若当前线程的ｉnheritableValues不为空，则这样情况下创建</span><br><span class="line">ThreadLocal.Values(currentThread.inheritableValues)，并赋予当前线程的</span><br><span class="line"><span class="built_in">inheritableValues,</span>把<span class="keyword">Thread</span>实例添加到当前组中．</span><br><span class="line">２＞两个重要的成员变量，ThreadLocal.Values inheritableValues(继承而来) localValues</span><br><span class="line">３＞每一个线程进行线程间handler通信，必须要有Looper,每一个线程只有一个Looper．</span><br><span class="line"><span class="number">4</span>&gt;每一个线程都对应一个ThreadLocal.Values,但是所有的线程，只有一个ThreadLocal.</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li><p>ThreadLocal</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">这个类实现了线程本地化存储，所有的线程都拥有一个ThreadLocal的变量，也有对应的Values</span><br><span class="line">保存在ThreadLocal中.</span><br><span class="line">ThreadLocal&lt;T&gt; T 就是线程的范型</span><br><span class="line"><span class="comment">//返回的是当前线程</span></span><br><span class="line">&lt;T&gt; <span class="built_in">get</span>()｛</span><br><span class="line">  &lt;<span class="number">1</span>&gt;获得当前线程</span><br><span class="line">  &lt;<span class="number">2</span>&gt;获得当前的线程的localValues并赋予局部变量Values values</span><br><span class="line">  &lt;<span class="number">3</span>&gt;若values不为空，根据ｖalues的成员变量table,以及mask(可以求得index)</span><br><span class="line">      <span class="keyword">Object</span>[] table = values.table;</span><br><span class="line">                <span class="built_in">int</span> index = hash &amp; values.mask;</span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">this</span>.reference == table[index]) &#123;</span><br><span class="line">                    <span class="keyword">return</span> (T) table[index + <span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">      ｝</span><br><span class="line">  &lt;<span class="number">4</span>&gt;若为空则创建新的localValues实例，调用（T）values.getAfterMiss(<span class="keyword">this</span>)</span><br><span class="line">｝</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="keyword">Object</span> getAfterMiss(ThreadLocal&lt;?&gt; <span class="built_in">key</span>) &#123;</span><br><span class="line">&#125;</span><br><span class="line">静态内部类</span><br><span class="line"><span class="keyword">static</span> class Values&#123;</span><br><span class="line">  １&gt;成员变量介绍</span><br><span class="line">  <span class="comment">//必须是２的幂值</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="built_in">int</span> INITIAL_SIZE = <span class="number">16</span>;</span><br><span class="line">  <span class="comment">//移除的实体holder</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">Object</span> TOMBSTONE = <span class="keyword">new</span> <span class="keyword">Object</span>();</span><br><span class="line">  <span class="comment">//Map实体类，key为ThreadLocaL 长度为２的幂值</span></span><br><span class="line">  <span class="comment">//table　是一个序列key,value，key,value．．．</span></span><br><span class="line">  <span class="comment">//key为WeakReference&lt;ThreadLocaL&lt;T&gt;&gt;</span></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">Object</span>[] table;</span><br><span class="line">  <span class="comment">//用于将Hash值转成index</span></span><br><span class="line">  <span class="keyword">private</span> <span class="built_in">int</span> mask;</span><br><span class="line">  <span class="comment">//活者的实体类的数目</span></span><br><span class="line">  <span class="keyword">private</span> <span class="built_in">int</span> <span class="built_in">size</span>;</span><br><span class="line">  <span class="comment">//被移除掉的实体类的数目</span></span><br><span class="line">  <span class="keyword">private</span> <span class="built_in">int</span> tombstones;</span><br><span class="line">  <span class="comment">//存活的实体类和被移除掉的实体类最大数目</span></span><br><span class="line">  <span class="keyword">private</span> <span class="built_in">int</span> maximumLoad;</span><br><span class="line">  <span class="comment">/** Points to the next cell to clean up. */</span></span><br><span class="line">  <span class="keyword">private</span> <span class="built_in">int</span> clean;</span><br><span class="line">  <span class="number">2</span>&gt; 构造函数</span><br><span class="line">  Values()&#123;</span><br><span class="line">    <span class="comment">//创建新的空的table,长度为INITIAL_SIZE*2,并且mask为table．lengh-1</span></span><br><span class="line">    <span class="comment">//maximumLoad为INITIAL_SIZE 的２／３，clean=0;</span></span><br><span class="line">    initializeTable(INITIAL_SIZE);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Values(Values fromParent)｛</span><br><span class="line">    &lt;<span class="number">1</span>&gt;<span class="comment">//将fromParent的相关属性设置到新的实例上</span></span><br><span class="line">    &lt;<span class="number">2</span>&gt;继承<span class="keyword">Table</span></span><br><span class="line">    inheritValues（fromParent）;</span><br><span class="line">  ｝</span><br><span class="line">  ３&gt;重要的方法</span><br><span class="line">    <span class="comment">//在GC可能回收的情况下，对Ｖalues的table中某项，该项是reference（key），对其进</span></span><br><span class="line">    <span class="comment">//行判断,若放在其中的Ｔ为空说明GC已经回收了其中的值，则置该项为TOMBSTONE(墓碑)，</span></span><br><span class="line">    <span class="comment">//它的下一项为null,size--,tombstones++m,并将该项的index赋予Values的clear</span></span><br><span class="line">    cleanUp();</span><br><span class="line">    <span class="comment">//table 可能是　null,tombstones,也可能是reference</span></span><br><span class="line">    <span class="comment">//对于table的每一项进行轮询，若某项既不为空也不为TOMBSTONE(移除的实体),</span></span><br><span class="line">    <span class="comment">//那么该项为reference，取出引用中的Raw type (InheritableThreadLocal)</span></span><br><span class="line">    <span class="comment">//若InheritableThreadLocal不为空（没有被ＧＣ机制回收），那么 该项的下一</span></span><br><span class="line">    <span class="comment">//项为fromParent的对应项的值．若为空则该项为TOMBSTONE,下一项的值为空，size--,</span></span><br><span class="line">    <span class="comment">//tombstones++     </span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> inheritValues(Values fromParent);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Looper</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>&gt;Looper 是一个循环器，检查MessageQuee是否有Message;</span><br><span class="line"><span class="number">2</span>&gt;在创建Looper实例化之前就已经实例化了一个mThreadLocal</span><br><span class="line">  <span class="keyword">static</span> <span class="keyword">final</span> ThreadLocal&lt;Looper&gt; sThreadLocal = <span class="keyword">new</span> ThreadLocal&lt;Looper&gt;();</span><br><span class="line"><span class="comment">//主要是创建Looper的实例并且设到类成员变量sThreadLocal上</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="function"><span class="keyword">void</span> <span class="title">prepare</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>handler</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//CallBack 中的方法是handleMessage(Message msg)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Handler</span><span class="params">(Looper looper, Callback callback, <span class="keyword">boolean</span> async)</span></span>;</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Handler</span><span class="params">(Callback callback, <span class="keyword">boolean</span> async)</span> </span>&#123;</span><br><span class="line">  ....</span><br><span class="line">  <span class="comment">//实质上是从mThreadLocal中获得mThreadLocal.get()</span></span><br><span class="line">  mLooper = Looper.myLooper();</span><br><span class="line">  ....</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>总结</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ThreadLocal<span class="variable">&lt;Looper&gt;</span> reference</span><br><span class="line">ThreadLocal.Values <span class="built_in">table</span></span><br><span class="line">Thread重要成员变量　inheritableValues localValues</span><br><span class="line">Looper　threadLocal（类成员变量）</span><br><span class="line">创建线程时，若运行的线程有inheritValues则创建ThreadLocal.Values的实例，并赋值给</span><br><span class="line">Thread的成员变量inheritableValues．</span><br><span class="line">在创建好的线程中加载Looper的同时，创建ThreadLocal<span class="variable">&lt;Looper&gt;</span>的实例(同时创建reference实例)</span><br><span class="line">，在实例化Looper的同时将实例设置到ThreadLocal<span class="variable">&lt;Looper&gt;</span>的实例上．在这个过程中实例化</span><br><span class="line">localValues,并调用其put()</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/01/27/android-application-handler/" data-id="cjaw2566f000lwsnmtqfmmj3h" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/handler/">handler</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/">__('next') &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/bat/">.bat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-Object/">C Object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GC/">GC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MVP/">MVP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Parcelable/">Parcelable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aidl/">aidl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-init-process/">android init_process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-proguard/">android proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binder/">binder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/content-provider/">content_provider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql/">database mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/">float</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go-beego/">go beego</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-Project/">gradle Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-Task/">gradle Task</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-proguard/">gradle proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/handler/">handler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http-status/">http-status</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-concurrent/">java concurrent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm/">java jvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-thread/">java thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/launch-activity/">launch_activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-cmd/">linux-cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/long-running-operation/">long_running_operation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/motion-event-multify-touch/">motion_event multify_touch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-table/">mysql table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-backup/">mysql-backup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-cache/">nginx cache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-https/">nginx https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-loader-balance/">nginx loader_balance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-reverse-proxy/">nginx reverse-proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-install/">python-install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reflect/">reflect</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server-nginx/">server nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servermanager/">servermanager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set-content-view/">set_content_view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-scp/">ssh scp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/usb-booter/">usb-booter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/view-root-iml/">view_root_iml</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/bat/" style="font-size: 10px;">.bat</a> <a href="/tags/C-Object/" style="font-size: 10px;">C Object</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/GC/" style="font-size: 10px;">GC</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/Parcelable/" style="font-size: 10px;">Parcelable</a> <a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android-init-process/" style="font-size: 10px;">android init_process</a> <a href="/tags/android-proguard/" style="font-size: 10px;">android proguard</a> <a href="/tags/binder/" style="font-size: 20px;">binder</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/content-provider/" style="font-size: 10px;">content_provider</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/database-mysql/" style="font-size: 10px;">database mysql</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/go-beego/" style="font-size: 10px;">go beego</a> <a href="/tags/gradle/" style="font-size: 13.33px;">gradle</a> <a href="/tags/gradle-Project/" style="font-size: 10px;">gradle Project</a> <a href="/tags/gradle-Task/" style="font-size: 10px;">gradle Task</a> <a href="/tags/gradle-proguard/" style="font-size: 10px;">gradle proguard</a> <a href="/tags/handler/" style="font-size: 10px;">handler</a> <a href="/tags/http-status/" style="font-size: 10px;">http-status</a> <a href="/tags/java-concurrent/" style="font-size: 10px;">java concurrent</a> <a href="/tags/java-jvm/" style="font-size: 10px;">java jvm</a> <a href="/tags/java-thread/" style="font-size: 10px;">java thread</a> <a href="/tags/launch-activity/" style="font-size: 13.33px;">launch_activity</a> <a href="/tags/linux-cmd/" style="font-size: 10px;">linux-cmd</a> <a href="/tags/long-running-operation/" style="font-size: 10px;">long_running_operation</a> <a href="/tags/motion-event-multify-touch/" style="font-size: 10px;">motion_event multify_touch</a> <a href="/tags/mysql/" style="font-size: 16.67px;">mysql</a> <a href="/tags/mysql-table/" style="font-size: 10px;">mysql table</a> <a href="/tags/mysql-backup/" style="font-size: 10px;">mysql-backup</a> <a href="/tags/nginx-cache/" style="font-size: 10px;">nginx cache</a> <a href="/tags/nginx-https/" style="font-size: 10px;">nginx https</a> <a href="/tags/nginx-loader-balance/" style="font-size: 10px;">nginx loader_balance</a> <a href="/tags/nginx-reverse-proxy/" style="font-size: 10px;">nginx reverse-proxy</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/python-install/" style="font-size: 10px;">python-install</a> <a href="/tags/reflect/" style="font-size: 10px;">reflect</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/server-nginx/" style="font-size: 16.67px;">server nginx</a> <a href="/tags/servermanager/" style="font-size: 10px;">servermanager</a> <a href="/tags/set-content-view/" style="font-size: 10px;">set_content_view</a> <a href="/tags/ssh-scp/" style="font-size: 10px;">ssh scp</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/test/" style="font-size: 13.33px;">test</a> <a href="/tags/usb-booter/" style="font-size: 10px;">usb-booter</a> <a href="/tags/view-root-iml/" style="font-size: 10px;">view_root_iml</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/12/06/linux-reinstall/">linux-reinstall</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/04/Python-install/">Python-install</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/03/JavaScript/">JavaScript</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/02/ECMAScript-Study/">ECMAScript-Study</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/30/Linux-cmd/">Linux-cmd</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

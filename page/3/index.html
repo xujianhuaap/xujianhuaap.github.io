@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-android-test-espresso-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/01/android-test-espresso-1/" class="article-date">
+  <time datetime="2017-11-01T05:53:01.000Z" itemprop="datePublished">2017-11-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/01/android-test-espresso-1/">android_test_espresso</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1. <span class="selector-tag">Espresso</span> 判定相关概念 </span><br><span class="line">	1&gt; <span class="selector-tag">ViewMatcher</span></span><br><span class="line">	<span class="selector-tag">ViewMatcher</span><span class="selector-class">.withId</span>(<span class="selector-tag">id</span>);返回一个<span class="selector-tag">Matcher</span>&lt;<span class="selector-tag">View</span>&gt;</span><br><span class="line">	<span class="selector-tag">ViewMatcher</span><span class="selector-class">.withText</span>(<span class="selector-tag">str</span>);</span><br><span class="line">	<span class="selector-tag">ViewMatcher</span><span class="selector-class">.withTag</span>(<span class="selector-tag">tag</span>);</span><br><span class="line">	<span class="selector-tag">ViewMatcher</span><span class="selector-class">.hasBackground</span>(<span class="selector-tag">int</span>);</span><br><span class="line">	<span class="selector-tag">ViewMatcher</span><span class="selector-class">.hasFocus</span>();</span><br><span class="line">	<span class="selector-tag">ViewMatcher</span><span class="selector-class">.hasTextColor</span>(<span class="selector-tag">colorResId</span>);</span><br><span class="line">	<span class="selector-tag">ViewMatcher</span><span class="selector-class">.isClickable</span>();</span><br><span class="line">	<span class="selector-tag">ViewMatcher</span><span class="selector-class">.isCheckable</span>();</span><br><span class="line"></span><br><span class="line">	<span class="selector-tag">ViewMatcher</span><span class="selector-class">.assertThat</span>();</span><br><span class="line">	2&gt; <span class="selector-tag">ViewAssertion</span></span><br><span class="line">	<span class="selector-tag">ViewAssertion</span><span class="selector-class">.matches</span>(<span class="selector-tag">Matcher</span>&lt;<span class="selector-tag">View</span>&gt;)返回一个<span class="selector-tag">ViewAssertion</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="selector-tag">ViewInterface</span><span class="selector-class">.perform</span>(<span class="selector-tag">ViewAction</span>...)<span class="selector-class">.check</span>(<span class="selector-tag">ViewAssertion</span>);</span><br><span class="line">	<span class="selector-tag">ViewAssertion</span> 是一些判定，但要判定的内容是由<span class="selector-tag">MatcherView</span> 来决定的</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/01/android-test-espresso-1/" data-id="cjaw25671001iwsnml9q8nctl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-android-test-espressco" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/01/android-test-espressco/" class="article-date">
+  <time datetime="2017-11-01T01:46:12.000Z" itemprop="datePublished">2017-11-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/01/android-test-espressco/">android_test_espressco</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1. </span>Espresso 简介</span><br><span class="line"><span class="code">	这是一个测试框架,xx目的是自动化测试android,你可以以Activity为模块，针对每个模块写出若干测试用例。</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2.</span> Espresso 使用步骤</span><br><span class="line">	<span class="number">1</span>&gt; 在应用app moudle 的build.gradle 导入相关依赖包</span><br><span class="line">		androidTestCompile(<span class="string">'com.android.support.test.espresso:espresso-core:3.0.1'</span>, &#123;</span><br><span class="line">        		exclude <span class="string">group:</span> <span class="string">'com.android.support'</span>, <span class="string">module:</span> <span class="string">'support-annotations'</span></span><br><span class="line">    		&#125;)</span><br><span class="line">    		androidTestCompile <span class="string">'com.android.support.test:runner:1.0.0'</span></span><br><span class="line">	    	compile <span class="string">'com.android.support.test.espresso:espresso-idling-resource:3.0.1'</span></span><br><span class="line">	<span class="number">2</span>&gt; 在app<span class="regexp">/src/</span>androidtest s书写测试用例</span><br><span class="line">	<span class="number">3</span>&gt; 在使用gradlew 命令运行案例</span><br><span class="line">		./gradlew connectedAndroidTest</span><br><span class="line">	<span class="number">4</span>&gt; 在app <span class="regexp">/build/</span>reports<span class="regexp">/flavours/</span>index.html 查看测试用例报告</span><br></pre></td></tr></table></figure>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3.</span> Espresso 测试用例</span><br><span class="line"><span class="meta">@LargeTest</span></span><br><span class="line"><span class="meta">@RunWith</span>(AndroidJUnit4.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HomeWorkActivityTest</span> <span class="keyword">extends</span> <span class="title">BaseTest</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Rule</span></span><br><span class="line">    <span class="keyword">public</span> ActivityTestRule&lt;HomeWorkActivity&gt; mRule = <span class="keyword">new</span> ActivityTestRule&lt;HomeWorkActivity&gt;(HomeWorkActivity.class)&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">beforeActivityLaunched</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            initBaseData();</span><br><span class="line">            <span class="keyword">super</span>.beforeActivityLaunched();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">protected</span> <span class="function">Intent <span class="title">getActivityIntent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            Bundle bundle = <span class="keyword">new</span> Bundle();</span><br><span class="line">            bundle.putString(<span class="string">"childId"</span>,<span class="string">"1045"</span>);</span><br><span class="line">            <span class="function"><span class="keyword">return</span> <span class="title">launchIntent</span><span class="params">(bundle)</span></span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">private</span> SimpleIdlingResource mIdlingResource;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Before</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">registerIdlingResource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        mIdlingResource = mRule.getActivity().getIdlingResource();</span><br><span class="line">        <span class="comment">// To prove that the test fails, omit this call:</span></span><br><span class="line">        Espresso.registerIdlingResources(mIdlingResource);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">homeWorkActivityTestFromHomeSchoolFragment</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        clickItem();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">clickItem</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> id = R.id.list;</span><br><span class="line">        ToastUtil.showMessage(<span class="string">"homeWorkActivityTest"</span>+id);</span><br><span class="line">        ViewInteraction view = onView(RecyclerViewActions.withRecyclerView(id).atPosition(<span class="number">1</span>));</span><br><span class="line">        <span class="keyword">if</span> (view != <span class="keyword">null</span>)&#123;</span><br><span class="line">            view.perform(ViewActions.click());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@After</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">unregisterIdlingResource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (mIdlingResource != <span class="keyword">null</span>) &#123;</span><br><span class="line">            Espresso.unregisterIdlingResources(mIdlingResource);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">3. Espresso 使用说明</span><br><span class="line"><span class="meta">	1&gt;</span><span class="bash"> 这个框架是以注解的形式完成配置的＠Rule 对应一个模块（activity）＠<span class="built_in">test</span> 对应一个测试用例</span></span><br><span class="line">	＠Before 表示在测试用例＠Test 测试之前的准备工作，＠After表示＠Test跑完之后执行的方法</span><br><span class="line"><span class="meta">	2&gt;</span><span class="bash"> 常用的API的类如下</span></span><br><span class="line">	Espresso</span><br><span class="line">		onView()获得对应的ViewInterface(对应的View),同时也可以关闭或者开启软键盘，注册回调Idle和反注册回调Idle</span><br><span class="line">	ViewInterface</span><br><span class="line">		perform(ViewAction)返回ViewInterface,可以连续多个ViewAction</span><br><span class="line">	ViewAction</span><br><span class="line">		可以点击　按回退键　长按　左侧滑　右侧滑一系列的手势动作</span><br><span class="line">		也可以是填写文本内容，打开链接</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/01/android-test-espressco/" data-id="cjaw25670001gwsnmdp7si4c6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-database-mysql-04" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/08/13/database-mysql-04/" class="article-date">
+  <time datetime="2017-08-13T12:24:39.000Z" itemprop="datePublished">2017-08-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/13/database-mysql-04/">database_mysql_04</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">1. 联表查询</span><br><span class="line"><span class="keyword">select</span> c_name_1,c_name_2 <span class="keyword">from</span> t_name_1 <span class="keyword">left</span> <span class="keyword">join</span> t_name_2 <span class="keyword">on</span> [join_condition]</span><br><span class="line">显性连接</span><br><span class="line"><span class="number">1</span>&gt;内部连接　<span class="keyword">inner</span> <span class="keyword">join</span></span><br><span class="line">  必须两张表中，记录都存在</span><br><span class="line"><span class="number">2</span>&gt;外部连接　</span><br><span class="line">  <span class="keyword">left</span> <span class="keyword">join</span> ; 左表记录都显示</span><br><span class="line">  right join；右表记录都显示</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_name_1,t_name_2 <span class="keyword">where</span> condition;</span><br><span class="line">这个属于隐形连接查询，不建议再使用，更建议使用显性连接查询。</span><br><span class="line"></span><br><span class="line">2. limit</span><br><span class="line"><span class="keyword">select</span> Salary <span class="keyword">As</span> SecondHighestSalary <span class="keyword">from</span> Employee <span class="keyword">order</span> <span class="keyword">by</span> Salary <span class="keyword">DESC</span> <span class="keyword">limit</span> <span class="number">1</span>,<span class="number">1</span>;</span><br><span class="line">limit ６ 表示记录的前６行</span><br><span class="line">limit ５，３　表示记录第六行开始，往后３行，</span><br><span class="line"></span><br><span class="line">３．　ifnull 函数</span><br><span class="line">ifnull(exp1,exp2); 如果　exp1　不为NULL return exp1;否则,return　exp2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    <span class="built_in">IFNULL</span>(</span><br><span class="line">      (<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> Salary</span><br><span class="line">       <span class="keyword">FROM</span> Employee</span><br><span class="line">       <span class="keyword">ORDER</span> <span class="keyword">BY</span> Salary <span class="keyword">DESC</span></span><br><span class="line">        <span class="keyword">LIMIT</span> <span class="number">1</span> <span class="keyword">OFFSET</span> <span class="number">1</span>),</span><br><span class="line">    <span class="literal">NULL</span>)</span><br><span class="line"> <span class="keyword">AS</span> SecondHighestSalary</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/08/13/database-mysql-04/" data-id="cjaw2567a001uwsnm2stnjn6k" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-database-mysql-study-03" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/01/16/database-mysql-study-03/" class="article-date">
+  <time datetime="2017-01-16T03:20:18.000Z" itemprop="datePublished">2017-01-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/16/database-mysql-study-03/">database-mysql-study-03</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">table</span><br><span class="line">1. <span class="keyword">create</span> table</span><br><span class="line"> <span class="keyword">create</span> table <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> t_name (</span><br><span class="line">    id tinyint <span class="keyword">not</span> <span class="literal">null</span> auto_increment,</span><br><span class="line">    name char(<span class="number">18</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">    part_id int <span class="keyword">not</span> <span class="literal">null</span> default <span class="number">1</span> references t_name_2(column),</span><br><span class="line">    priamry <span class="keyword">key</span> (id)</span><br><span class="line">    ) engine = innodb default charset =utf8 <span class="keyword">select</span> colum_1, colum_2 <span class="keyword">from</span> t_name_1;</span><br><span class="line"></span><br><span class="line">2.modify table </span><br><span class="line">    1&gt; alert table t_name add coumn;</span><br><span class="line">    2&gt; alert table t_name change column_old_name column_new_name tinyint not null;</span><br><span class="line">    3&gt; alert table t_name add primary key (column_name);</span><br><span class="line">    4&gt; alert table t_name add foreign key (column_name) references t_name_1 (column_name);</span><br><span class="line">    4&gt;alert table t_name <span class="keyword">drop</span> column_name;</span><br><span class="line">    5&gt;alert table t_name <span class="keyword">drop</span> <span class="keyword">primary</span> <span class="keyword">key</span> (column_name);</span><br><span class="line">    6&gt;alert table t_name <span class="keyword">drop</span> references foreign <span class="keyword">key</span> (fk_symbol);</span><br><span class="line">3.drop table</span><br><span class="line">    <span class="keyword">drop</span> table <span class="keyword">if</span> <span class="keyword">exists</span> t_name;</span><br><span class="line"></span><br><span class="line">4. query table</span><br><span class="line">    1&gt;<span class="keyword">select</span> * <span class="keyword">from</span> t_name;</span><br><span class="line">    2&gt;<span class="keyword">select</span> column_name ,column_name1 <span class="keyword">from</span> t_name;</span><br><span class="line">    3&gt;<span class="keyword">select</span> top <span class="number">3</span> * <span class="keyword">from</span> t_name <span class="keyword">join</span> t_name_1 <span class="keyword">on</span> t1.column=t2.column.column;</span><br><span class="line">    4&gt;<span class="keyword">select</span> <span class="keyword">distinct</span> column_name <span class="keyword">from</span> t_name ;</span><br><span class="line">5 <span class="keyword">create</span> <span class="keyword">index</span></span><br><span class="line">    <span class="keyword">create</span> <span class="keyword">index</span> index_name <span class="keyword">on</span> t_name (column_name);</span><br></pre></td></tr></table></figure>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"> <span class="built_in">partition</span></span><br><span class="line"><span class="number">1</span>&gt; create table <span class="keyword">if</span> <span class="keyword">not</span> exists  t_name(</span><br><span class="line">    id int <span class="keyword">not</span> null auto_increment,</span><br><span class="line">    name char(<span class="number">18</span>) <span class="keyword">not</span> null,</span><br><span class="line">    age tinyint <span class="keyword">not</span> null,</span><br><span class="line">    gender enum ('man','woman') <span class="keyword">not</span> null uique,</span><br><span class="line">    part_id int constraint fk_symbol references t_name_1 (column_name1,column_name_2),</span><br><span class="line">    primary <span class="built_in">key</span> (id),</span><br><span class="line">    check(id&gt;<span class="number">0</span>),</span><br><span class="line">    )engine= innodb default charater set utf8 </span><br><span class="line">    <span class="built_in">partition</span> by <span class="built_in">range</span> <span class="built_in">columns</span>(id)(</span><br><span class="line">        <span class="built_in">partition</span> p0 <span class="built_in">values</span> less than (<span class="number">10</span>),</span><br><span class="line">        <span class="built_in">partition</span> p1 <span class="built_in">values</span> less than (<span class="number">20</span>)</span><br><span class="line">    );</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="number">2</span>&gt; partitions type</span><br><span class="line">    a)<span class="built_in">range</span> </span><br><span class="line">        <span class="built_in">partition</span> by <span class="built_in">range</span> <span class="built_in">columns</span>(id)(</span><br><span class="line">            <span class="built_in">partition</span> p0 <span class="built_in">values</span> less than (<span class="number">10</span>),</span><br><span class="line">            <span class="built_in">partition</span> p1 <span class="built_in">values</span> less than (<span class="number">20</span>)</span><br><span class="line">        );</span><br><span class="line">    b)<span class="built_in">key</span></span><br><span class="line">        <span class="built_in">partition</span> by <span class="built_in">key</span> ()</span><br><span class="line">        partitions <span class="number">2</span>;</span><br><span class="line">    c)hash</span><br><span class="line">    d)list</span><br><span class="line">        <span class="built_in">partition</span> by list <span class="built_in">columns</span> (id)(</span><br><span class="line">            <span class="built_in">partition</span> p0 <span class="built_in">values</span> <span class="keyword">in</span> (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>),</span><br><span class="line">            <span class="built_in">partition</span> p1 <span class="built_in">values</span> <span class="keyword">in</span> (<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>)</span><br><span class="line">        );</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">database</span><br><span class="line"> 1&gt;create database <span class="keyword">if</span> <span class="keyword">not</span> exists db_name<span class="built_in"> default </span>character <span class="builtin-name">set</span> utf8;</span><br><span class="line"> 2&gt; drop database <span class="keyword">if</span> exists db_name;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/01/16/database-mysql-study-03/" data-id="cjaw2567b001vwsnm90z5uca4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql-table/">mysql table</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-database-mysql-02" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/20/database-mysql-02/" class="article-date">
+  <time datetime="2016-12-20T08:45:53.000Z" itemprop="datePublished">2016-12-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/20/database-mysql-02/">mysql_study_2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 数据类型</span><br><span class="line">a. 字符类型</span><br><span class="line">  char(<span class="number">8</span>) <span class="number">8</span>个字节 ‘a’： <span class="number">8</span>，’ab'：<span class="number">8</span></span><br><span class="line">  varchar 可变的字节数根据内容‘a’：<span class="number">2</span>，’ab':<span class="number">3</span></span><br><span class="line">b. 时间类型</span><br><span class="line">  <span class="built_in">year</span>: <span class="built_in">year</span>（<span class="number">2</span>)<span class="number">17</span>,<span class="number">16</span>； <span class="built_in">year</span>（<span class="number">4</span>)<span class="number">2017</span>,<span class="number">1917</span>；</span><br><span class="line">  <span class="built_in">date</span> datetime timestamp <span class="built_in">time</span> 是有关联的，它们的区别联系如下：</span><br><span class="line">  <span class="number">1</span>&gt;<span class="built_in">date</span> “YYYY-MM-DD” <span class="number">1000</span><span class="number">-01</span><span class="number">-01</span> <span class="keyword">to</span> <span class="number">9999</span><span class="number">-12</span><span class="number">-31</span></span><br><span class="line">    datetime <span class="string">"YYYY-MM-DD HH:MM:SS"</span></span><br><span class="line">    <span class="built_in">time</span>: 'HH:MM:SS' <span class="number">23</span>:<span class="number">59</span>:<span class="number">59</span></span><br><span class="line">    timestamp:可以表示日期和时刻 范围为 <span class="number">1970</span><span class="number">-01</span><span class="number">-01</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> <span class="number">2038</span><span class="number">-01</span><span class="number">-19</span> <span class="number">03</span>:<span class="number">14</span>：<span class="number">07</span> （UTC)</span><br><span class="line">  <span class="number">2</span>&gt;timestamp 会把当前时区的时间转成UTC 格林时间进行存储。</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">2.mysql 常用命令</span><br><span class="line">1&gt; create  table <span class="keyword">if</span> <span class="keyword">not</span> exists tablename (</span><br><span class="line">  id int <span class="keyword">not</span> <span class="literal">null</span> auto_increment ,</span><br><span class="line">  name char (18) <span class="keyword">not</span> <span class="literal">null</span> ,</span><br><span class="line">  age tinyint<span class="built_in"> default </span>0,</span><br><span class="line">  insert_time timestamp<span class="built_in"> default </span>current_timestamp on update current_timestamp</span><br><span class="line">  primary key (id)</span><br><span class="line">  );</span><br><span class="line">  2&gt;</span><br><span class="line">  drop table tablename;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/20/database-mysql-02/" data-id="cjaw25677001rwsnmst03o59v" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-go-beego-study" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/06/06/go-beego-study/" class="article-date">
+  <time datetime="2016-06-06T09:22:54.000Z" itemprop="datePublished">2016-06-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/06/go-beego-study/">go_beego_study</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. beego 基于MVC的Web后端开发框架---路由正则注册</span><br><span class="line"><span class="meta">  1&gt;</span><span class="bash"> <span class="string">"/user/:id"</span> 可以匹配 <span class="string">"/user/register"</span> 不能匹配 <span class="string">"/user"</span></span></span><br><span class="line"><span class="meta">  2&gt;</span><span class="bash"> <span class="string">"/user/:?id"</span> 可以匹配 <span class="string">"/user/register"</span> 也可以匹配<span class="string">"/user"</span></span></span><br><span class="line"><span class="meta">  3&gt;</span><span class="bash"> <span class="string">"/user/*"</span> 可以匹配<span class="string">"/user/register/uid"</span></span></span><br><span class="line"><span class="meta">  4&gt;</span><span class="bash"> <span class="string">"/user/*.*"</span>可以匹配<span class="string">"/user/register/hi.html"</span></span></span><br><span class="line"><span class="meta">  5&gt;</span><span class="bash"> <span class="string">"/user/:id[1-9]+"</span></span></span><br><span class="line"><span class="meta">  6&gt;</span><span class="bash"> <span class="string">"/user/:id[\w]+"</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span>. <span class="keyword">beego </span>支持注解</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/06/06/go-beego-study/" data-id="cjaw2567f0021wsnmozq37swp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go-beego/">go beego</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-android-studio-proguard" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/29/android-studio-proguard/" class="article-date">
+  <time datetime="2016-04-29T02:24:55.000Z" itemprop="datePublished">2016-04-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/29/android-studio-proguard/">android-studio-proguard</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>proguard的简介</p>
+<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">1&gt; </span>proguard 主要的作用 混淆代码和压缩资源</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>proguard 的主要步骤</p>
+<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">1&gt; </span>shrinking step 侦测和移除无用的class 字段 方法</span><br><span class="line"><span class="number">2</span>&gt;optimization step 优化字节码</span><br><span class="line"><span class="number">3</span>&gt;obfuscation step  混淆代码</span><br><span class="line"><span class="number">4</span>&gt;preverification step 添加预认证信息（-target <span class="number">1.6</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>文件过滤字符</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1&gt;*  匹配不含目录分隔符的文件名的任何部分（<span class="keyword">test</span>*.<span class="keyword">class</span> 以<span class="keyword">test</span>开头的<span class="keyword">class</span>文件）</span><br><span class="line">2&gt;** 匹配包含目录分隔符的文件名的任何部分（java\**.<span class="keyword">class</span> java目录下的所有<span class="keyword">class</span>文件）</span><br><span class="line">3&gt;? 代表单个字符（<span class="keyword">test</span>?.<span class="keyword">class</span> 可能是test1.<span class="keyword">class</span> testa.<span class="keyword">class</span>,但不会是test12.<span class="keyword">class</span>）</span><br><span class="line">4&gt;！排除字符（！foo.<span class="keyword">class</span>,**.<span class="keyword">class</span> 任何<span class="keyword">class</span>文件除了foo.<span class="keyword">class</span>）</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>proguard 配置文件的书写（Options）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">1&gt;</span><span class="bash">@filename 读取配置文件</span></span><br><span class="line"><span class="meta">2&gt;</span><span class="bash">-include filename 等同于@filename</span></span><br><span class="line"><span class="meta">3&gt;</span><span class="bash">-basedirectory directoryname</span></span><br><span class="line">工程base目录，配置文件都是现对于它</span><br><span class="line"><span class="meta">4&gt;</span><span class="bash">-injars class_path</span></span><br><span class="line">要处理的jar包,这其中包括（jar or aars, wars, ears, zips, apks, or directories)</span><br><span class="line"><span class="meta">5&gt;</span><span class="bash">-outjars class_path</span></span><br><span class="line">处理后的生成新的jar包</span><br><span class="line"><span class="meta">6&gt;</span><span class="bash">-libraryjars class_path</span></span><br><span class="line"><span class="meta">7&gt;</span><span class="bash">-keepdirectories</span></span><br><span class="line">指定写入到outjars的目录</span><br><span class="line"><span class="meta">8&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>proguard 命令行的使用</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>&gt;java -jar proguard<span class="selector-class">.jar</span> options ...</span><br><span class="line"><span class="number">2</span>&gt;把所有的配置放在@myconfig.pro文件中</span><br><span class="line">java -jar proguard<span class="selector-class">.jar</span> @myconfig.pro</span><br><span class="line"><span class="number">3</span>&gt;把基本的配置放在@myconfig.pro文件中并且可以添加其他配置选项</span><br><span class="line">java -jar proguard<span class="selector-class">.jar</span> @myconfig<span class="selector-class">.pro</span> -verbose（详尽的展示）</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/04/29/android-studio-proguard/" data-id="cjaw2566z001dwsnmglab30bm" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-proguard/">android proguard</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-gradle-study-project" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/04/15/gradle-study-project/" class="article-date">
+  <time datetime="2016-04-15T09:41:34.000Z" itemprop="datePublished">2016-04-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/15/gradle-study-project/">gradle-study-project</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>gradle 是一个强大的构建工具，其中主要立足于project这个对象进行构建。<br>project在这里不仅指工程本身，而还包括编译，打包，签名，上传，等多个任务。<br>project对应一个project_level的build.gradle文件，在这个文件中，有它的<br>任务相关所需要的配置。project的相关介绍如下：<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">1&gt; </span>build生命周期</span><br><span class="line">首先，如果存在setting.gradle，那么对工程结构进行设计。再者，如果存</span><br><span class="line">在子工程那么在子工程评估之前完成对该工程的评估。</span><br><span class="line"><span class="meta">2&gt; </span>project 有<span class="number">5</span>个属性范围。当project查询一个属性时按照以下顺序进行：</span><br><span class="line">project本身；extra;extensions；conventions;tasks;它们的特点如下：</span><br><span class="line">extra 是可读可写的；extensions 由plugins产生 ，只能读。</span><br><span class="line"><span class="number">3</span>&gt;project 有<span class="number">5</span>个方法区间。当project调用方法时按照以下顺序进行:project</span><br><span class="line">本身；build文件；extensions;conventions;taks;其中需要特别注意的是</span><br><span class="line">如果在task中调用某方法，那么事实上并且该方法只有一个参数并且该参数是</span><br><span class="line">闭包或者Action，那么</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/04/15/gradle-study-project/" data-id="cjaw2567g0023wsnmvw2qy207" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle-Project/">gradle Project</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java-study-threadpoolexcutor" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/22/java-study-threadpoolexcutor/" class="article-date">
+  <time datetime="2016-03-22T01:33:09.000Z" itemprop="datePublished">2016-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/22/java-study-threadpoolexcutor/">java_study_threadpoolexcutor</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java<span class="symbol">\u</span>til<span class="symbol">\c</span>oncurrent<span class="symbol">\T</span>hreadPoolExecutor.java</span><br><span class="line">java<span class="symbol">\u</span>til<span class="symbol">\c</span>oncurrent<span class="symbol">\F</span>utureTask.java</span><br><span class="line">java<span class="symbol">\u</span>til<span class="symbol">\c</span>oncurrent<span class="symbol">\L</span>inkedBlockingQueue.java</span><br></pre></td></tr></table></figure>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> ThreadPoolExcutor 的生命周期</span><br><span class="line">    <span class="number">1</span>&gt;running 接受新的任务，并且处理已排队任务</span><br><span class="line">    <span class="number">2</span>&gt;shutdown 不在接受新的任务，但处理已排队的任务</span><br><span class="line">    <span class="number">3</span>&gt;stop     不在接受新的任务，也不处理已排队的任务,打断正在执行的任务</span><br><span class="line">    <span class="number">4</span>&gt;tidying  没有在工作的线程了，紧接着调用terminate()</span><br><span class="line">    <span class="number">5</span>&gt;terminate terminate()执行完成</span><br><span class="line"><span class="number">2.</span>  <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">execute</span><span class="params">(Runnable command)</span> </span>&#123;</span><br><span class="line">        <span class="number">1</span>&gt;判断当前线程的数量workcount若小于corePooleSize则创建新的线程，</span><br><span class="line">        即调用addWorker(command,<span class="keyword">true</span>).</span><br><span class="line">        <span class="number">2</span>&gt;若当前线程的数量workcount大于或者等于corePooleSize。并且当前处于</span><br><span class="line">        running,workQueue还未满。将任务command加入到workQueue的队尾,并且</span><br><span class="line">        进行二次检查看是否ThreadPoolExcutor处于要关闭状态，这时候要执行</span><br><span class="line">        reject(command)或者现存的线程已死，要开启新的线程。如果</span><br><span class="line">        workQueue已经满，那么调用addWorker(command,<span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//增加新的线程  如果core为true则以corePoolSize 作为边界否则以</span></span><br><span class="line">    <span class="comment">//maxPoolSize作为边界。</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">boolean</span> <span class="title">addWorker</span><span class="params">(Runnable firstTask, <span class="keyword">boolean</span> core)</span> </span>&#123;</span><br><span class="line">      <span class="number">1</span>&gt;通过ThreadPoolExcutor的状态来判断是否能够创建新的线程</span><br><span class="line">      <span class="number">2</span>&gt;通过当前的workcount的数量来判断是否能够创建新的线程</span><br><span class="line">    &#125;</span><br><span class="line"><span class="number">3.</span>FutureTask <span class="keyword">implements</span> RunnableFuture&lt;T&gt;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NEW          = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> COMPLETING   = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NORMAL       = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> EXCEPTIONAL  = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> CANCELLED    = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INTERRUPTING = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INTERRUPTED  = <span class="number">6</span>;</span><br><span class="line">    <span class="comment">//任务执行完的结果或者是异常  </span></span><br><span class="line">    T report(<span class="keyword">int</span> state)</span><br><span class="line">    <span class="keyword">boolean</span> cancle(<span class="keyword">boolean</span> mayInterruptIfRunning)</span><br><span class="line"><span class="number">4.</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/22/java-study-threadpoolexcutor/" data-id="cjaw2567v002iwsnm5gsjdtcf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-concurrent/">java concurrent</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-java-study-refect" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/20/java-study-refect/" class="article-date">
+  <time datetime="2016-03-20T11:43:07.000Z" itemprop="datePublished">2016-03-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/20/java-study-refect/">java_study_refect</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/03/20/java-study-refect/" data-id="cjaw2567u002gwsnmzih2zjwh" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">__('next') &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/bat/">.bat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-Object/">C Object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GC/">GC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MVP/">MVP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Parcelable/">Parcelable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aidl/">aidl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-init-process/">android init_process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-proguard/">android proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binder/">binder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/content-provider/">content_provider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql/">database mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/">float</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go-beego/">go beego</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-Project/">gradle Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-Task/">gradle Task</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-proguard/">gradle proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/handler/">handler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http-status/">http-status</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-concurrent/">java concurrent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm/">java jvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-thread/">java thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/launch-activity/">launch_activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-cmd/">linux-cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/long-running-operation/">long_running_operation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/motion-event-multify-touch/">motion_event multify_touch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-table/">mysql table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-backup/">mysql-backup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-cache/">nginx cache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-https/">nginx https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-loader-balance/">nginx loader_balance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-reverse-proxy/">nginx reverse-proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-install/">python-install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reflect/">reflect</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server-nginx/">server nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servermanager/">servermanager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set-content-view/">set_content_view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-scp/">ssh scp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/usb-booter/">usb-booter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/view-root-iml/">view_root_iml</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/bat/" style="font-size: 10px;">.bat</a> <a href="/tags/C-Object/" style="font-size: 10px;">C Object</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/GC/" style="font-size: 10px;">GC</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/Parcelable/" style="font-size: 10px;">Parcelable</a> <a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android-init-process/" style="font-size: 10px;">android init_process</a> <a href="/tags/android-proguard/" style="font-size: 10px;">android proguard</a> <a href="/tags/binder/" style="font-size: 20px;">binder</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/content-provider/" style="font-size: 10px;">content_provider</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/database-mysql/" style="font-size: 10px;">database mysql</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/go-beego/" style="font-size: 10px;">go beego</a> <a href="/tags/gradle/" style="font-size: 13.33px;">gradle</a> <a href="/tags/gradle-Project/" style="font-size: 10px;">gradle Project</a> <a href="/tags/gradle-Task/" style="font-size: 10px;">gradle Task</a> <a href="/tags/gradle-proguard/" style="font-size: 10px;">gradle proguard</a> <a href="/tags/handler/" style="font-size: 10px;">handler</a> <a href="/tags/http-status/" style="font-size: 10px;">http-status</a> <a href="/tags/java-concurrent/" style="font-size: 10px;">java concurrent</a> <a href="/tags/java-jvm/" style="font-size: 10px;">java jvm</a> <a href="/tags/java-thread/" style="font-size: 10px;">java thread</a> <a href="/tags/launch-activity/" style="font-size: 13.33px;">launch_activity</a> <a href="/tags/linux-cmd/" style="font-size: 10px;">linux-cmd</a> <a href="/tags/long-running-operation/" style="font-size: 10px;">long_running_operation</a> <a href="/tags/motion-event-multify-touch/" style="font-size: 10px;">motion_event multify_touch</a> <a href="/tags/mysql/" style="font-size: 16.67px;">mysql</a> <a href="/tags/mysql-table/" style="font-size: 10px;">mysql table</a> <a href="/tags/mysql-backup/" style="font-size: 10px;">mysql-backup</a> <a href="/tags/nginx-cache/" style="font-size: 10px;">nginx cache</a> <a href="/tags/nginx-https/" style="font-size: 10px;">nginx https</a> <a href="/tags/nginx-loader-balance/" style="font-size: 10px;">nginx loader_balance</a> <a href="/tags/nginx-reverse-proxy/" style="font-size: 10px;">nginx reverse-proxy</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/python-install/" style="font-size: 10px;">python-install</a> <a href="/tags/reflect/" style="font-size: 10px;">reflect</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/server-nginx/" style="font-size: 16.67px;">server nginx</a> <a href="/tags/servermanager/" style="font-size: 10px;">servermanager</a> <a href="/tags/set-content-view/" style="font-size: 10px;">set_content_view</a> <a href="/tags/ssh-scp/" style="font-size: 10px;">ssh scp</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/test/" style="font-size: 13.33px;">test</a> <a href="/tags/usb-booter/" style="font-size: 10px;">usb-booter</a> <a href="/tags/view-root-iml/" style="font-size: 10px;">view_root_iml</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/12/06/linux-reinstall/">linux-reinstall</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/04/Python-install/">Python-install</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/03/JavaScript/">JavaScript</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/02/ECMAScript-Study/">ECMAScript-Study</a>
+          </li>
+        
+          <li>
+            <a href="/2017/11/30/Linux-cmd/">Linux-cmd</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
