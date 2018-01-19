@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,6 +60,45 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-nginx-study01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/15/nginx-study01/" class="article-date">
+  <time datetime="2017-11-15T09:25:22.000Z" itemprop="datePublished">2017-11-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/15/nginx-study01/">nginx-webserver</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">　<span class="number">1</span>&gt;WebServer</span><br><span class="line">  http&#123;</span><br><span class="line">      server&#123;</span><br><span class="line">   listen <span class="number">192.168</span>.<span class="number">23.74</span>:<span class="number">8080</span>;</span><br><span class="line">   server_name www.baidu.com baidu.com;</span><br><span class="line">   <span class="comment">#the rest server config</span></span><br><span class="line">&#125;</span><br><span class="line">  &#125;</span><br><span class="line"> server_name(指令）的参数可以是一个准确的名字（exact),泛型</span><br><span class="line">        （wildcard),正则（regular of perl syntax)。</span><br><span class="line">	　因次当有多个名字满足时候，按照一下顺序：</span><br><span class="line">	　a&gt; exact name</span><br><span class="line"> b&gt; wildcard name *.baidu.com baidu.*</span><br><span class="line"> c&gt; 正则的name ~(.com)$</span><br><span class="line"> 在没有server_name 匹配的情况下会有一个默认的default_server.</span><br><span class="line"></span><br><span class="line"> http&#123;</span><br><span class="line">    server&#123;</span><br><span class="line"> <span class="keyword">location</span> <span class="title">~/.html</span>?&#123;</span><br><span class="line">    root /data;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">location</span> <span class="title">/&#123;</span></span><br><span class="line"><span class="title">    proxy_pass</span> baidu.com;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">#返回错误码</span></span><br><span class="line"> <span class="keyword">location</span> <span class="title">/wrong</span>/url&#123;</span><br><span class="line">     return <span class="number">404</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">#重新定向</span></span><br><span class="line">	　　　　 <span class="keyword">location</span> <span class="title">/users</span>/&#123;</span><br><span class="line">     rewrite ^/users/(.*)$  /show?/<span class="attr">user=</span>$<span class="number">1</span> break;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">location</span> <span class="title">/err</span>/ &#123;</span><br><span class="line">    err_page <span class="number">404</span> = <span class="number">301</span> http://baidu.com/err.html;</span><br><span class="line"> &#125; </span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> 一个<span class="keyword">location</span> <span class="title">上下文包含处理request</span>的指令集，提供一个静态文件或者传给代理服务器。</span><br><span class="line"> 重新定向的指令有一个选项　两个参数，第一个参数，正则必须匹配request url;第二个参数</span><br><span class="line"> 是替换后的url, 选项是一个标志　break(停止）last(继续）</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/15/nginx-study01/" data-id="cjcix9dog00390onm5fe9sm65" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/server-nginx/">server nginx</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-nginx-study" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -88,7 +127,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/14/nginx-study/" data-id="cjcfsdf5p0035mfnme4wrcig3" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/14/nginx-study/" data-id="cjcix9dof00370onm563h74i8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/server-nginx/">server nginx</a></li></ul>
@@ -127,7 +166,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/09/css-study/" data-id="cjcfsdf4o001pmfnmaknhaxlv" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/09/css-study/" data-id="cjcix9dn9001q0onmacin969s" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
@@ -166,7 +205,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/07/C-Object/" data-id="cjcfsdf390001mfnmwtf27iax" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/07/C-Object/" data-id="cjcix9dlr00000onmsbku05bx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-Object/">C Object</a></li></ul>
@@ -205,7 +244,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/03/c-study-bitflag/" data-id="cjcfsdf4n001omfnmjymvwpiy" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/03/c-study-bitflag/" data-id="cjcix9dn8001o0onmsczhsyrl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c++</a></li></ul>
@@ -244,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/01/android-test-espresso-1/" data-id="cjcfsdf4j001kmfnm1lzlo262" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/01/android-test-espresso-1/" data-id="cjcix9dn6001k0onms0uq9wop" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
@@ -286,7 +325,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/01/android-test-espressco/" data-id="cjcfsdf4i001imfnmi617vjvp" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/01/android-test-espressco/" data-id="cjcix9dn5001h0onmciztvbgv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
@@ -325,7 +364,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/13/database-mysql-04/" data-id="cjcfsdf4t001vmfnm8gttbvsx" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/08/13/database-mysql-04/" data-id="cjcix9dnf001v0onmmtw7stnp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
@@ -365,7 +404,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/16/database-mysql-study-03/" data-id="cjcfsdf4v001xmfnmt0o6h0hq" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/01/16/database-mysql-study-03/" data-id="cjcix9dng001x0onma5d6ovdq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql-table/">mysql table</a></li></ul>
@@ -405,50 +444,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/20/database-mysql-02/" data-id="cjcfsdf4s001tmfnmcefz96wc" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/12/20/database-mysql-02/" data-id="cjcix9dnd001u0onmhyckf656" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-go-beego-study" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/06/go-beego-study/" class="article-date">
-  <time datetime="2016-06-06T09:22:54.000Z" itemprop="datePublished">2016-06-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/06/go-beego-study/">go_beego_study</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. beego 基于MVC的Web后端开发框架---路由正则注册</span><br><span class="line"><span class="meta">  1&gt;</span><span class="bash"> <span class="string">"/user/:id"</span> 可以匹配 <span class="string">"/user/register"</span> 不能匹配 <span class="string">"/user"</span></span></span><br><span class="line"><span class="meta">  2&gt;</span><span class="bash"> <span class="string">"/user/:?id"</span> 可以匹配 <span class="string">"/user/register"</span> 也可以匹配<span class="string">"/user"</span></span></span><br><span class="line"><span class="meta">  3&gt;</span><span class="bash"> <span class="string">"/user/*"</span> 可以匹配<span class="string">"/user/register/uid"</span></span></span><br><span class="line"><span class="meta">  4&gt;</span><span class="bash"> <span class="string">"/user/*.*"</span>可以匹配<span class="string">"/user/register/hi.html"</span></span></span><br><span class="line"><span class="meta">  5&gt;</span><span class="bash"> <span class="string">"/user/:id[1-9]+"</span></span></span><br><span class="line"><span class="meta">  6&gt;</span><span class="bash"> <span class="string">"/user/:id[\w]+"</span></span></span><br></pre></td></tr></table></figure>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span>. <span class="keyword">beego </span>支持注解</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/06/go-beego-study/" data-id="cjcfsdf4x0021mfnmsrnth5cq" class="article-share-link">Partager</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go-beego/">go beego</a></li></ul>
 
     </footer>
   </div>
@@ -471,9 +470,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/bat/">.bat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-Object/">C Object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-jvm-GC/">Java jvm GC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MVP/">MVP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Parcelable/">Parcelable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TLS/">TLS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aidl/">aidl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-init-process/">android init_process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-proguard/">android proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binder/">binder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/content-provider/">content_provider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql/">database mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/">float</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go-beego/">go beego</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-Project/">gradle Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-Task/">gradle Task</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-proguard/">gradle proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/handler/">handler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http-status/">http-status</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-concurrent/">java concurrent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm/">java jvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm-class-struct/">java jvm class_struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-thread/">java thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/launch-activity/">launch_activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-cmd/">linux-cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/long-running-operation/">long_running_operation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/motion-event-multify-touch/">motion_event multify_touch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-table/">mysql table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-backup/">mysql-backup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-cache/">nginx cache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-https/">nginx https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-loader-balance/">nginx loader_balance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-reverse-proxy/">nginx reverse-proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-install/">python-install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reflect/">reflect</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server-nginx/">server nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servermanager/">servermanager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set-content-view/">set_content_view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-scp/">ssh scp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svg/">svg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/usb-booter/">usb-booter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/view-root-iml/">view_root_iml</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/bat/">.bat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-Object/">C Object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-jvm-GC/">Java jvm GC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MVP/">MVP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Parcelable/">Parcelable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TLS/">TLS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aidl/">aidl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-init-process/">android init_process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-proguard/">android proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-event-dispatch/">android_event_dispatch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binder/">binder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/content-provider/">content_provider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql/">database mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/">float</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go-beego/">go beego</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-Project/">gradle Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-Task/">gradle Task</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-proguard/">gradle proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/handler/">handler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http-status/">http-status</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-concurrent/">java concurrent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm/">java jvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm-class-struct/">java jvm class_struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-thread/">java thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/launch-activity/">launch_activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-cmd/">linux-cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/long-running-operation/">long_running_operation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/motion-event-multify-touch/">motion_event multify_touch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-table/">mysql table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-backup/">mysql-backup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-cache/">nginx cache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-https/">nginx https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-loader-balance/">nginx loader_balance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-reverse-proxy/">nginx reverse-proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-install/">python-install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reflect/">reflect</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server-nginx/">server nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servermanager/">servermanager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set-content-view/">set_content_view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-scp/">ssh scp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svg/">svg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/usb-booter/">usb-booter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/view-root-iml/">view_root_iml</a></li></ul>
     </div>
   </div>
 
@@ -481,9 +480,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/bat/" style="font-size: 10px;">.bat</a> <a href="/tags/C-Object/" style="font-size: 10px;">C Object</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Java-jvm-GC/" style="font-size: 10px;">Java jvm GC</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/Parcelable/" style="font-size: 10px;">Parcelable</a> <a href="/tags/TLS/" style="font-size: 10px;">TLS</a> <a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android-init-process/" style="font-size: 10px;">android init_process</a> <a href="/tags/android-proguard/" style="font-size: 10px;">android proguard</a> <a href="/tags/binder/" style="font-size: 20px;">binder</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/content-provider/" style="font-size: 10px;">content_provider</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/database-mysql/" style="font-size: 10px;">database mysql</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/go-beego/" style="font-size: 10px;">go beego</a> <a href="/tags/gradle/" style="font-size: 13.33px;">gradle</a> <a href="/tags/gradle-Project/" style="font-size: 10px;">gradle Project</a> <a href="/tags/gradle-Task/" style="font-size: 10px;">gradle Task</a> <a href="/tags/gradle-proguard/" style="font-size: 10px;">gradle proguard</a> <a href="/tags/handler/" style="font-size: 10px;">handler</a> <a href="/tags/http-status/" style="font-size: 10px;">http-status</a> <a href="/tags/java-concurrent/" style="font-size: 10px;">java concurrent</a> <a href="/tags/java-jvm/" style="font-size: 10px;">java jvm</a> <a href="/tags/java-jvm-class-struct/" style="font-size: 10px;">java jvm class_struct</a> <a href="/tags/java-thread/" style="font-size: 10px;">java thread</a> <a href="/tags/launch-activity/" style="font-size: 13.33px;">launch_activity</a> <a href="/tags/linux-cmd/" style="font-size: 10px;">linux-cmd</a> <a href="/tags/long-running-operation/" style="font-size: 10px;">long_running_operation</a> <a href="/tags/motion-event-multify-touch/" style="font-size: 10px;">motion_event multify_touch</a> <a href="/tags/mysql/" style="font-size: 16.67px;">mysql</a> <a href="/tags/mysql-table/" style="font-size: 10px;">mysql table</a> <a href="/tags/mysql-backup/" style="font-size: 10px;">mysql-backup</a> <a href="/tags/nginx-cache/" style="font-size: 10px;">nginx cache</a> <a href="/tags/nginx-https/" style="font-size: 10px;">nginx https</a> <a href="/tags/nginx-loader-balance/" style="font-size: 10px;">nginx loader_balance</a> <a href="/tags/nginx-reverse-proxy/" style="font-size: 10px;">nginx reverse-proxy</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/python-install/" style="font-size: 10px;">python-install</a> <a href="/tags/reflect/" style="font-size: 10px;">reflect</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/server-nginx/" style="font-size: 16.67px;">server nginx</a> <a href="/tags/servermanager/" style="font-size: 10px;">servermanager</a> <a href="/tags/set-content-view/" style="font-size: 10px;">set_content_view</a> <a href="/tags/ssh-scp/" style="font-size: 10px;">ssh scp</a> <a href="/tags/svg/" style="font-size: 13.33px;">svg</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/test/" style="font-size: 13.33px;">test</a> <a href="/tags/usb-booter/" style="font-size: 10px;">usb-booter</a> <a href="/tags/view-root-iml/" style="font-size: 10px;">view_root_iml</a>
+      <a href="/tags/bat/" style="font-size: 10px;">.bat</a> <a href="/tags/C-Object/" style="font-size: 10px;">C Object</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Java-jvm-GC/" style="font-size: 10px;">Java jvm GC</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/Parcelable/" style="font-size: 10px;">Parcelable</a> <a href="/tags/TLS/" style="font-size: 10px;">TLS</a> <a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android-init-process/" style="font-size: 10px;">android init_process</a> <a href="/tags/android-proguard/" style="font-size: 10px;">android proguard</a> <a href="/tags/android-event-dispatch/" style="font-size: 10px;">android_event_dispatch</a> <a href="/tags/binder/" style="font-size: 20px;">binder</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/content-provider/" style="font-size: 10px;">content_provider</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/database-mysql/" style="font-size: 10px;">database mysql</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/go-beego/" style="font-size: 10px;">go beego</a> <a href="/tags/gradle/" style="font-size: 13.33px;">gradle</a> <a href="/tags/gradle-Project/" style="font-size: 10px;">gradle Project</a> <a href="/tags/gradle-Task/" style="font-size: 10px;">gradle Task</a> <a href="/tags/gradle-proguard/" style="font-size: 10px;">gradle proguard</a> <a href="/tags/handler/" style="font-size: 10px;">handler</a> <a href="/tags/http-status/" style="font-size: 10px;">http-status</a> <a href="/tags/java-concurrent/" style="font-size: 10px;">java concurrent</a> <a href="/tags/java-jvm/" style="font-size: 10px;">java jvm</a> <a href="/tags/java-jvm-class-struct/" style="font-size: 10px;">java jvm class_struct</a> <a href="/tags/java-thread/" style="font-size: 10px;">java thread</a> <a href="/tags/launch-activity/" style="font-size: 13.33px;">launch_activity</a> <a href="/tags/linux-cmd/" style="font-size: 10px;">linux-cmd</a> <a href="/tags/long-running-operation/" style="font-size: 10px;">long_running_operation</a> <a href="/tags/motion-event-multify-touch/" style="font-size: 10px;">motion_event multify_touch</a> <a href="/tags/mysql/" style="font-size: 16.67px;">mysql</a> <a href="/tags/mysql-table/" style="font-size: 10px;">mysql table</a> <a href="/tags/mysql-backup/" style="font-size: 10px;">mysql-backup</a> <a href="/tags/nginx-cache/" style="font-size: 10px;">nginx cache</a> <a href="/tags/nginx-https/" style="font-size: 10px;">nginx https</a> <a href="/tags/nginx-loader-balance/" style="font-size: 10px;">nginx loader_balance</a> <a href="/tags/nginx-reverse-proxy/" style="font-size: 10px;">nginx reverse-proxy</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/python-install/" style="font-size: 10px;">python-install</a> <a href="/tags/reflect/" style="font-size: 10px;">reflect</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/server-nginx/" style="font-size: 16.67px;">server nginx</a> <a href="/tags/servermanager/" style="font-size: 10px;">servermanager</a> <a href="/tags/set-content-view/" style="font-size: 10px;">set_content_view</a> <a href="/tags/ssh-scp/" style="font-size: 10px;">ssh scp</a> <a href="/tags/svg/" style="font-size: 13.33px;">svg</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/test/" style="font-size: 13.33px;">test</a> <a href="/tags/usb-booter/" style="font-size: 10px;">usb-booter</a> <a href="/tags/view-root-iml/" style="font-size: 10px;">view_root_iml</a>
     </div>
   </div>
 
@@ -500,9 +499,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/01/17/android-event-dispatch/">android-event-dispatch</a>
+          </li>
         
           <li>
             <a href="/2018/01/15/java-study-jvm-class/">java-study-class</a>
@@ -520,10 +523,6 @@
             <a href="/2017/12/08/openSSl/">openSSl</a>
           </li>
         
-          <li>
-            <a href="/2017/12/06/linux-reinstall/">linux-reinstall</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -537,7 +536,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

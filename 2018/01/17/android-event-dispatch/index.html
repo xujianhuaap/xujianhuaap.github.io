@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2016 | Hexo</title>
+  <title>android-event-dispatch | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2016/page/4/index.html">
+  <meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071721. touch event 事件的分发	MotionEvent.ACTION_DOWN = 0000 0000;	MotionE">
+<meta name="keywords" content="android_event_dispatch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android-event-dispatch">
+<meta property="og:url" content="http://yoursite.com/2018/01/17/android-event-dispatch/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071721. touch event 事件的分发	MotionEvent.ACTION_DOWN = 0000 0000;	MotionE">
+<meta property="og:updated_time" content="2018-01-19T02:20:11.004Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="android-event-dispatch">
+<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071721. touch event 事件的分发	MotionEvent.ACTION_DOWN = 0000 0000;	MotionE">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,120 +64,55 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/01/12/android-framework-init-process/" class="archive-article-date">
-  <time datetime="2016-01-12T05:18:05.000Z" itemprop="datePublished">Jan 12</time>
+        <section id="main"><article id="post-android-event-dispatch" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/17/android-event-dispatch/" class="article-date">
+  <time datetime="2018-01-17T09:12:47.000Z" itemprop="datePublished">2018-01-17</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/12/android-framework-init-process/">android_framework_init_process</a>
+    <h1 class="article-title" itemprop="name">
+      android-event-dispatch
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/01/07/gradle-exercise/" class="archive-article-date">
-  <time datetime="2016-01-07T09:48:01.000Z" itemprop="datePublished">Jan 7</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/07/gradle-exercise/">gradle-exercise</a>
-    </h1>
-  
+        <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> touch <span class="keyword">event</span> 事件的分发</span><br><span class="line">	MotionEvent.ACTION_DOWN = <span class="number">0000</span> <span class="number">0000</span>;</span><br><span class="line">	MotionEvent.ACTION_UP = <span class="number">0000</span> <span class="number">0001</span>;</span><br><span class="line">	MotionEVent.ACTION_MOVE = <span class="number">0000</span> <span class="number">0010</span>;</span><br><span class="line">	MotionEvent.ACTION_CANCLE = <span class="number">0000</span> <span class="number">0011</span>;</span><br><span class="line">	MotionEvent.ACTION_MASK = <span class="number">1111</span> <span class="number">1111</span>;</span><br><span class="line"><span class="number">2.</span> Action 分发流程</span><br><span class="line">	<span class="function">Activity <span class="title">dispatchTouchEvent</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	       	    <span class="keyword">if</span>(window.dispatchTouchEvent())&#123;<span class="keyword">return</span> <span class="literal">true</span>&#125;;</span><br><span class="line">		    <span class="keyword">return</span> onTouchEvent();</span><br><span class="line">		&#125; </span><br><span class="line">		</span><br><span class="line">		onTouchEvent(<span class="keyword">event</span>)&#123;</span><br><span class="line">			<span class="comment">//如果activity正在退出返回true,其他默认返回false</span></span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function">Window <span class="title">dispatchTouchEvent</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		mDecorView.dispatchTouchEvent();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	DecorView (extends Framelayout) dispatchTouchEvent()&#123;</span><br><span class="line">		super.dispatchTouchEvent();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">       <span class="function">ViewGroup <span class="title">dispatchTouchEvent</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		若无子view，super.dispatchTouchEvent();</span><br><span class="line">		如果有子view child.dispatchTouchEvent();</span><br><span class="line">	<span class="comment">//	如果子view 是ViewGroup 继续走一样的逻辑 否则,调用View.dispatchTouchEvent()</span></span><br><span class="line">	<span class="comment">//     	super.dispatchTouchEvent();实际就是View.dispatchTouchEvent()</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="function">View <span class="title">dispatchTouchEvent</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> onTouchEvent();</span><br><span class="line"></span><br><span class="line">	      &#125;</span><br><span class="line"></span><br><span class="line">	     onTouchEvent(<span class="keyword">event</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(clickable)&#123;</span><br><span class="line">			    <span class="comment">// 根据MotionEvent.Action 作不同的业务处理</span></span><br><span class="line">			    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	    &#125;</span><br><span class="line"><span class="number">4.</span> ViewGroup dispatchTouchEvent 具体实现步骤</span><br><span class="line">	<span class="number">1.</span> 若<span class="keyword">event</span> 的Action是ActionDown,清除touchTarget.</span><br><span class="line">	<span class="number">2.</span> 若<span class="keyword">event</span>.Action 不是Action_CANCEL 并且不Intercepted,</span><br><span class="line">		在Action是ACTION_MOVE ACTION_DOWN 的情况下,从所有的子View集合中,遍历到</span><br><span class="line">		能够接受到TouchEvent的View,并依据这个View,继续分发事件，若分发事件返回为<span class="literal">true</span></span><br><span class="line">		,创建newTouchTarget,并且将mFirstTouchTarget赋值给newTouchTarget.next,</span><br><span class="line">                并且alreadyDispatchToNewTouchTarget设置为<span class="literal">true</span> </span><br><span class="line">	<span class="number">3.</span> 遍历该ViewGroup的所有的touchTarget</span><br><span class="line">	   若alreadyDispatchToNewTouchTarget 为<span class="literal">true</span> 并且 newTouchTarget == touchTarget </span><br><span class="line">		则 返回 <span class="literal">true</span> 事件结束</span><br><span class="line">	   否则 调用dispatchTransformedTouchEvent(touchTarget.child),并且返回该返回值 </span><br><span class="line">		</span><br><span class="line">		dispatchTansformedTouchEvent(child,<span class="keyword">event</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(view != <span class="literal">null</span>)&#123;</span><br><span class="line">			        child.dispatchTouchEvent(<span class="keyword">event</span>);</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="comment">// 即View 的dispatchTouchEvent()</span></span><br><span class="line">				super.dispatchTouchEvent(<span class="keyword">event</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"><span class="number">5.</span> 小结</span><br><span class="line">	<span class="number">1.</span> TouchTarget数据结构 next=&gt; touchTarget child=&gt; view</span><br><span class="line">	<span class="number">2.</span> 只有存在MotionEvent.ACTION_MOVE 时,ViewGroup 的TouchTarget的链长度为大于<span class="number">1</span></span><br><span class="line">	当ViewGroup没有child 时 touchTarget链的长度为<span class="number">0</span></span><br><span class="line">	<span class="number">3.</span> 获取焦点的view,会随着MotionEvent_ACTION_MOVE,不停的变换,因此对应的TouchTarget可能会增加</span><br><span class="line">	<span class="number">4.</span> 当ACTION_DOWN 或者ACTION_MOVE被拦截的情况下,就不会创建新的TouchTarget ,事件也不会继续分发</span><br></pre></td></tr></table></figure>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/01/05/gradle-task/" class="archive-article-date">
-  <time datetime="2016-01-05T09:33:03.000Z" itemprop="datePublished">Jan 5</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/05/gradle-task/">gradle_task</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/01/05/gradle-summary/" class="archive-article-date">
-  <time datetime="2016-01-05T09:11:04.000Z" itemprop="datePublished">Jan 5</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/17/android-event-dispatch/" data-id="cjcix9dmo000s0onmoa51yj0u" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/05/gradle-summary/">gradle_summary</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/01/04/bat-file/" class="archive-article-date">
-  <time datetime="2016-01-04T05:05:41.000Z" itemprop="datePublished">Jan 4</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/04/bat-file/">bat-file</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-event-dispatch/">android_event_dispatch</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/01/15/java-study-jvm-class/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">java-study-class</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
-
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/archives/2016/page/3/">&laquo; __('prev')</a><a class="page-number" href="/archives/2016/">1</a><a class="page-number" href="/archives/2016/page/2/">2</a><a class="page-number" href="/archives/2016/page/3/">3</a><span class="page-number current">4</span>
-  </nav>
 </section>
         
           <aside id="sidebar">

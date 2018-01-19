@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,6 +60,45 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-android-event-dispatch" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/17/android-event-dispatch/" class="article-date">
+  <time datetime="2018-01-17T09:12:47.000Z" itemprop="datePublished">2018-01-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/17/android-event-dispatch/">android-event-dispatch</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> touch <span class="keyword">event</span> 事件的分发</span><br><span class="line">	MotionEvent.ACTION_DOWN = <span class="number">0000</span> <span class="number">0000</span>;</span><br><span class="line">	MotionEvent.ACTION_UP = <span class="number">0000</span> <span class="number">0001</span>;</span><br><span class="line">	MotionEVent.ACTION_MOVE = <span class="number">0000</span> <span class="number">0010</span>;</span><br><span class="line">	MotionEvent.ACTION_CANCLE = <span class="number">0000</span> <span class="number">0011</span>;</span><br><span class="line">	MotionEvent.ACTION_MASK = <span class="number">1111</span> <span class="number">1111</span>;</span><br><span class="line"><span class="number">2.</span> Action 分发流程</span><br><span class="line">	<span class="function">Activity <span class="title">dispatchTouchEvent</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	       	    <span class="keyword">if</span>(window.dispatchTouchEvent())&#123;<span class="keyword">return</span> <span class="literal">true</span>&#125;;</span><br><span class="line">		    <span class="keyword">return</span> onTouchEvent();</span><br><span class="line">		&#125; </span><br><span class="line">		</span><br><span class="line">		onTouchEvent(<span class="keyword">event</span>)&#123;</span><br><span class="line">			<span class="comment">//如果activity正在退出返回true,其他默认返回false</span></span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function">Window <span class="title">dispatchTouchEvent</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		mDecorView.dispatchTouchEvent();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	DecorView (extends Framelayout) dispatchTouchEvent()&#123;</span><br><span class="line">		super.dispatchTouchEvent();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">       <span class="function">ViewGroup <span class="title">dispatchTouchEvent</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		若无子view，super.dispatchTouchEvent();</span><br><span class="line">		如果有子view child.dispatchTouchEvent();</span><br><span class="line">	<span class="comment">//	如果子view 是ViewGroup 继续走一样的逻辑 否则,调用View.dispatchTouchEvent()</span></span><br><span class="line">	<span class="comment">//     	super.dispatchTouchEvent();实际就是View.dispatchTouchEvent()</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="function">View <span class="title">dispatchTouchEvent</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> onTouchEvent();</span><br><span class="line"></span><br><span class="line">	      &#125;</span><br><span class="line"></span><br><span class="line">	     onTouchEvent(<span class="keyword">event</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(clickable)&#123;</span><br><span class="line">			    <span class="comment">// 根据MotionEvent.Action 作不同的业务处理</span></span><br><span class="line">			    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	    &#125;</span><br><span class="line"><span class="number">4.</span> ViewGroup dispatchTouchEvent 具体实现步骤</span><br><span class="line">	<span class="number">1.</span> 若<span class="keyword">event</span> 的Action是ActionDown,清除touchTarget.</span><br><span class="line">	<span class="number">2.</span> 若<span class="keyword">event</span>.Action 不是Action_CANCEL 并且不Intercepted,</span><br><span class="line">		在Action是ACTION_MOVE ACTION_DOWN 的情况下,从所有的子View集合中,遍历到</span><br><span class="line">		能够接受到TouchEvent的View,并依据这个View,继续分发事件，若分发事件返回为<span class="literal">true</span></span><br><span class="line">		,创建newTouchTarget,并且将mFirstTouchTarget赋值给newTouchTarget.next,</span><br><span class="line">                并且alreadyDispatchToNewTouchTarget设置为<span class="literal">true</span> </span><br><span class="line">	<span class="number">3.</span> 遍历该ViewGroup的所有的touchTarget</span><br><span class="line">	   若alreadyDispatchToNewTouchTarget 为<span class="literal">true</span> 并且 newTouchTarget == touchTarget </span><br><span class="line">		则 返回 <span class="literal">true</span> 事件结束</span><br><span class="line">	   否则 调用dispatchTransformedTouchEvent(touchTarget.child),并且返回该返回值 </span><br><span class="line">		</span><br><span class="line">		dispatchTansformedTouchEvent(child,<span class="keyword">event</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(view != <span class="literal">null</span>)&#123;</span><br><span class="line">			        child.dispatchTouchEvent(<span class="keyword">event</span>);</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="comment">// 即View 的dispatchTouchEvent()</span></span><br><span class="line">				super.dispatchTouchEvent(<span class="keyword">event</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"><span class="number">5.</span> 小结</span><br><span class="line">	<span class="number">1.</span> TouchTarget数据结构 next=&gt; touchTarget child=&gt; view</span><br><span class="line">	<span class="number">2.</span> 只有存在MotionEvent.ACTION_MOVE 时,ViewGroup 的TouchTarget的链长度为大于<span class="number">1</span></span><br><span class="line">	当ViewGroup没有child 时 touchTarget链的长度为<span class="number">0</span></span><br><span class="line">	<span class="number">3.</span> 获取焦点的view,会随着MotionEvent_ACTION_MOVE,不停的变换,因此对应的TouchTarget可能会增加</span><br><span class="line">	<span class="number">4.</span> 当ACTION_DOWN 或者ACTION_MOVE被拦截的情况下,就不会创建新的TouchTarget ,事件也不会继续分发</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/17/android-event-dispatch/" data-id="cjcix9dmo000s0onmoa51yj0u" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-event-dispatch/">android_event_dispatch</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-java-study-jvm-class" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -88,7 +127,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/15/java-study-jvm-class/" data-id="cjcfsilx60000yunmi51r58n7" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2018/01/15/java-study-jvm-class/" data-id="cjcix9do1002m0onmcked94vr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-jvm-class-struct/">java jvm class_struct</a></li></ul>
@@ -127,7 +166,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/29/svg-study-1/" data-id="cjcfsdf5z003imfnmvnn0l8ok" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/29/svg-study-1/" data-id="cjcix9don003i0onm4angjt7q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svg/">svg</a></li></ul>
@@ -166,7 +205,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/13/svg-study/" data-id="cjcfsdf61003mmfnmhhkgvat5" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/13/svg-study/" data-id="cjcix9dop003m0onm89w4wl1m" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svg/">svg</a></li></ul>
@@ -205,7 +244,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/08/openSSl/" data-id="cjcfsdf5x003fmfnm26mctwsc" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/08/openSSl/" data-id="cjcix9dok003f0onmcn1fwvzr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TLS/">TLS</a></li></ul>
@@ -244,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/06/linux-reinstall/" data-id="cjcfsdf5i002vmfnm6bpami38" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/06/linux-reinstall/" data-id="cjcix9do7002w0onm3e6qmvtw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/usb-booter/">usb-booter</a></li></ul>
@@ -283,7 +322,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/04/Python-install/" data-id="cjcfsdf3j0008mfnmvq5olmgq" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/04/Python-install/" data-id="cjcix9dm400050onmedfvbc4z" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-install/">python-install</a></li></ul>
@@ -322,7 +361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/03/JavaScript/" data-id="cjcfsdf3h0005mfnmnt7jkk9x" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/03/JavaScript/" data-id="cjcix9dm800090onm568rr82x" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -361,7 +400,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/02/ECMAScript-Study/" data-id="cjcfsdf330000mfnmlpejj8qa" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/12/02/ECMAScript-Study/" data-id="cjcix9dm100030onm5mv22osw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
@@ -400,49 +439,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/30/Linux-cmd/" data-id="cjcfsdf3s000imfnmhx6b5t20" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/11/30/Linux-cmd/" data-id="cjcix9dmc000f0onmp8t02p2v" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux-cmd/">linux-cmd</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Http-Status" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/29/Http-Status/" class="article-date">
-  <time datetime="2017-11-29T10:02:17.000Z" itemprop="datePublished">2017-11-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/29/Http-Status/">Http-Status</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">1&gt; </span><span class="number">304</span> not modify</span><br><span class="line">	当请求方法是get head 的时候并且请求是有条件的，只有满足一定</span><br><span class="line">	条件的时候，才返回<span class="number">200</span>；</span><br><span class="line">	a)通过请求头if-none-match和if-modified-since 设置可以实现请求</span><br><span class="line">	成为有条件的。</span><br><span class="line">	b)只有if-none-match 的值与响应头的ETag的值不一致，才会重新请求</span><br><span class="line">	server,返回<span class="number">200</span>;如果if-modified-since 的日期晚于响应头</span><br><span class="line">	Last-Modified,则返回<span class="number">200</span>; 如果if-none-match 与　if-modified－since</span><br><span class="line">	同时存在，那么if-modified-since 将会忽略。</span><br><span class="line">	c)响应头必然包含Cach-Control Content-Location Date Expire </span><br><span class="line">	ETag Vary;</span><br><span class="line"><span class="meta">2&gt; </span><span class="number">1</span>xx （不适用于Http <span class="number">1.0</span>)</span><br><span class="line">	表示请求已经收到并且理解，等候最终的响应。</span><br><span class="line">	<span class="number">100</span> 继续 场景 对于有request Body的请求，当body比较大时候，如果</span><br><span class="line">	请求被拒绝，效率不够高。为了实现者这个目标，需要请求头中包含，</span><br><span class="line">	Expect:<span class="number">100</span>-continue;客户端在收到状态码<span class="number">100</span>后发送request Body,</span><br><span class="line">	如果返回的状态码是<span class="number">403</span>（拒绝）或者<span class="number">405</span>（方法不正确）z这时候不应该</span><br><span class="line">	发送请求头。如果返回码是<span class="number">417</span>(异常),表示请求头不应该包含Expect:<span class="number">100</span></span><br><span class="line">	-continue。</span><br><span class="line">  	<span class="number">101</span> 表示更换协议 服务端认可这样做</span><br><span class="line"><span class="meta">3&gt; </span><span class="number">2</span>xx 表示请求已经收到，处理。</span><br><span class="line">	<span class="number">200</span> Ok </span><br><span class="line">	<span class="number">201</span> created </span><br><span class="line">	<span class="number">203</span> 非权威信息 成功收到代理服务器的信息，传给客户端会做修改 </span><br><span class="line">	<span class="number">204</span> no Content 请求已经处理，无返返回内容</span><br><span class="line">	<span class="number">205</span> reset Content 请求已经被成功处理，没有内容返回但需要客户</span><br><span class="line">	端</span><br><span class="line"><span class="meta">4&gt; </span><span class="number">3</span>xx 表示需要额外的意图来完成请求，一般用于Url重定向</span><br><span class="line">	<span class="number">300</span> 多个资源可以选择</span><br><span class="line">	<span class="number">301</span> 资源人为移除</span><br><span class="line">	<span class="number">304</span> Not Modified</span><br><span class="line">	<span class="number">305</span> Use Proxy 必须使用代理才能完成</span><br><span class="line">	<span class="number">307</span> Temporary Redirect 暂时使用新的Uri,然而未来的请求不变</span><br><span class="line">	<span class="number">308</span> Permanent Redirect 本次以及以后的请求都需要用新的Uri,</span><br><span class="line">	    同<span class="number">307</span> 一样 请求方法不能变</span><br><span class="line"><span class="meta">5&gt; </span><span class="number">5</span>xx 服务端错误</span><br><span class="line">	<span class="number">500</span> 内部错误 </span><br><span class="line">	<span class="number">501</span> 没实现</span><br><span class="line">	<span class="number">502</span> BadGateway 代理或者网关收到来自Upstream Server的响应无效</span><br><span class="line">	<span class="number">504</span> GateWay TimeOut 代理或者网关没有及时收到来自Upstream Server 的响应</span><br><span class="line">	</span><br><span class="line"><span class="meta">6&gt; </span><span class="number">4</span>xx 客户端错误</span><br><span class="line">	<span class="number">400</span> BadRequest</span><br><span class="line">        <span class="number">401</span> 未授权的</span><br><span class="line">	<span class="number">403</span> Forbidden 请求是有效的，但服务端拒绝，可能是此次权限不够</span><br><span class="line">	<span class="number">404</span> not found  请求的资源没有发现，但未来可能出现</span><br><span class="line">	<span class="number">405</span> method not allowed</span><br><span class="line">	<span class="number">406</span> Not Acceptable 请求的资源不支持</span><br><span class="line">	<span class="number">408</span> RequestTimeout</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/29/Http-Status/" data-id="cjcfsdf3g0004mfnm1t7grptd" class="article-share-link">Partager</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/http-status/">http-status</a></li></ul>
 
     </footer>
   </div>
@@ -465,9 +465,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/bat/">.bat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-Object/">C Object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-jvm-GC/">Java jvm GC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MVP/">MVP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Parcelable/">Parcelable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TLS/">TLS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aidl/">aidl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-init-process/">android init_process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-proguard/">android proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binder/">binder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/content-provider/">content_provider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql/">database mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/">float</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go-beego/">go beego</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-Project/">gradle Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-Task/">gradle Task</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-proguard/">gradle proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/handler/">handler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http-status/">http-status</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-concurrent/">java concurrent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm/">java jvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm-class-struct/">java jvm class_struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-thread/">java thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/launch-activity/">launch_activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-cmd/">linux-cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/long-running-operation/">long_running_operation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/motion-event-multify-touch/">motion_event multify_touch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-table/">mysql table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-backup/">mysql-backup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-cache/">nginx cache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-https/">nginx https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-loader-balance/">nginx loader_balance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-reverse-proxy/">nginx reverse-proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-install/">python-install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reflect/">reflect</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server-nginx/">server nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servermanager/">servermanager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set-content-view/">set_content_view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-scp/">ssh scp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svg/">svg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/usb-booter/">usb-booter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/view-root-iml/">view_root_iml</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/bat/">.bat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C-Object/">C Object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java-jvm-GC/">Java jvm GC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MVP/">MVP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Parcelable/">Parcelable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TLS/">TLS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aidl/">aidl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-init-process/">android init_process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-proguard/">android proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-event-dispatch/">android_event_dispatch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/binder/">binder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c/">c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/content-provider/">content_provider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css/">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql/">database mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/float/">float</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go-beego/">go beego</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-Project/">gradle Project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-Task/">gradle Task</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-proguard/">gradle proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/handler/">handler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http-status/">http-status</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-concurrent/">java concurrent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm/">java jvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm-class-struct/">java jvm class_struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-thread/">java thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/launch-activity/">launch_activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-cmd/">linux-cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/long-running-operation/">long_running_operation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/motion-event-multify-touch/">motion_event multify_touch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-table/">mysql table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-backup/">mysql-backup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-cache/">nginx cache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-https/">nginx https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-loader-balance/">nginx loader_balance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-reverse-proxy/">nginx reverse-proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm/">npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-install/">python-install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reflect/">reflect</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/server-nginx/">server nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servermanager/">servermanager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/set-content-view/">set_content_view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-scp/">ssh scp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svg/">svg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svn/">svn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/usb-booter/">usb-booter</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/view-root-iml/">view_root_iml</a></li></ul>
     </div>
   </div>
 
@@ -475,9 +475,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/bat/" style="font-size: 10px;">.bat</a> <a href="/tags/C-Object/" style="font-size: 10px;">C Object</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Java-jvm-GC/" style="font-size: 10px;">Java jvm GC</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/Parcelable/" style="font-size: 10px;">Parcelable</a> <a href="/tags/TLS/" style="font-size: 10px;">TLS</a> <a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android-init-process/" style="font-size: 10px;">android init_process</a> <a href="/tags/android-proguard/" style="font-size: 10px;">android proguard</a> <a href="/tags/binder/" style="font-size: 20px;">binder</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/content-provider/" style="font-size: 10px;">content_provider</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/database-mysql/" style="font-size: 10px;">database mysql</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/go-beego/" style="font-size: 10px;">go beego</a> <a href="/tags/gradle/" style="font-size: 13.33px;">gradle</a> <a href="/tags/gradle-Project/" style="font-size: 10px;">gradle Project</a> <a href="/tags/gradle-Task/" style="font-size: 10px;">gradle Task</a> <a href="/tags/gradle-proguard/" style="font-size: 10px;">gradle proguard</a> <a href="/tags/handler/" style="font-size: 10px;">handler</a> <a href="/tags/http-status/" style="font-size: 10px;">http-status</a> <a href="/tags/java-concurrent/" style="font-size: 10px;">java concurrent</a> <a href="/tags/java-jvm/" style="font-size: 10px;">java jvm</a> <a href="/tags/java-jvm-class-struct/" style="font-size: 10px;">java jvm class_struct</a> <a href="/tags/java-thread/" style="font-size: 10px;">java thread</a> <a href="/tags/launch-activity/" style="font-size: 13.33px;">launch_activity</a> <a href="/tags/linux-cmd/" style="font-size: 10px;">linux-cmd</a> <a href="/tags/long-running-operation/" style="font-size: 10px;">long_running_operation</a> <a href="/tags/motion-event-multify-touch/" style="font-size: 10px;">motion_event multify_touch</a> <a href="/tags/mysql/" style="font-size: 16.67px;">mysql</a> <a href="/tags/mysql-table/" style="font-size: 10px;">mysql table</a> <a href="/tags/mysql-backup/" style="font-size: 10px;">mysql-backup</a> <a href="/tags/nginx-cache/" style="font-size: 10px;">nginx cache</a> <a href="/tags/nginx-https/" style="font-size: 10px;">nginx https</a> <a href="/tags/nginx-loader-balance/" style="font-size: 10px;">nginx loader_balance</a> <a href="/tags/nginx-reverse-proxy/" style="font-size: 10px;">nginx reverse-proxy</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/python-install/" style="font-size: 10px;">python-install</a> <a href="/tags/reflect/" style="font-size: 10px;">reflect</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/server-nginx/" style="font-size: 16.67px;">server nginx</a> <a href="/tags/servermanager/" style="font-size: 10px;">servermanager</a> <a href="/tags/set-content-view/" style="font-size: 10px;">set_content_view</a> <a href="/tags/ssh-scp/" style="font-size: 10px;">ssh scp</a> <a href="/tags/svg/" style="font-size: 13.33px;">svg</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/test/" style="font-size: 13.33px;">test</a> <a href="/tags/usb-booter/" style="font-size: 10px;">usb-booter</a> <a href="/tags/view-root-iml/" style="font-size: 10px;">view_root_iml</a>
+      <a href="/tags/bat/" style="font-size: 10px;">.bat</a> <a href="/tags/C-Object/" style="font-size: 10px;">C Object</a> <a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Java-jvm-GC/" style="font-size: 10px;">Java jvm GC</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/MVP/" style="font-size: 10px;">MVP</a> <a href="/tags/Parcelable/" style="font-size: 10px;">Parcelable</a> <a href="/tags/TLS/" style="font-size: 10px;">TLS</a> <a href="/tags/aidl/" style="font-size: 10px;">aidl</a> <a href="/tags/android-init-process/" style="font-size: 10px;">android init_process</a> <a href="/tags/android-proguard/" style="font-size: 10px;">android proguard</a> <a href="/tags/android-event-dispatch/" style="font-size: 10px;">android_event_dispatch</a> <a href="/tags/binder/" style="font-size: 20px;">binder</a> <a href="/tags/c/" style="font-size: 10px;">c++</a> <a href="/tags/content-provider/" style="font-size: 10px;">content_provider</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/database-mysql/" style="font-size: 10px;">database mysql</a> <a href="/tags/float/" style="font-size: 10px;">float</a> <a href="/tags/go-beego/" style="font-size: 10px;">go beego</a> <a href="/tags/gradle/" style="font-size: 13.33px;">gradle</a> <a href="/tags/gradle-Project/" style="font-size: 10px;">gradle Project</a> <a href="/tags/gradle-Task/" style="font-size: 10px;">gradle Task</a> <a href="/tags/gradle-proguard/" style="font-size: 10px;">gradle proguard</a> <a href="/tags/handler/" style="font-size: 10px;">handler</a> <a href="/tags/http-status/" style="font-size: 10px;">http-status</a> <a href="/tags/java-concurrent/" style="font-size: 10px;">java concurrent</a> <a href="/tags/java-jvm/" style="font-size: 10px;">java jvm</a> <a href="/tags/java-jvm-class-struct/" style="font-size: 10px;">java jvm class_struct</a> <a href="/tags/java-thread/" style="font-size: 10px;">java thread</a> <a href="/tags/launch-activity/" style="font-size: 13.33px;">launch_activity</a> <a href="/tags/linux-cmd/" style="font-size: 10px;">linux-cmd</a> <a href="/tags/long-running-operation/" style="font-size: 10px;">long_running_operation</a> <a href="/tags/motion-event-multify-touch/" style="font-size: 10px;">motion_event multify_touch</a> <a href="/tags/mysql/" style="font-size: 16.67px;">mysql</a> <a href="/tags/mysql-table/" style="font-size: 10px;">mysql table</a> <a href="/tags/mysql-backup/" style="font-size: 10px;">mysql-backup</a> <a href="/tags/nginx-cache/" style="font-size: 10px;">nginx cache</a> <a href="/tags/nginx-https/" style="font-size: 10px;">nginx https</a> <a href="/tags/nginx-loader-balance/" style="font-size: 10px;">nginx loader_balance</a> <a href="/tags/nginx-reverse-proxy/" style="font-size: 10px;">nginx reverse-proxy</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/python-install/" style="font-size: 10px;">python-install</a> <a href="/tags/reflect/" style="font-size: 10px;">reflect</a> <a href="/tags/security/" style="font-size: 10px;">security</a> <a href="/tags/server-nginx/" style="font-size: 16.67px;">server nginx</a> <a href="/tags/servermanager/" style="font-size: 10px;">servermanager</a> <a href="/tags/set-content-view/" style="font-size: 10px;">set_content_view</a> <a href="/tags/ssh-scp/" style="font-size: 10px;">ssh scp</a> <a href="/tags/svg/" style="font-size: 13.33px;">svg</a> <a href="/tags/svn/" style="font-size: 10px;">svn</a> <a href="/tags/test/" style="font-size: 13.33px;">test</a> <a href="/tags/usb-booter/" style="font-size: 10px;">usb-booter</a> <a href="/tags/view-root-iml/" style="font-size: 10px;">view_root_iml</a>
     </div>
   </div>
 
@@ -494,9 +494,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/01/17/android-event-dispatch/">android-event-dispatch</a>
+          </li>
         
           <li>
             <a href="/2018/01/15/java-study-jvm-class/">java-study-class</a>
@@ -514,10 +518,6 @@
             <a href="/2017/12/08/openSSl/">openSSl</a>
           </li>
         
-          <li>
-            <a href="/2017/12/06/linux-reinstall/">linux-reinstall</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -531,7 +531,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2018 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
