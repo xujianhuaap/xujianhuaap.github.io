@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>android-threadlocal | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="涉及的文件 1234sdk/android/source/android-23/android/os/java/lang/ThreadLocalsdk/android/source/android-23/android/os/java/lang/Threadsdk/android/source/android-23/adnroid/os/java/util/concurrent/atomic">
+<meta name="keywords" content="android_application_threadlocal">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android-threadlocal">
+<meta property="og:url" content="http://yoursite.com/2018/01/19/android-threadlocal/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="涉及的文件 1234sdk/android/source/android-23/android/os/java/lang/ThreadLocalsdk/android/source/android-23/android/os/java/lang/Threadsdk/android/source/android-23/adnroid/os/java/util/concurrent/atomic">
+<meta property="og:updated_time" content="2018-01-24T04:09:57.424Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="android-threadlocal">
+<meta name="twitter:description" content="涉及的文件 1234sdk/android/source/android-23/android/os/java/lang/ThreadLocalsdk/android/source/android-23/android/os/java/lang/Threadsdk/android/source/android-23/adnroid/os/java/util/concurrent/atomic">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-android-threadlocal" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/01/19/android-threadlocal/" class="article-date">
+  <time datetime="2018-01-19T09:04:39.000Z" itemprop="datePublished">2018-01-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      android-threadlocal
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>涉及的文件</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">sdk<span class="regexp">/android/</span><span class="keyword">source</span><span class="regexp">/android-23/</span>android<span class="regexp">/os/</span>java<span class="regexp">/lang/</span>ThreadLocal</span><br><span class="line">sdk<span class="regexp">/android/</span><span class="keyword">source</span><span class="regexp">/android-23/</span>android<span class="regexp">/os/</span>java<span class="regexp">/lang/</span>Thread</span><br><span class="line">sdk<span class="regexp">/android/</span><span class="keyword">source</span><span class="regexp">/android-23/</span>adnroid<span class="regexp">/os/</span>java<span class="regexp">/util/</span>concurrent<span class="regexp">/atomic</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ThreadLocal 简介</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ThreadLocal 经常用于线程自有变量的缓存,获取,移除.</span><br><span class="line">ThreadLocal的变量缓存在Thread的localvalues这个字段,</span><br><span class="line">该字段为ThreadLocal<span class="selector-class">.Values</span>,ThreadLocal<span class="selector-class">.Values</span> 是</span><br><span class="line">一个静态内部类.</span><br><span class="line">ThreadLocal 一个重要的字段是reference (WeakReference),存储的是</span><br><span class="line">该ThreadLocal的实例.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ThreadLocal.Values的主要方法</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 一般适合在调用cleanup之后使用</span></span><br><span class="line"> <span class="number">1.</span> <span class="built_in">add</span>(threadlocal,object)&#123;</span><br><span class="line">       <span class="number">1</span>&gt; <span class="keyword">for</span>(index=mask&amp;threadlocal.hash;;next(index))&#123;</span><br><span class="line">	<span class="keyword">Object</span> k = table[index];</span><br><span class="line">	<span class="keyword">if</span>(k == <span class="keyword">null</span>)&#123;</span><br><span class="line">		table[index] = threadlocal.reference;</span><br><span class="line">		table[index+<span class="number">1</span>] = object;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">          &#125;	</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="number">2.</span>  next(index)&#123;</span><br><span class="line"><span class="keyword">return</span> (index +<span class="number">2</span>) &amp; mask;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> <span class="number">3.</span> rehash()&#123;</span><br><span class="line"><span class="comment">// capacity  new Object[capacity*2],表示可以缓存的key-value的数量</span></span><br><span class="line">       <span class="comment">// maxnumLoad capacity*2/3    size 表示存活的key-value个数</span></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">size</span> + tombSize &lt; maxnumLoad)&#123;</span><br><span class="line">   <span class="keyword">return</span> fase;</span><br><span class="line">       &#125;</span><br><span class="line">       </span><br><span class="line">       <span class="comment">//当存活的key-value超过一半,需要按照目前的key-value数目扩从一倍的容量</span></span><br><span class="line"><span class="comment">// 如果存活的key-value少于一半, 按照目前key-value数目改变容量 </span></span><br><span class="line"><span class="built_in">int</span> capacity = table.length; </span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">size</span> &gt; capacity /<span class="number">2</span>)&#123;</span><br><span class="line">	capacity *= <span class="number">2</span>;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">Object</span>[] oldTable = <span class="keyword">this</span>.table;</span><br><span class="line">       initializeTable(capacity);</span><br><span class="line"><span class="keyword">this</span>.tombSize = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">size</span> ==<span class="number">0</span>)&#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">       &#125;</span><br><span class="line"><span class="keyword">for</span>()&#123;</span><br><span class="line">   <span class="comment">//清除掉 k==null k==tombstone</span></span><br><span class="line">   <span class="comment">// 如果是存活的那么,就调用add(threadlocal,object)</span></span><br><span class="line">       &#125;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="number">4.</span> cleanUp()&#123;</span><br><span class="line"><span class="keyword">if</span>(rehash)&#123;</span><br><span class="line">   <span class="keyword">return</span> ;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="built_in">int</span> index =clean;</span><br><span class="line">       <span class="keyword">Object</span>[] oldTable = <span class="keyword">this</span>.table;</span><br><span class="line"><span class="keyword">for</span>(<span class="built_in">int</span> counter= oldTable.length;counter&gt;<span class="number">0</span>;counter&gt;&gt;=<span class="number">1</span>,</span><br><span class="line">           index=next(index))&#123;</span><br><span class="line">  <span class="number">1</span>&gt; <span class="keyword">Object</span> <span class="built_in">key</span> = oldTable[index);</span><br><span class="line">  <span class="number">2</span>&gt; <span class="keyword">if</span>(<span class="built_in">key</span> == <span class="keyword">null</span> | <span class="built_in">key</span> == TOMBSTONE )&#123;</span><br><span class="line">	<span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">         <span class="number">3</span>&gt; ThreadLocal t = <span class="built_in">key</span>.<span class="built_in">get</span>();</span><br><span class="line">            <span class="keyword">if</span>(t== <span class="keyword">null</span>)&#123;</span><br><span class="line">	oldTable[index] = TOMBSTONE;</span><br><span class="line">	oldTable&#123;index+<span class="number">1</span>] = <span class="keyword">null</span>;</span><br><span class="line">	<span class="built_in">size</span> --;</span><br><span class="line">               tombSize++;</span><br><span class="line">            &#125;</span><br><span class="line">&#125;</span><br><span class="line">       clean = index; </span><br><span class="line"> &#125;</span><br><span class="line"> <span class="number">5.</span> remove(ThreadLocal <span class="built_in">key</span>)&#123;</span><br><span class="line"><span class="comment">//</span></span><br><span class="line">cleanUp();</span><br><span class="line"><span class="keyword">for</span>(<span class="built_in">int</span> index= <span class="built_in">key</span>.hash &amp; <span class="keyword">this</span>.mask;; index= next(index) )&#123;</span><br><span class="line">              <span class="keyword">Object</span> reference = <span class="keyword">this</span>.table[index];</span><br><span class="line">       <span class="keyword">if</span>(reference == <span class="built_in">key</span>.reference)&#123;</span><br><span class="line">	   <span class="keyword">this</span>.table[index] = TOMBSTONE;</span><br><span class="line">	   <span class="keyword">this</span>.value = <span class="keyword">null</span>; </span><br><span class="line">		   <span class="built_in">size</span> --;</span><br><span class="line">                  <span class="keyword">this</span>.tombSize ++;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(reference == <span class="keyword">null</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">     &#125;</span><br><span class="line">  <span class="number">6.</span> put(ThreadLocal <span class="built_in">key</span> ,<span class="keyword">Object</span> value)&#123;</span><br><span class="line">cleanUp();</span><br><span class="line">       <span class="comment">//</span></span><br><span class="line"><span class="built_in">int</span> firstTombStone =<span class="number">-1</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> index = <span class="built_in">key</span>.hash &amp; <span class="keyword">this</span>.mask;;index= next(index))&#123;</span><br><span class="line">	<span class="keyword">Object</span> reference = <span class="keyword">this</span>.table[index];</span><br><span class="line">	<span class="keyword">if</span>(reference == <span class="built_in">key</span>.reference)&#123;</span><br><span class="line">		<span class="keyword">this</span>.table[index+<span class="number">1</span>]= value;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">key</span> == <span class="keyword">null</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span> ( firstTombStone == <span class="number">-1</span>)&#123;</span><br><span class="line">			<span class="keyword">this</span>.table[index]=<span class="built_in">key</span>.reference;</span><br><span class="line">			<span class="keyword">this</span>.table[index+<span class="number">1</span>]=value;</span><br><span class="line">			<span class="built_in">size</span> ++;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	        <span class="keyword">this</span>.table[firstTomeStone]=<span class="built_in">key</span>.reference;</span><br><span class="line">		<span class="keyword">this</span>.table[firstTombStone+<span class="number">1</span>] = value;</span><br><span class="line">		<span class="built_in">size</span> ++;</span><br><span class="line">		tombSize --;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(reference == TOMBSTONE &amp;&amp; firstTombStone == <span class="number">-1</span>)&#123;</span><br><span class="line">		firstTombStone = index;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">     &#125; </span><br><span class="line">&#125;</span><br><span class="line"> ps:   values.mask是values.table.len<span class="number">-1</span>, hash 是一个标明该ThreadLocal的数字,</span><br><span class="line">也就是说不同的ThreadLocal实例的hash不同.但是hash之间是有规律的,</span><br><span class="line">       values.table.capacity是<span class="number">2</span>的n次方,那也就意味着有n个二进制位,而且</span><br><span class="line">       values.table.capacity随时根据情况扩容,如果capacity是<span class="number">16</span>(<span class="keyword">new</span> </span><br><span class="line">       <span class="keyword">Object</span>[<span class="number">16</span>*<span class="number">2</span>]),如果table长</span><br><span class="line">       度是<span class="number">8</span>, values.mask转成二进制,为<span class="number">111</span>,hash &amp; mask的值肯定是小于mask,</span><br><span class="line">       而且值互不相同,因此可以用这个值作为index,缓存和取都可以通过它进行</span><br><span class="line">       .而且我们知道,values.table的数据是以key1 value1 key2 value2...  排</span><br><span class="line">       列的,<span class="built_in">key</span> 有三种情况<span class="keyword">null</span> bombstone <span class="built_in">key</span>.</span><br><span class="line">values只会扩容，不会缩容</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ThreadLocal的主要方法</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> T <span class="built_in">get</span>()&#123;</span><br><span class="line"><span class="number">1</span>. Thread t = Thread.currentThread();</span><br><span class="line"><span class="number">2</span>. ThreadLocal.Values <span class="built_in">values</span>  = <span class="built_in">values</span>(t);</span><br><span class="line"><span class="number">3</span>. <span class="keyword">if</span>(<span class="built_in">values</span> != null)&#123;</span><br><span class="line">	[]Object table = <span class="built_in">values</span>.table;</span><br><span class="line">	int index = hash &amp; <span class="built_in">values</span>.mask;</span><br><span class="line">	<span class="keyword">if</span>(reference == table[index])&#123;</span><br><span class="line">		<span class="built_in">return</span> (T) table[index+<span class="number">1</span>];</span><br><span class="line">	&#125;</span><br><span class="line">          &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="built_in">values</span> = initValues(t);</span><br><span class="line">   &#125;</span><br><span class="line"><span class="number">4</span>. <span class="built_in">return</span> <span class="built_in">values</span>.getAfterMiss(this);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> ps:</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/01/19/android-threadlocal/" data-id="cjcxen9c6001bnwnmjv9wxgqn" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-application-threadlocal/">android_application_threadlocal</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/01/24/java-hash-index/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          java-hash-index
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/01/17/android-application-event-dispatch/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">android-event-dispatch</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-proguard/">android proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-aidl/">android_application_aidl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-content-provider/">android_application_content_provider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-customer-view/">android_application_customer_view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-event-dispatch/">android_application_event_dispatch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-handler/">android_application_handler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-long-running-operation/">android_application_long_running_operation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-parcelable/">android_application_parcelable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-security/">android_application_security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-threadlocal/">android_application_threadlocal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-binder/">android_framework_binder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-init-process/">android_framework_init_process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-launch-activity/">android_framework_launch_activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-servermanager/">android_framework_servermanager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-set-content-view/">android_framework_set_content_view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-view-root-iml/">android_framework_view_root_iml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bat/">bat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-bitflag/">c_bitflag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-object-releation/">c_object_releation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-operator/">c_operator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-flex-box/">css_flex_box</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-accurancy/">data_accurancy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql/">database_mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql-backup/">database_mysql_backup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql-install/">database_mysql_install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql-table/">database_mysql_table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-mode-mvp/">design_mode_mvp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go-beego/">go_beego</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-proguard/">gradle_proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-project/">gradle_project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-study/">gradle_study</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-task/">gradle_task</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-concurrent/">java_concurrent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-hash-index/">java_hash_index</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm/">java_jvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm-class-struct/">java_jvm_class_struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm-gc/">java_jvm_gc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-thread/">java_thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-basic/">javascript_basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-cmd/">linux_cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-reinstall/">linux_reinstall</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-http-status/">net_http_status</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-tls/">net_tls</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-cache/">nginx_cache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-https/">nginx_https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-loader-balance/">nginx_loader_balance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-reverse-proxy/">nginx_reverse-proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-server/">nginx_server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-cmd/">npm_cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-install/">python_install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reflect/">reflect</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-cmd/">ssh_cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svg-basic/">svg_basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool-svn/">tool_svn</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/android-proguard/" style="font-size: 10px;">android proguard</a> <a href="/tags/android-application-aidl/" style="font-size: 10px;">android_application_aidl</a> <a href="/tags/android-application-content-provider/" style="font-size: 10px;">android_application_content_provider</a> <a href="/tags/android-application-customer-view/" style="font-size: 10px;">android_application_customer_view</a> <a href="/tags/android-application-event-dispatch/" style="font-size: 10px;">android_application_event_dispatch</a> <a href="/tags/android-application-handler/" style="font-size: 10px;">android_application_handler</a> <a href="/tags/android-application-long-running-operation/" style="font-size: 10px;">android_application_long_running_operation</a> <a href="/tags/android-application-parcelable/" style="font-size: 10px;">android_application_parcelable</a> <a href="/tags/android-application-security/" style="font-size: 10px;">android_application_security</a> <a href="/tags/android-application-threadlocal/" style="font-size: 10px;">android_application_threadlocal</a> <a href="/tags/android-framework-binder/" style="font-size: 20px;">android_framework_binder</a> <a href="/tags/android-framework-init-process/" style="font-size: 10px;">android_framework_init_process</a> <a href="/tags/android-framework-launch-activity/" style="font-size: 13.33px;">android_framework_launch_activity</a> <a href="/tags/android-framework-servermanager/" style="font-size: 10px;">android_framework_servermanager</a> <a href="/tags/android-framework-set-content-view/" style="font-size: 10px;">android_framework_set_content_view</a> <a href="/tags/android-framework-view-root-iml/" style="font-size: 10px;">android_framework_view_root_iml</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/c-bitflag/" style="font-size: 10px;">c_bitflag</a> <a href="/tags/c-object-releation/" style="font-size: 13.33px;">c_object_releation</a> <a href="/tags/c-operator/" style="font-size: 10px;">c_operator</a> <a href="/tags/css-flex-box/" style="font-size: 10px;">css_flex_box</a> <a href="/tags/data-accurancy/" style="font-size: 10px;">data_accurancy</a> <a href="/tags/database-mysql/" style="font-size: 16.67px;">database_mysql</a> <a href="/tags/database-mysql-backup/" style="font-size: 13.33px;">database_mysql_backup</a> <a href="/tags/database-mysql-install/" style="font-size: 13.33px;">database_mysql_install</a> <a href="/tags/database-mysql-table/" style="font-size: 10px;">database_mysql_table</a> <a href="/tags/design-mode-mvp/" style="font-size: 10px;">design_mode_mvp</a> <a href="/tags/go-beego/" style="font-size: 10px;">go_beego</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/gradle-proguard/" style="font-size: 10px;">gradle_proguard</a> <a href="/tags/gradle-project/" style="font-size: 10px;">gradle_project</a> <a href="/tags/gradle-study/" style="font-size: 10px;">gradle_study</a> <a href="/tags/gradle-task/" style="font-size: 10px;">gradle_task</a> <a href="/tags/java-concurrent/" style="font-size: 10px;">java_concurrent</a> <a href="/tags/java-hash-index/" style="font-size: 10px;">java_hash_index</a> <a href="/tags/java-jvm/" style="font-size: 10px;">java_jvm</a> <a href="/tags/java-jvm-class-struct/" style="font-size: 10px;">java_jvm_class_struct</a> <a href="/tags/java-jvm-gc/" style="font-size: 10px;">java_jvm_gc</a> <a href="/tags/java-thread/" style="font-size: 10px;">java_thread</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/javascript-basic/" style="font-size: 10px;">javascript_basic</a> <a href="/tags/linux-cmd/" style="font-size: 13.33px;">linux_cmd</a> <a href="/tags/linux-reinstall/" style="font-size: 10px;">linux_reinstall</a> <a href="/tags/net-http-status/" style="font-size: 10px;">net_http_status</a> <a href="/tags/net-tls/" style="font-size: 10px;">net_tls</a> <a href="/tags/nginx-cache/" style="font-size: 10px;">nginx_cache</a> <a href="/tags/nginx-https/" style="font-size: 10px;">nginx_https</a> <a href="/tags/nginx-loader-balance/" style="font-size: 10px;">nginx_loader_balance</a> <a href="/tags/nginx-reverse-proxy/" style="font-size: 10px;">nginx_reverse-proxy</a> <a href="/tags/nginx-server/" style="font-size: 16.67px;">nginx_server</a> <a href="/tags/npm-cmd/" style="font-size: 10px;">npm_cmd</a> <a href="/tags/python-install/" style="font-size: 10px;">python_install</a> <a href="/tags/reflect/" style="font-size: 10px;">reflect</a> <a href="/tags/ssh-cmd/" style="font-size: 10px;">ssh_cmd</a> <a href="/tags/svg-basic/" style="font-size: 13.33px;">svg_basic</a> <a href="/tags/test/" style="font-size: 13.33px;">test</a> <a href="/tags/tool-svn/" style="font-size: 10px;">tool_svn</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/01/24/java-hash-index/">java-hash-index</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/19/android-threadlocal/">android-threadlocal</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/17/android-application-event-dispatch/">android-event-dispatch</a>
+          </li>
+        
+          <li>
+            <a href="/2018/01/15/java-study-jvm-class/">java-study-class</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/29/svg-study-1/">svg_study</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
