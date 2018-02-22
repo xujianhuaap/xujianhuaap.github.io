@@ -61,6 +61,201 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-svg-study" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/13/svg-study/" class="article-date">
+  <time datetime="2017-12-13T13:40:49.000Z" itemprop="datePublished">2017-12-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/13/svg-study/">svg-study</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">1. svg 可缩放矢量位图,是基于xml的2维图像.</span><br><span class="line">2. svg 与 react</span><br><span class="line">	1&gt; 书写一个svg格式的图片文件</span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">svg</span> <span class="attr">vsersion</span>=<span class="string">"1.1"</span></span></span><br><span class="line"><span class="tag">	     <span class="attr">baseProfile</span>=<span class="string">"full"</span></span></span><br><span class="line"><span class="tag">	     <span class="attr">width</span>=<span class="string">"300"</span> <span class="attr">height</span>=<span class="string">"200"</span></span></span><br><span class="line"><span class="tag">	     <span class="attr">xmlns</span>=<span class="string">"http://www.w3.org/2000/svg"</span></span></span><br><span class="line"><span class="tag">	     <span class="attr">xmlns:xlink</span>=<span class="string">"http://www.w3.org/1999/xlink"</span>&gt;</span></span><br><span class="line">	    <span class="comment">&lt;!--颜色渐变--&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">defs</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">linearGradient</span> <span class="attr">id</span>=<span class="string">"Gradient1"</span> <span class="attr">x1</span>=<span class="string">"0"</span> <span class="attr">x2</span>=<span class="string">"0"</span> <span class="attr">y1</span>=<span class="string">"0"</span> <span class="attr">y2</span>=<span class="string">"1"</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">stop</span> <span class="attr">class</span>=<span class="string">"stop1"</span> <span class="attr">stop-color</span>=<span class="string">"#FFFFFF"</span> <span class="attr">offset</span>=<span class="string">"0%"</span>/&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">stop</span> <span class="attr">class</span>=<span class="string">"stop2"</span> <span class="attr">stop-color</span>=<span class="string">"#20FF80"</span> <span class="attr">offset</span>=<span class="string">"80%"</span>/&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">stop</span> <span class="attr">class</span>=<span class="string">"stop3"</span> <span class="attr">stop-color</span>=<span class="string">"green"</span> <span class="attr">offset</span>=<span class="string">"100%"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">linearGradient</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;/<span class="name">defs</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">rect</span> <span class="attr">width</span>=<span class="string">"100%"</span> <span class="attr">height</span>=<span class="string">"100%"</span> <span class="attr">fill</span>=<span class="string">"#FF7F50"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">	    <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"150"</span> <span class="attr">cy</span>=<span class="string">"100"</span> <span class="attr">r</span>=<span class="string">"80"</span> <span class="attr">fill</span>=<span class="string">"url(#Gradient1)"</span> &gt;</span></span><br><span class="line">		<span class="comment">&lt;!--&lt;animateMotion path=" M 50 200 A 100 100 0 0 0 250 200"--&gt;</span></span><br><span class="line">                       <span class="comment">&lt;!--dur="1s" repeatCount="indefinite" rotate="auto" /&gt;--&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">animateTransform</span></span></span><br><span class="line"><span class="tag">			<span class="attr">id</span>=<span class="string">"animate"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">attributeName</span>=<span class="string">"transform"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">begin</span>=<span class="string">"0s"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">dur</span>=<span class="string">"0.2s"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">type</span>=<span class="string">"rotate"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">from</span>=<span class="string">"0 150 100"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">to</span>=<span class="string">"4.5 150 100"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">fill</span>=<span class="string">"freeze"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">repeatCount</span>=<span class="string">"indefinite"</span></span></span><br><span class="line"><span class="tag">		/&gt;</span></span><br><span class="line">		<span class="comment">&lt;!--&lt;animate attributeName="rotate" from="60" to="80" dur="1s" repeatCount="indefinite"&gt; &lt;/animate&gt;--&gt;</span></span><br><span class="line">	    <span class="tag">&lt;/<span class="name">circle</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	    <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"150"</span> <span class="attr">cy</span>=<span class="string">"150"</span> <span class="attr">r</span>=<span class="string">"3"</span> <span class="attr">fill</span>=<span class="string">"#EAFFDF"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">animateTransform</span></span></span><br><span class="line"><span class="tag">			<span class="attr">attributeName</span>=<span class="string">"transform"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">begin</span>=<span class="string">"0s"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">dur</span>=<span class="string">"1.8s"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">type</span>=<span class="string">"translate"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">from</span>=<span class="string">"0 0"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">to</span>=<span class="string">"0 -40"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">fill</span>=<span class="string">"freeze"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">repeatCount</span>=<span class="string">"indefinite"</span></span></span><br><span class="line"><span class="tag">		/&gt;</span></span><br><span class="line">	    <span class="tag">&lt;/<span class="name">circle</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	    <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"140"</span> <span class="attr">cy</span>=<span class="string">"152"</span> <span class="attr">r</span>=<span class="string">"5"</span> <span class="attr">fill</span>=<span class="string">"#EAFFDF"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">animateTransform</span></span></span><br><span class="line"><span class="tag">			<span class="attr">attributeName</span>=<span class="string">"transform"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">begin</span>=<span class="string">"0s"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">dur</span>=<span class="string">"1.3s"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">type</span>=<span class="string">"translate"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">from</span>=<span class="string">"0 0"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">to</span>=<span class="string">"0 -50"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">fill</span>=<span class="string">"freeze"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">repeatCount</span>=<span class="string">"indefinite"</span></span></span><br><span class="line"><span class="tag">		/&gt;</span></span><br><span class="line">	    <span class="tag">&lt;/<span class="name">circle</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	    <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"160"</span> <span class="attr">cy</span>=<span class="string">"151"</span> <span class="attr">r</span>=<span class="string">"4"</span> <span class="attr">fill</span>=<span class="string">"#EAFFDF"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">animateTransform</span></span></span><br><span class="line"><span class="tag">			<span class="attr">attributeName</span>=<span class="string">"transform"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">begin</span>=<span class="string">"0s"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">dur</span>=<span class="string">"1.6s"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">type</span>=<span class="string">"translate"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">from</span>=<span class="string">"0 0"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">to</span>=<span class="string">"0 -40"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">fill</span>=<span class="string">"freeze"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">repeatCount</span>=<span class="string">"indefinite"</span></span></span><br><span class="line"><span class="tag">		/&gt;</span></span><br><span class="line">	    <span class="tag">&lt;/<span class="name">circle</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	    <span class="tag">&lt;<span class="name">text</span> <span class="attr">x</span>=<span class="string">"150"</span> <span class="attr">y</span>=<span class="string">"125"</span> <span class="attr">font-size</span>=<span class="string">"60"</span> <span class="attr">text-anchor</span>=<span class="string">"middle"</span> <span class="attr">fill</span>=<span class="string">"white"</span>&gt;</span>念力<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	2&gt; 通过<span class="tag">&lt;<span class="name">imag</span> <span class="attr">src</span>=<span class="string">&#123;logo.svg&#125;/</span>&gt;</span></span><br><span class="line">3. svg 的path</span><br><span class="line">	</span><br><span class="line">	1. 常用的形状直线,矩形,圆形</span><br><span class="line">		a&gt; <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">"10"</span> <span class="attr">cy</span>=<span class="string">"12"</span> <span class="attr">r</span>=<span class="string">"10"</span> <span class="attr">fill</span>=<span class="string">"red"</span>/&gt;</span></span><br><span class="line">		b&gt; <span class="tag">&lt;<span class="name">rect</span> <span class="attr">x</span> <span class="attr">y</span> <span class="attr">width</span>=<span class="string">"10"</span> <span class="attr">height</span>=<span class="string">"20"</span> <span class="attr">stroke</span>=<span class="string">"red"</span> <span class="attr">stroke-width</span>=<span class="string">"2"</span> <span class="attr">fill</span>=<span class="string">"green"</span>/&gt;</span>//x y 表示矩形的左上点的坐标</span><br><span class="line">		c&gt; <span class="tag">&lt;<span class="name">ellipse</span> <span class="attr">rx</span>= <span class="string">"20"</span> <span class="attr">ry</span>=<span class="string">"30"</span> <span class="attr">cx</span>=<span class="string">"10"</span> <span class="attr">cy</span>=<span class="string">"10"</span>/&gt;</span>// cx cy 表示椭圆中心的坐标 rx 表示椭圆x方向半径 </span><br><span class="line">	        d&gt; <span class="tag">&lt;<span class="name">line</span> <span class="attr">x1</span>=<span class="string">"10"</span> <span class="attr">y1</span>=<span class="string">"23"</span> <span class="attr">x2</span>=<span class="string">"12"</span> <span class="attr">y2</span>=<span class="string">"23"</span>/&gt;</span></span><br><span class="line">		e&gt; <span class="tag">&lt;<span class="name">polyline</span> <span class="attr">points</span>=<span class="string">"60 110, 65 120, 70 115, 75 130, 80 125, 85 140, 90 135, 95 150, 100 145"</span>/&gt;</span>//折线	</span><br><span class="line">	2. path </span><br><span class="line">		<span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">"M x Y H y1 V x1 L x2 x3"</span>&gt;</span></span><br><span class="line">		a&gt; 贝塞尔曲线</span><br><span class="line">		b&gt; 弧线	 A rx ry degree_axie_x 0 1 x y </span><br><span class="line">			rx ry 分别表示x y 方向上的半径</span><br><span class="line">			degree_axie_x椭圆旋转的角度</span><br><span class="line">			0表示取小弧度 1 表示大弧度</span><br><span class="line">			1 表示逆时针 0 表示顺时针</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/13/svg-study/" data-id="cjdy2pjve0044h5nm7id4557u" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svg-basic/">svg_basic</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-net_tls" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/08/net_tls/" class="article-date">
+  <time datetime="2017-12-08T09:38:39.000Z" itemprop="datePublished">2017-12-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/08/net_tls/">openSSl</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> TLS (传输层安全）是SSL的接任者, 目的是实现网络通信双方的数据加密和完整性。</span><br><span class="line">	<span class="number">3.0</span> SSL</span><br><span class="line">	<span class="number">3.1</span> TLSv1<span class="number">.0</span></span><br><span class="line">	<span class="number">3.2</span> TLSv1<span class="number">.1</span></span><br><span class="line">	<span class="number">3.3</span> TLSv1<span class="number">.3</span> (提案）</span><br><span class="line"><span class="number">2.</span> TLS的握手操作</span><br><span class="line">	<span class="number">1</span>&gt; clienthello 由客户端向服务端发送一下信息</span><br><span class="line">		客户端所支持的TLS的版本号</span><br><span class="line">		一个随机对象‘</span><br><span class="line">		所支持的加密套件</span><br><span class="line">		压缩方法</span><br><span class="line">		extension</span><br><span class="line">	<span class="number">2</span>&gt; serverhello 向客户端传送一下信息：</span><br><span class="line">		服务端所选择的TLS 的版本号</span><br><span class="line">		随机对象</span><br><span class="line">		加密套件（cipher suit)</span><br><span class="line">		extension</span><br><span class="line">		压缩方法</span><br><span class="line">	<span class="number">3</span>&gt; Certificate(server) 如果所选择的加密算法需要certificate</span><br><span class="line">		服务端需要将自己的certificate 信息（certificate chain)</span><br><span class="line">		发给客户端 </span><br><span class="line">	<span class="number">4</span>&gt; Server-<span class="type">key</span>-Exchange 如果所选择的算法,在<span class="number">3</span>&gt;的基础上还不能产生PreMasterSecrete</span><br><span class="line">		那么这个消息就会被客户端发送</span><br><span class="line">	<span class="number">5</span>&gt; Certificate-Request 告诉客户端，自己需要客户端的信息(可选项,紧跟<span class="number">3</span>&gt;或<span class="number">4</span>&gt;）</span><br><span class="line">	<span class="number">6</span>&gt; HelloDone 服务端发出这个信息意味着前期的沟通，已经完成</span><br><span class="line">	<span class="number">7</span>&gt; Certificate (client) 客户端发送证书的信息给服务端(紧跟<span class="number">6</span>&gt;)</span><br><span class="line">	<span class="number">8</span>&gt; Client-<span class="type">key</span>-Exchange ( 补充<span class="number">7</span>&gt;的信息）PremasterSecrete 已经为双方所接受</span><br><span class="line">	<span class="number">9</span>&gt; Certificate-Verfy (紧跟<span class="number">8</span>） 只有在Certificate(client)有的情况下才需要</span><br><span class="line">	<span class="number">10</span>&gt; Finieshed 成功以下数据将是加密和完整性保护的</span><br><span class="line"><span class="number">3.</span> Resumed的握手操作</span><br><span class="line">	<span class="number">1</span>&gt; newTicket</span><br><span class="line">	<span class="number">2</span>&gt; Change-cipher-spec 双方都会发出,告诉接收到的一方，以后收到的数据将是可信的</span><br><span class="line">	</span><br><span class="line"><span class="number">4.</span> ps</span><br><span class="line">	HelloRequest 这个消息服务端会随时发出</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/08/net_tls/" data-id="cjdy2pjuu003hh5nm90dl6efx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/net-tls/">net_tls</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-linux-reinstall" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/06/linux-reinstall/" class="article-date">
+  <time datetime="2017-12-06T07:36:38.000Z" itemprop="datePublished">2017-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/06/linux-reinstall/">linux-reinstall</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 准备的材料u盘 iso文件</span><br><span class="line"><span class="number">2.</span> fdisk 查看路径<span class="string">egg:</span> <span class="regexp">/dev/</span>sdb1</span><br><span class="line"><span class="number">3.</span> umount <span class="regexp">/dev/</span>sdb1</span><br><span class="line"><span class="number">4.</span> mkfs.vfat <span class="regexp">/dev/</span>sdb1</span><br><span class="line"><span class="number">5.</span> sudo dd <span class="keyword">if</span>=<span class="regexp">/path/</span>*.iso of=<span class="regexp">/dev/</span>sdb</span><br><span class="line"><span class="string">ps:</span> of=<span class="regexp">/dev/</span>sdb 与<span class="regexp">/dev/</span>sdb1无关</span><br><span class="line">    u盘如果以前做过启动盘（利用大白菜，毛猴桃</span><br><span class="line">	等工具），必须利用ud分区工具删除分区</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/06/linux-reinstall/" data-id="cjdy2pjun0036h5nmmofopsax" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux-reinstall/">linux_reinstall</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python-install" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/04/python-install/" class="article-date">
+  <time datetime="2017-12-04T15:29:53.000Z" itemprop="datePublished">2017-12-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/04/python-install/">Python-install</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>. wget http<span class="variable">s:</span>//www.<span class="keyword">python</span>.org/ftp/<span class="keyword">python</span>/<span class="number">3.6</span>.<span class="number">3</span>/Python-<span class="number">3.6</span>.<span class="number">3</span>.tar.xz</span><br><span class="line"><span class="number">2</span>. tar -xvf Python-<span class="number">3.6</span>.<span class="number">3</span>.tar.xz /usr/local</span><br><span class="line"><span class="number">3</span>. <span class="keyword">cd</span> /usr/local/ Python-<span class="number">3.6</span>.<span class="number">3</span></span><br><span class="line"><span class="number">4</span>. ./configure</span><br><span class="line"><span class="number">5</span>. <span class="keyword">make</span></span><br><span class="line"><span class="number">6</span>. <span class="keyword">make</span> install</span><br><span class="line"><span class="number">7</span>. <span class="keyword">cd</span> /usr/bin </span><br><span class="line"><span class="number">8</span>. sudo <span class="keyword">ln</span> -s /usr/local/bin/<span class="keyword">python3</span> <span class="keyword">python</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/04/python-install/" data-id="cjdy2pjv8003wh5nmj7j2i4r4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python-install/">python_install</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-javascript-object" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/03/javascript-object/" class="article-date">
+  <time datetime="2017-12-03T15:46:51.000Z" itemprop="datePublished">2017-12-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/03/javascript-object/">JavaScript</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> Object_Oriented Programming (oop)</span><br><span class="line">	every thing is <span class="built_in">Object</span>;</span><br><span class="line"><span class="number">2.</span> create object</span><br><span class="line">	a&gt; <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> &#123;name,age&#125;</span><br><span class="line">	&#125; </span><br><span class="line">	</span><br><span class="line">	<span class="keyword">var</span> person = Person(<span class="string">'xujianhua'</span>,<span class="number">27</span>);</span><br><span class="line">	person.name = <span class="string">'xujianhua'</span>;</span><br><span class="line">	</span><br><span class="line">	b&gt; <span class="function"><span class="keyword">function</span> <span class="title">Person</span> (<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">		<span class="keyword">this</span>.age = age;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//must used new </span></span><br><span class="line">	<span class="keyword">var</span> person = <span class="keyword">new</span> Person(<span class="string">'xujianhua'</span>,<span class="number">27</span>);</span><br><span class="line">	</span><br><span class="line">	c&gt; <span class="keyword">var</span> person = &#123;<span class="attribute">name</span>: <span class="string">'xujianhua'</span>,<span class="attribute">age</span>:<span class="number">27</span>);</span><br><span class="line">	d&gt; <span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>;</span><br><span class="line">	person.name = <span class="string">'xujianhua'</span>;</span><br><span class="line">	person.age = <span class="number">27</span>;</span><br><span class="line">	</span><br><span class="line">	d&gt; <span class="keyword">var</span> person1 = <span class="built_in">Object</span>.create(person);</span><br><span class="line"><span class="number">3.</span> javascript 是基于原型的语言 prototype-based</span><br><span class="line">	原型链</span><br><span class="line">	每一个<span class="built_in">Object</span>,都有constructor (有的<span class="built_in">Object</span></span><br><span class="line">	定义以constructot 形式展现）基于原型的属性</span><br><span class="line">	是可以被继承的，基于<span class="keyword">this</span>的属性不能被继承</span><br><span class="line"><span class="number">4.</span> <span class="built_in">Function</span> 方法也是一种<span class="built_in">Object</span>;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/12/03/javascript-object/" data-id="cjdy2pjum0034h5nm8didy86z" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-javascript-basic" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/12/02/javascript-basic/" class="article-date">
@@ -88,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/02/javascript-basic/" data-id="cjcxf20j80000lenmnnkmo7a3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/12/02/javascript-basic/" data-id="cjdy2pjui002xh5nm8z8zu1rg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-basic/">javascript_basic</a></li></ul>
@@ -127,7 +322,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/30/linux-cmd/" data-id="cjcxen9dd002xnwnmhdcpawsg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/30/linux-cmd/" data-id="cjdy2pjuk002zh5nm8nfo9qql" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux-cmd/">linux_cmd</a></li></ul>
@@ -166,7 +361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/30/Linux-cmd/" data-id="cjcxen9az0001nwnm0rnotj67" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/30/Linux-cmd/" data-id="cjdy2pjrq0001h5nmq5xjk6n7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux-cmd/">linux_cmd</a></li></ul>
@@ -205,7 +400,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/29/net_http-status/" data-id="cjcxen9dh0036nwnmwiexl9xe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/29/net_http-status/" data-id="cjdy2pjuq003bh5nmmgr613o1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/net-http-status/">net_http_status</a></li></ul>
@@ -244,219 +439,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/26/mysql-backup/" data-id="cjcxen9dg0034nwnmuqnn9fw0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/26/mysql-backup/" data-id="cjdy2pjul0031h5nm5xgblz60" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database-mysql-backup/">database_mysql_backup</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-database-mysql-backup" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/26/database-mysql-backup/" class="article-date">
-  <time datetime="2017-11-26T11:43:15.000Z" itemprop="datePublished">2017-11-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/26/database-mysql-backup/">mysql-backup</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>. 进行备份</span><br><span class="line">	mysqldump -u root -<span class="selector-tag">p</span> database_name &gt; backup.sql</span><br><span class="line"><span class="number">2</span>. 导入备份</span><br><span class="line">　　　　mysql -u root -<span class="selector-tag">p</span> database_name &lt; backup.sql</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/26/database-mysql-backup/" data-id="cjcxen9cj001tnwnmss8qt429" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database-mysql-backup/">database_mysql_backup</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-database-mysql-install" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/26/database-mysql-install/" class="article-date">
-  <time datetime="2017-11-26T06:53:04.000Z" itemprop="datePublished">2017-11-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/26/database-mysql-install/">mysql_install</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 下载压缩包</span><br><span class="line">  cd <span class="regexp">/usr/</span>local/</span><br><span class="line">  wget <span class="string">https:</span><span class="comment">//dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.38-linux-glibc2.12-x86_64.tar.gz</span></span><br><span class="line">  tar -xvf mysql<span class="number">-5.6</span><span class="number">.38</span>-linux-glibc2<span class="number">.12</span>-x86_64.tar.gz</span><br><span class="line">  rm -rf mysql<span class="number">-5.6</span><span class="number">.38</span>-linux-glibc2<span class="number">.12</span>-x86_64.tar.gz</span><br><span class="line"><span class="number">2.</span> 检查mysql组的存在</span><br><span class="line">  groups mysql</span><br><span class="line">  如果沒有 mysql 则添加组　mysql组</span><br><span class="line">　groupadd mysql</span><br><span class="line">  useradd -r -g mysql mysql</span><br><span class="line"><span class="number">3.</span> 重新命名</span><br><span class="line">　mv mysql<span class="number">-5.6</span><span class="number">.38</span>-linux-glibc2<span class="number">.12</span>-x86_64 mysql</span><br><span class="line"><span class="number">4.</span> 改变mysql的拥有者和组属性</span><br><span class="line">  cd mysql</span><br><span class="line">  chown <span class="string">root:</span>root ./</span><br><span class="line">  chown <span class="string">mysql:</span>mysql data</span><br><span class="line"><span class="number">5.</span> 启动server</span><br><span class="line">   .<span class="regexp">/scripts/</span>mysql_install_db</span><br><span class="line">   .<span class="regexp">/bin/</span>mysqladmin -u root -h xujianhua-ThinkPad-T450 -p password</span><br><span class="line">  .suport_files<span class="regexp">/mysql.server start /</span>/启动mysql    </span><br><span class="line">   如果失败查看是否已经有运行的进程</span><br><span class="line">	ps -aux | grep mysql</span><br><span class="line"></span><br><span class="line">  .<span class="regexp">/bin/</span>mysqladmin -u root -p <span class="comment">//初始化密码请记住密码</span></span><br><span class="line"><span class="number">6.</span> 添加到service </span><br><span class="line"> cp support_files<span class="regexp">/mysql.server /</span>etc/init.d</span><br><span class="line"> svf-rc-conf <span class="comment">//查看服务的运行情况</span></span><br><span class="line"> serive mysqld start</span><br><span class="line"><span class="number">7.</span> 登陆</span><br><span class="line">　.<span class="regexp">/bin/</span>mysql -u root -p</span><br><span class="line"><span class="number">8.</span> 配置环境变量</span><br><span class="line">　vi <span class="regexp">/etc/</span>profile</span><br><span class="line">  添加一下内容</span><br><span class="line">　export PATH=<span class="string">$PATH:</span><span class="regexp">/usr/</span>localmysql/bin</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/26/database-mysql-install/" data-id="cjcxen9ck001vnwnmrlagiwdp" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database-mysql-install/">database_mysql_install</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-mysql-install" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/26/mysql-install/" class="article-date">
-  <time datetime="2017-11-26T06:53:04.000Z" itemprop="datePublished">2017-11-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/26/mysql-install/">mysql_install</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 下载压缩包</span><br><span class="line">  cd <span class="regexp">/usr/</span>local/</span><br><span class="line">  wget <span class="string">https:</span><span class="comment">//dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.38-linux-glibc2.12-x86_64.tar.gz</span></span><br><span class="line">  tar -xvf mysql<span class="number">-5.6</span><span class="number">.38</span>-linux-glibc2<span class="number">.12</span>-x86_64.tar.gz</span><br><span class="line">  rm -rf mysql<span class="number">-5.6</span><span class="number">.38</span>-linux-glibc2<span class="number">.12</span>-x86_64.tar.gz</span><br><span class="line"><span class="number">2.</span> 检查mysql组的存在</span><br><span class="line">  groups mysql</span><br><span class="line">  如果沒有 mysql 则添加组　mysql组</span><br><span class="line">　groupadd mysql</span><br><span class="line">  useradd -r -g mysql mysql</span><br><span class="line"><span class="number">3.</span> 重新命名</span><br><span class="line">　mv mysql<span class="number">-5.6</span><span class="number">.38</span>-linux-glibc2<span class="number">.12</span>-x86_64 mysql</span><br><span class="line"><span class="number">4.</span> 改变mysql的拥有者和组属性</span><br><span class="line">  cd mysql</span><br><span class="line">  chown <span class="string">root:</span>root ./</span><br><span class="line">  chown <span class="string">mysql:</span>mysql data</span><br><span class="line"><span class="number">5.</span> 启动server</span><br><span class="line">   .<span class="regexp">/scripts/</span>mysql_install_db</span><br><span class="line">   .<span class="regexp">/bin/</span>mysqladmin -u root -h xujianhua-ThinkPad-T450 -p password</span><br><span class="line">  .suport_files<span class="regexp">/mysql.server start /</span>/启动mysql    </span><br><span class="line">   如果失败查看是否已经有运行的进程</span><br><span class="line">	ps -aux | grep mysql</span><br><span class="line"></span><br><span class="line">  .<span class="regexp">/bin/</span>mysqladmin -u root -p <span class="comment">//初始化密码请记住密码</span></span><br><span class="line"><span class="number">6.</span> 添加到service </span><br><span class="line"> cp support_files<span class="regexp">/mysql.server /</span>etc/init.d</span><br><span class="line"> svf-rc-conf <span class="comment">//查看服务的运行情况</span></span><br><span class="line"> serive mysqld start</span><br><span class="line"><span class="number">7.</span> 登陆</span><br><span class="line">　.<span class="regexp">/bin/</span>mysql -u root -p</span><br><span class="line"><span class="number">8.</span> 配置环境变量</span><br><span class="line">　vi <span class="regexp">/etc/</span>profile</span><br><span class="line">  添加一下内容</span><br><span class="line">　export PATH=<span class="string">$PATH:</span><span class="regexp">/usr/</span>localmysql/bin</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/26/mysql-install/" data-id="cjcxen9df0031nwnmwttm5kjz" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database-mysql-install/">database_mysql_install</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-ssh-study" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/22/ssh-study/" class="article-date">
-  <time datetime="2017-11-22T14:37:52.000Z" itemprop="datePublished">2017-11-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/22/ssh-study/">ssh-study</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">ssh 远程登陆，基于c/s 架构</span><br><span class="line">　</span><br><span class="line">ssh 常用命令</span><br><span class="line">	ssh user@ip -p</span><br><span class="line"></span><br><span class="line">$ ssh user@host <span class="string">'mkdir -p .ssh &amp;&amp; cat &gt;&gt; .ssh/authorized_keys'</span> &lt; ~<span class="regexp">/.ssh/id</span>_rsa.pub</span><br><span class="line">‘mkdir -p .ssh &amp;&amp; cat <span class="meta">&gt;&gt; </span>.sh/authorized_keys’是登陆之后执行的</span><br><span class="line">scp</span><br><span class="line"> 复制本地的文件到远程服务器</span><br><span class="line">	scp file user@remote_ip<span class="symbol">:/path</span></span><br><span class="line"> 复制本地文件夹到远程服务器</span><br><span class="line">	scp -r dir user@remote_ip<span class="symbol">:/path</span></span><br><span class="line"></span><br><span class="line"> 复制远程文件到本地</span><br><span class="line">	scp user@remote_ip<span class="symbol">:/path/file</span> /local_path</span><br><span class="line"> 复制远程文件夹到本地</span><br><span class="line">	scp -r user@remote_ip<span class="symbol">:/path/dir</span> /local_path</span><br><span class="line"></span><br><span class="line"> scp 选项</span><br><span class="line">	－P 端口</span><br><span class="line">	</span><br><span class="line">ssh-copy-id user@remote_address </span><br><span class="line">	复制本地的.ssh/id_rsa.pub 到远端的.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/22/ssh-study/" data-id="cjcxen9dx003rnwnmc2xz3vpc" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh-cmd/">ssh_cmd</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-npm-study" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/21/npm-study/" class="article-date">
-  <time datetime="2017-11-21T10:25:12.000Z" itemprop="datePublished">2017-11-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/21/npm-study/">npm-study</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="npm-简介"><a href="#npm-简介" class="headerlink" title="npm 简介"></a>npm 简介</h1><p>npm 可以使js开发者分享和重利用代码更为容易，并且更新要分享的代码也更为容易</p>
-<h1 id="package-json-的使用"><a href="#package-json-的使用" class="headerlink" title="package.json　的使用"></a>package.json　的使用</h1><p>npm init 创建一个package.json 文件<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	<span class="attr">"name"</span> : <span class="string">"project_name"</span>,</span><br><span class="line">	<span class="attr">"version"</span> : <span class="string">"1.0.0"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="npm-常用命令"><a href="#npm-常用命令" class="headerlink" title="npm 常用命令"></a>npm 常用命令</h1><p>npm init –yes 创建一个默认的package.json<br><figure class="highlight clojure"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"react_study"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="string">"description"</span>: <span class="string">"This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)."</span>,</span><br><span class="line">  <span class="string">"main"</span>: <span class="string">"index.js"</span>,</span><br><span class="line">  <span class="string">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"accepts"</span>: <span class="string">"^1.3.4"</span>,</span><br><span class="line">    <span class="string">"acorn"</span>: <span class="string">"^4.0.13"</span>,</span><br><span class="line">    <span class="string">"acorn-dynamic-import"</span>: <span class="string">"^2.0.2"</span>,</span><br><span class="line">    <span class="string">"address"</span>: <span class="string">"^1.0.3"</span>,</span><br><span class="line">    <span class="string">"ajv"</span>: <span class="string">"^5.3.0"</span>,</span><br><span class="line">    ....</span><br><span class="line"> </span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"devDependencies"</span>: &#123;&#125;,</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"keywords"</span>: [],</span><br><span class="line">  <span class="string">"author"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="string">"license"</span>: <span class="string">"ISC"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>npm set init.author.email “xujianhuaap@gmail.com”<br>npm set init.author.name “skullmind”<br>npm set init.license “MIT”<br>npm install <package_name> –save //添加新的依赖包<br>npm publish <package_name> –tag beta –access public<br>npm install <package_name> –save-dev //添加开发依赖包<br>npm update<br>npm outdated //查看过时的包<br>npm uninstall <package_name> –save//移除本地对应的包并重package.json中移除</package_name></package_name></package_name></package_name></p>
-<h1 id="npm-版本管理"><a href="#npm-版本管理" class="headerlink" title="npm　版本管理"></a>npm　版本管理</h1><p>npm 遵从语义版本原则（SemanticVersioning)</p>
-<ol>
-<li>bug修复和次要更改，增加x.y.z 中的z</li>
-<li>新特性打破现存特性的　增加x.y.z 中的ｙ</li>
-<li>重大打破向后兼容的　增加x.y.z中的</li>
-</ol>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">^<span class="number">1.2</span><span class="meta">.3</span> := &gt;=<span class="number">1.2</span><span class="meta">.3</span> &lt;<span class="number">2.0</span><span class="meta">.0</span></span><br><span class="line">^<span class="number">0.2</span><span class="meta">.3</span> := &gt;=<span class="number">0.2</span><span class="meta">.3</span> &lt;<span class="number">0.3</span><span class="meta">.0</span></span><br><span class="line">^<span class="number">0.0</span><span class="meta">.4</span> := &gt;=<span class="number">0.0</span><span class="meta">.4</span> &lt;<span class="number">0.0</span><span class="meta">.5</span></span><br><span class="line">^允许化不改变，最左边非零数字</span><br><span class="line"></span><br><span class="line">～允许补丁级别变化</span><br><span class="line">～<span class="number">0.2</span><span class="meta">.3</span> := &gt;= <span class="number">0.2</span><span class="meta">.3</span> &lt;<span class="number">0.3</span><span class="meta">.0</span></span><br><span class="line">~ <span class="number">1.2</span><span class="meta">.3</span> := &gt;= <span class="number">1.2</span><span class="meta">.3</span> &lt;<span class="number">1.2</span><span class="meta">.4</span></span><br></pre></td></tr></table></figure>
-<p>npm install <package_name>@<version range=""> –save</version></package_name></p>
-<h1 id="npm-scope"><a href="#npm-scope" class="headerlink" title="npm scope"></a>npm scope</h1><p>@scope/project_name<br>npm init –scope=scope // package.json name字段会添加scope<br>npm config set scope username //不建议用</p>
-<h1 id="npm-运行机制"><a href="#npm-运行机制" class="headerlink" title="npm 运行机制"></a>npm 运行机制</h1><h2 id="包和模块"><a href="#包和模块" class="headerlink" title="包和模块"></a>包和模块</h2><p>包是由package.json 描述的文件和目录，具体包括一下种类<br>a) 一个文件夹包含package.json<br>b) 一个包含a)的压缩包<br>c) 一个url 指向b)<br>d) 一个<name> @ <version> 以c)注册到仓库<br>e) 一个<name>@<tag> 指向d)<br>f) 一个<name> 有一个最近的tag 指向e)<br>g) 一个可以产生a)的git url </name></tag></name></version></name></p>
-<p>模块是在Node.js代码中可以通过require()加载的目录或js文件<br>a) 一个含有main字段的package.json 文件的文件夹<br>b) 一个文件夹含有index.js<br>c) 一个js文件</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/21/npm-study/" data-id="cjcxen9ds003nnwnmlq37okip" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm-cmd/">npm_cmd</a></li></ul>
 
     </footer>
   </div>
@@ -481,7 +467,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-proguard/">android proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-aidl/">android_application_aidl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-content-provider/">android_application_content_provider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-customer-view/">android_application_customer_view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-event-dispatch/">android_application_event_dispatch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-handler/">android_application_handler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-long-running-operation/">android_application_long_running_operation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-parcelable/">android_application_parcelable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-security/">android_application_security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-threadlocal/">android_application_threadlocal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-binder/">android_framework_binder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-init-process/">android_framework_init_process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-launch-activity/">android_framework_launch_activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-servermanager/">android_framework_servermanager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-set-content-view/">android_framework_set_content_view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-view-root-iml/">android_framework_view_root_iml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bat/">bat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-bitflag/">c_bitflag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-object-releation/">c_object_releation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-operator/">c_operator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-flex-box/">css_flex_box</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-accurancy/">data_accurancy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql/">database_mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql-backup/">database_mysql_backup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql-install/">database_mysql_install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql-table/">database_mysql_table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-mode-mvp/">design_mode_mvp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go-beego/">go_beego</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-proguard/">gradle_proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-project/">gradle_project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-study/">gradle_study</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-task/">gradle_task</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-concurrent/">java_concurrent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-hash-index/">java_hash_index</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm/">java_jvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm-class-struct/">java_jvm_class_struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm-gc/">java_jvm_gc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-thread/">java_thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-basic/">javascript_basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-cmd/">linux_cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-reinstall/">linux_reinstall</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-http-status/">net_http_status</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-tls/">net_tls</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-cache/">nginx_cache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-https/">nginx_https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-loader-balance/">nginx_loader_balance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-reverse-proxy/">nginx_reverse-proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-server/">nginx_server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-cmd/">npm_cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-install/">python_install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reflect/">reflect</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-cmd/">ssh_cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svg-basic/">svg_basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool-svn/">tool_svn</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm-sort-order/">algorithm_sort_order</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-proguard/">android proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-aidl/">android_application_aidl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-content-provider/">android_application_content_provider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-customer-view/">android_application_customer_view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-event-dispatch/">android_application_event_dispatch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-handler/">android_application_handler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-long-running-operation/">android_application_long_running_operation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-parcelable/">android_application_parcelable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-security/">android_application_security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-threadlocal/">android_application_threadlocal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-binder/">android_framework_binder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-init-process/">android_framework_init_process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-launch-activity/">android_framework_launch_activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-servermanager/">android_framework_servermanager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-set-content-view/">android_framework_set_content_view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-view-root-iml/">android_framework_view_root_iml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bat/">bat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-bitflag/">c_bitflag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-object-releation/">c_object_releation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-operator/">c_operator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-flex-box/">css_flex_box</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-accurancy/">data_accurancy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql/">database_mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql-backup/">database_mysql_backup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql-install/">database_mysql_install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql-table/">database_mysql_table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-mode-mvp/">design_mode_mvp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go-beego/">go_beego</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-proguard/">gradle_proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-project/">gradle_project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-study/">gradle_study</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-task/">gradle_task</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-concurrent/">java_concurrent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-hash-index/">java_hash_index</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm/">java_jvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm-class-struct/">java_jvm_class_struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm-gc/">java_jvm_gc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-thread/">java_thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascipt-object/">javascipt_object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-basic/">javascript_basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-function/">javascript_function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-typescript/">javascript_typescript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-cmd/">linux_cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-reinstall/">linux_reinstall</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-http-status/">net_http_status</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-tls/">net_tls</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-cache/">nginx_cache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-https/">nginx_https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-loader-balance/">nginx_loader_balance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-reverse-proxy/">nginx_reverse-proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-server/">nginx_server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-cmd/">npm_cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proto-buf/">proto_buf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-install/">python_install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reflect/">reflect</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-cmd/">ssh_cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svg-basic/">svg_basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool-svn/">tool_svn</a></li></ul>
     </div>
   </div>
 
@@ -491,7 +477,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/android-proguard/" style="font-size: 10px;">android proguard</a> <a href="/tags/android-application-aidl/" style="font-size: 10px;">android_application_aidl</a> <a href="/tags/android-application-content-provider/" style="font-size: 10px;">android_application_content_provider</a> <a href="/tags/android-application-customer-view/" style="font-size: 10px;">android_application_customer_view</a> <a href="/tags/android-application-event-dispatch/" style="font-size: 10px;">android_application_event_dispatch</a> <a href="/tags/android-application-handler/" style="font-size: 10px;">android_application_handler</a> <a href="/tags/android-application-long-running-operation/" style="font-size: 10px;">android_application_long_running_operation</a> <a href="/tags/android-application-parcelable/" style="font-size: 10px;">android_application_parcelable</a> <a href="/tags/android-application-security/" style="font-size: 10px;">android_application_security</a> <a href="/tags/android-application-threadlocal/" style="font-size: 10px;">android_application_threadlocal</a> <a href="/tags/android-framework-binder/" style="font-size: 20px;">android_framework_binder</a> <a href="/tags/android-framework-init-process/" style="font-size: 10px;">android_framework_init_process</a> <a href="/tags/android-framework-launch-activity/" style="font-size: 13.33px;">android_framework_launch_activity</a> <a href="/tags/android-framework-servermanager/" style="font-size: 10px;">android_framework_servermanager</a> <a href="/tags/android-framework-set-content-view/" style="font-size: 10px;">android_framework_set_content_view</a> <a href="/tags/android-framework-view-root-iml/" style="font-size: 10px;">android_framework_view_root_iml</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/c-bitflag/" style="font-size: 10px;">c_bitflag</a> <a href="/tags/c-object-releation/" style="font-size: 13.33px;">c_object_releation</a> <a href="/tags/c-operator/" style="font-size: 10px;">c_operator</a> <a href="/tags/css-flex-box/" style="font-size: 10px;">css_flex_box</a> <a href="/tags/data-accurancy/" style="font-size: 10px;">data_accurancy</a> <a href="/tags/database-mysql/" style="font-size: 16.67px;">database_mysql</a> <a href="/tags/database-mysql-backup/" style="font-size: 13.33px;">database_mysql_backup</a> <a href="/tags/database-mysql-install/" style="font-size: 13.33px;">database_mysql_install</a> <a href="/tags/database-mysql-table/" style="font-size: 10px;">database_mysql_table</a> <a href="/tags/design-mode-mvp/" style="font-size: 10px;">design_mode_mvp</a> <a href="/tags/go-beego/" style="font-size: 10px;">go_beego</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/gradle-proguard/" style="font-size: 10px;">gradle_proguard</a> <a href="/tags/gradle-project/" style="font-size: 10px;">gradle_project</a> <a href="/tags/gradle-study/" style="font-size: 10px;">gradle_study</a> <a href="/tags/gradle-task/" style="font-size: 10px;">gradle_task</a> <a href="/tags/java-concurrent/" style="font-size: 10px;">java_concurrent</a> <a href="/tags/java-hash-index/" style="font-size: 10px;">java_hash_index</a> <a href="/tags/java-jvm/" style="font-size: 10px;">java_jvm</a> <a href="/tags/java-jvm-class-struct/" style="font-size: 10px;">java_jvm_class_struct</a> <a href="/tags/java-jvm-gc/" style="font-size: 10px;">java_jvm_gc</a> <a href="/tags/java-thread/" style="font-size: 10px;">java_thread</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/javascript-basic/" style="font-size: 10px;">javascript_basic</a> <a href="/tags/linux-cmd/" style="font-size: 13.33px;">linux_cmd</a> <a href="/tags/linux-reinstall/" style="font-size: 10px;">linux_reinstall</a> <a href="/tags/net-http-status/" style="font-size: 10px;">net_http_status</a> <a href="/tags/net-tls/" style="font-size: 10px;">net_tls</a> <a href="/tags/nginx-cache/" style="font-size: 10px;">nginx_cache</a> <a href="/tags/nginx-https/" style="font-size: 10px;">nginx_https</a> <a href="/tags/nginx-loader-balance/" style="font-size: 10px;">nginx_loader_balance</a> <a href="/tags/nginx-reverse-proxy/" style="font-size: 10px;">nginx_reverse-proxy</a> <a href="/tags/nginx-server/" style="font-size: 16.67px;">nginx_server</a> <a href="/tags/npm-cmd/" style="font-size: 10px;">npm_cmd</a> <a href="/tags/python-install/" style="font-size: 10px;">python_install</a> <a href="/tags/reflect/" style="font-size: 10px;">reflect</a> <a href="/tags/ssh-cmd/" style="font-size: 10px;">ssh_cmd</a> <a href="/tags/svg-basic/" style="font-size: 13.33px;">svg_basic</a> <a href="/tags/test/" style="font-size: 13.33px;">test</a> <a href="/tags/tool-svn/" style="font-size: 10px;">tool_svn</a>
+      <a href="/tags/algorithm-sort-order/" style="font-size: 10px;">algorithm_sort_order</a> <a href="/tags/android-proguard/" style="font-size: 10px;">android proguard</a> <a href="/tags/android-application-aidl/" style="font-size: 10px;">android_application_aidl</a> <a href="/tags/android-application-content-provider/" style="font-size: 10px;">android_application_content_provider</a> <a href="/tags/android-application-customer-view/" style="font-size: 10px;">android_application_customer_view</a> <a href="/tags/android-application-event-dispatch/" style="font-size: 10px;">android_application_event_dispatch</a> <a href="/tags/android-application-handler/" style="font-size: 10px;">android_application_handler</a> <a href="/tags/android-application-long-running-operation/" style="font-size: 10px;">android_application_long_running_operation</a> <a href="/tags/android-application-parcelable/" style="font-size: 10px;">android_application_parcelable</a> <a href="/tags/android-application-security/" style="font-size: 10px;">android_application_security</a> <a href="/tags/android-application-threadlocal/" style="font-size: 10px;">android_application_threadlocal</a> <a href="/tags/android-framework-binder/" style="font-size: 20px;">android_framework_binder</a> <a href="/tags/android-framework-init-process/" style="font-size: 10px;">android_framework_init_process</a> <a href="/tags/android-framework-launch-activity/" style="font-size: 13.33px;">android_framework_launch_activity</a> <a href="/tags/android-framework-servermanager/" style="font-size: 10px;">android_framework_servermanager</a> <a href="/tags/android-framework-set-content-view/" style="font-size: 10px;">android_framework_set_content_view</a> <a href="/tags/android-framework-view-root-iml/" style="font-size: 10px;">android_framework_view_root_iml</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/c-bitflag/" style="font-size: 10px;">c_bitflag</a> <a href="/tags/c-object-releation/" style="font-size: 13.33px;">c_object_releation</a> <a href="/tags/c-operator/" style="font-size: 10px;">c_operator</a> <a href="/tags/css-flex-box/" style="font-size: 10px;">css_flex_box</a> <a href="/tags/data-accurancy/" style="font-size: 10px;">data_accurancy</a> <a href="/tags/database-mysql/" style="font-size: 16.67px;">database_mysql</a> <a href="/tags/database-mysql-backup/" style="font-size: 13.33px;">database_mysql_backup</a> <a href="/tags/database-mysql-install/" style="font-size: 13.33px;">database_mysql_install</a> <a href="/tags/database-mysql-table/" style="font-size: 10px;">database_mysql_table</a> <a href="/tags/design-mode-mvp/" style="font-size: 10px;">design_mode_mvp</a> <a href="/tags/go-beego/" style="font-size: 10px;">go_beego</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/gradle-proguard/" style="font-size: 10px;">gradle_proguard</a> <a href="/tags/gradle-project/" style="font-size: 10px;">gradle_project</a> <a href="/tags/gradle-study/" style="font-size: 10px;">gradle_study</a> <a href="/tags/gradle-task/" style="font-size: 10px;">gradle_task</a> <a href="/tags/java-concurrent/" style="font-size: 10px;">java_concurrent</a> <a href="/tags/java-hash-index/" style="font-size: 10px;">java_hash_index</a> <a href="/tags/java-jvm/" style="font-size: 10px;">java_jvm</a> <a href="/tags/java-jvm-class-struct/" style="font-size: 10px;">java_jvm_class_struct</a> <a href="/tags/java-jvm-gc/" style="font-size: 10px;">java_jvm_gc</a> <a href="/tags/java-thread/" style="font-size: 10px;">java_thread</a> <a href="/tags/javascipt-object/" style="font-size: 10px;">javascipt_object</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/javascript-basic/" style="font-size: 10px;">javascript_basic</a> <a href="/tags/javascript-function/" style="font-size: 10px;">javascript_function</a> <a href="/tags/javascript-typescript/" style="font-size: 10px;">javascript_typescript</a> <a href="/tags/linux-cmd/" style="font-size: 13.33px;">linux_cmd</a> <a href="/tags/linux-reinstall/" style="font-size: 10px;">linux_reinstall</a> <a href="/tags/net-http-status/" style="font-size: 10px;">net_http_status</a> <a href="/tags/net-tls/" style="font-size: 10px;">net_tls</a> <a href="/tags/nginx-cache/" style="font-size: 10px;">nginx_cache</a> <a href="/tags/nginx-https/" style="font-size: 10px;">nginx_https</a> <a href="/tags/nginx-loader-balance/" style="font-size: 10px;">nginx_loader_balance</a> <a href="/tags/nginx-reverse-proxy/" style="font-size: 10px;">nginx_reverse-proxy</a> <a href="/tags/nginx-server/" style="font-size: 16.67px;">nginx_server</a> <a href="/tags/npm-cmd/" style="font-size: 10px;">npm_cmd</a> <a href="/tags/proto-buf/" style="font-size: 10px;">proto_buf</a> <a href="/tags/python-install/" style="font-size: 10px;">python_install</a> <a href="/tags/reflect/" style="font-size: 10px;">reflect</a> <a href="/tags/ssh-cmd/" style="font-size: 10px;">ssh_cmd</a> <a href="/tags/svg-basic/" style="font-size: 13.33px;">svg_basic</a> <a href="/tags/test/" style="font-size: 13.33px;">test</a> <a href="/tags/tool-svn/" style="font-size: 10px;">tool_svn</a>
     </div>
   </div>
 
@@ -500,7 +486,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li></ul>
     </div>
   </div>
 
@@ -513,23 +499,23 @@
       <ul>
         
           <li>
-            <a href="/2018/01/24/java-hash-index/">java-hash-index</a>
+            <a href="/2018/02/11/algorithm-basic/">algorithm-basic</a>
           </li>
         
           <li>
-            <a href="/2018/01/19/android-threadlocal/">android-threadlocal</a>
+            <a href="/2018/02/05/protocol-buffer/">protocol_buffer</a>
           </li>
         
           <li>
-            <a href="/2018/01/17/android-application-event-dispatch/">android-event-dispatch</a>
+            <a href="/2018/02/01/javascript-typescript/">javascript-typescript</a>
           </li>
         
           <li>
-            <a href="/2018/01/15/java-study-jvm-class/">java-study-class</a>
+            <a href="/2018/01/29/javascript-object-1/">javascript-object</a>
           </li>
         
           <li>
-            <a href="/2017/12/29/svg-study-1/">svg_study</a>
+            <a href="/2018/01/27/javascript-function/">javascript-function</a>
           </li>
         
       </ul>

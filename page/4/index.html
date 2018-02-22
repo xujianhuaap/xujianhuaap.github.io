@@ -61,6 +61,201 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-nginx-study01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/15/nginx-study01/" class="article-date">
+  <time datetime="2017-11-15T09:25:22.000Z" itemprop="datePublished">2017-11-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/15/nginx-study01/">nginx-webserver</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">　<span class="number">1</span>&gt;WebServer</span><br><span class="line">  http&#123;</span><br><span class="line">      server&#123;</span><br><span class="line">   listen <span class="number">192.168</span>.<span class="number">23.74</span>:<span class="number">8080</span>;</span><br><span class="line">   server_name www.baidu.com baidu.com;</span><br><span class="line">   <span class="comment">#the rest server config</span></span><br><span class="line">&#125;</span><br><span class="line">  &#125;</span><br><span class="line"> server_name(指令）的参数可以是一个准确的名字（exact),泛型</span><br><span class="line">        （wildcard),正则（regular of perl syntax)。</span><br><span class="line">	　因次当有多个名字满足时候，按照一下顺序：</span><br><span class="line">	　a&gt; exact name</span><br><span class="line"> b&gt; wildcard name *.baidu.com baidu.*</span><br><span class="line"> c&gt; 正则的name ~(.com)$</span><br><span class="line"> 在没有server_name 匹配的情况下会有一个默认的default_server.</span><br><span class="line"></span><br><span class="line"> http&#123;</span><br><span class="line">    server&#123;</span><br><span class="line"> <span class="keyword">location</span> <span class="title">~/.html</span>?&#123;</span><br><span class="line">    root /data;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">location</span> <span class="title">/&#123;</span></span><br><span class="line"><span class="title">    proxy_pass</span> baidu.com;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">#返回错误码</span></span><br><span class="line"> <span class="keyword">location</span> <span class="title">/wrong</span>/url&#123;</span><br><span class="line">     return <span class="number">404</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="comment">#重新定向</span></span><br><span class="line">	　　　　 <span class="keyword">location</span> <span class="title">/users</span>/&#123;</span><br><span class="line">     rewrite ^/users/(.*)$  /show?/<span class="attr">user=</span>$<span class="number">1</span> break;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">location</span> <span class="title">/err</span>/ &#123;</span><br><span class="line">    err_page <span class="number">404</span> = <span class="number">301</span> http://baidu.com/err.html;</span><br><span class="line"> &#125; </span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> 一个<span class="keyword">location</span> <span class="title">上下文包含处理request</span>的指令集，提供一个静态文件或者传给代理服务器。</span><br><span class="line"> 重新定向的指令有一个选项　两个参数，第一个参数，正则必须匹配request url;第二个参数</span><br><span class="line"> 是替换后的url, 选项是一个标志　break(停止）last(继续）</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/15/nginx-study01/" data-id="cjdy2pjv7003vh5nmuidzpd2s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx-server/">nginx_server</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-nginx-study" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/14/nginx-study/" class="article-date">
+  <time datetime="2017-11-14T13:29:52.000Z" itemprop="datePublished">2017-11-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/14/nginx-study/">nginx-study</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">1&gt; </span>nginx 作为反向代理服务器</span><br><span class="line"><span class="meta">2&gt; </span>工作模型</span><br><span class="line">　　一个主进程和多个工作进程，主进程管理工作进程和读取配置。</span><br><span class="line">工作进程主要是处理Request，工作进程的数量，取决于配置文件(</span><br><span class="line">固定的或者与内核数目有关）</span><br><span class="line">　　配置文件为nginx.conf 位于/usr/local/nginx/conf</span><br><span class="line">/etc/nginx 或者　/usr/local/etc/nginx</span><br><span class="line"><span class="meta">3&gt; </span>nginx 常用命令</span><br><span class="line">nginx -s signal</span><br><span class="line">signal 可以是start stop(shutdown now) reload reopen quit(shut down gracefully)</span><br><span class="line"><span class="meta">4&gt; </span>配置文件</span><br><span class="line">配置文件通常由一系列的指令组成，可以分为简单的指令和block指令。</span><br><span class="line">http&#123;</span><br><span class="line">    server&#123;</span><br><span class="line">	 location / &#123;</span><br><span class="line">		root /data/ww;</span><br><span class="line">	 &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">http 是server 的上下文，server是location的上下文, root 是简单指令，location 是块指令。</span><br><span class="line"><span class="number">5</span>&gt;静态内容配置</span><br><span class="line">http&#123;</span><br><span class="line">    server&#123;</span><br><span class="line">	 location / &#123;</span><br><span class="line">		root /data/ww;</span><br><span class="line">	 &#125;</span><br><span class="line">	 location /images &#123;</span><br><span class="line">		root /data/images;</span><br><span class="line">	 &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">匹配request 的url 如果有多个合适匹配项，则匹配最长的。</span><br><span class="line"><span class="meta">6&gt; </span>简单的代理配置</span><br><span class="line">http&#123;</span><br><span class="line">    server&#123;</span><br><span class="line">	location /&#123;</span><br><span class="line">	    proxy_pass http://baidu.com;</span><br><span class="line">	&#125;</span><br><span class="line">        location ~\.(gif|jpg|png)$&#123;</span><br><span class="line">	    root /data/images;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">7&gt; </span>设置CGI代理设置</span><br><span class="line">http&#123;</span><br><span class="line">    server&#123;</span><br><span class="line">	location&#123;</span><br><span class="line">	    fastcgi_pass <span class="number">192.168</span>.<span class="number">23.78</span>:<span class="number">89</span>;</span><br><span class="line">	    fastcgi_param SCRIPT_NAME $document_root/$fast_cgi_scriptname;</span><br><span class="line">	    fastcgi_param QUERY_STRING $qury_string;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">由于nginx本身不支持调用外部服务器程序的功能，需要通过FastCgi来完成。</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/14/nginx-study/" data-id="cjdy2pjuy003nh5nm6hlagq9p" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx-server/">nginx_server</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-css-study" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/09/css-study/" class="article-date">
+  <time datetime="2017-11-09T13:17:18.000Z" itemprop="datePublished">2017-11-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/09/css-study/">css-study</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.弹性盒子模型</span><br><span class="line">	容器</span><br><span class="line">	<span class="attribute">display</span>: flex;<span class="comment">//弹性 none block inline flex</span></span><br><span class="line">	<span class="attribute">flex-direction</span>: row;<span class="comment">//row row-reverse column colum-reverse 子元素排列顺序</span></span><br><span class="line">	<span class="attribute">justify-content</span>: flex-start;<span class="comment">//flex-start flex-end space-around center </span></span><br><span class="line">	<span class="attribute">align-items</span>: flex-start;<span class="comment">//同上</span></span><br><span class="line">	<span class="attribute">flex-wrap</span>: wrap;<span class="comment">//wrap nowrap wrap-reverse</span></span><br><span class="line">	<span class="number">1</span>&gt; nowrap 弹性容器为单行</span><br><span class="line">	<span class="number">2</span>&gt; wrap 在弹性子项溢出的部分会被放置到新行，子项内部会发生断行</span><br><span class="line">	<span class="number">3</span>&gt; wrap-reverse 反转wrap</span><br><span class="line">	子项</span><br><span class="line">	<span class="attribute">flex</span>: <span class="number">1</span>;<span class="comment">//弹性的比重比</span></span><br><span class="line"><span class="number">2</span>. 常识</span><br><span class="line">	<span class="number">1</span>&gt; block 元素　<span class="selector-tag">div</span> <span class="selector-tag">p</span> h</span><br><span class="line">	   inline 元素　<span class="selector-tag">a</span> span</span><br><span class="line">	<span class="number">2</span>&gt; 块元素自动对齐　<span class="attribute">margin-left</span>: auto;<span class="attribute">margin-right</span>: right;</span><br><span class="line">	<span class="number">3</span>&gt; 元素<span class="attribute">display</span>属性能够改变&lt;p style=<span class="string">'display: inline'</span>&gt;&lt;/p&gt;</span><br><span class="line"><span class="number">3</span>. 元素的定位属性</span><br><span class="line">	<span class="attribute">position</span>: static;<span class="comment">//static relative absolute fixed</span></span><br><span class="line">	<span class="number">1</span>&gt; static 情况下没有定位　不会受到<span class="attribute">top</span> bottom left right</span><br><span class="line">	<span class="number">2</span>&gt; fixed 相对于窗口位置不变</span><br><span class="line">	<span class="number">3</span>&gt; relative 相对其正常位置，受<span class="attribute">top</span> bottom let right 影响</span><br><span class="line">	<span class="number">4</span>&gt; absolute 相对与最近的绝对定位元素的位置</span><br><span class="line">            受<span class="attribute">bottom</span> let right 影响</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/09/css-study/" data-id="cjdy2pjte001jh5nmjy7su5j7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-flex-box/">css_flex_box</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-c-object-releation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/07/c-object-releation/" class="article-date">
+  <time datetime="2017-11-07T13:40:21.000Z" itemprop="datePublished">2017-11-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/07/c-object-releation/">C-Object</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1. 面向对象编程</span><br><span class="line">	分析对象之前的关系，主要有以下几种：</span><br><span class="line"><span class="meta">	1&gt;</span><span class="bash">has<span class="_">-a</span> composition 具体可以分为两种aggrevation(聚合关系) 和composition(组合关系）</span></span><br><span class="line">		组合关系例如树和树叶，一片树叶智能属于一棵树，树叶随着树的产生，也随着树的死亡而死亡，一片叶子是树的一部分。树叶的</span><br><span class="line">		的死亡，树并不会死亡。</span><br><span class="line">		聚合关系例如车和车轮，一个车必须有车轮，一个车轮可以安在不同的车辆上，车报废了该车轮不一定报废了；车轮爆了车不一</span><br><span class="line">		定报废。</span><br><span class="line"><span class="meta">	2&gt;</span><span class="bash">use<span class="_">-a</span> assotation 联系关系</span></span><br><span class="line">		战士和枪，独立率彼此存在，一个战士可以拥有多支枪，一只抢可以由许多战士使用；</span><br><span class="line"><span class="meta">	3&gt;</span><span class="bash">depends-on dependency 依赖关系</span></span><br><span class="line">		人和空气，人依赖于空气（单向关系），被依赖的人产生基于依赖者的需要，一旦被依赖者被破坏，依赖者将会丧失某个功能；</span><br><span class="line"><span class="meta">	4&gt;</span><span class="bash"> member container 包含关系</span></span><br><span class="line">		array 和item的关系</span><br><span class="line"><span class="meta">	5&gt;</span><span class="bash"> is<span class="_">-a</span> inherit 继承关系</span></span><br><span class="line">		父子关系，继承传代；</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/07/c-object-releation/" data-id="cjdy2pjt20019h5nmhd23lysf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-object-releation/">c_object_releation</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-c-object" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/07/c-object/" class="article-date">
+  <time datetime="2017-11-07T13:40:21.000Z" itemprop="datePublished">2017-11-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/07/c-object/">C-Object</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1. 面向对象编程</span><br><span class="line">	分析对象之前的关系，主要有以下几种：</span><br><span class="line"><span class="meta">	1&gt;</span><span class="bash">has<span class="_">-a</span> composition 具体可以分为两种aggrevation(聚合关系) 和composition(组合关系）</span></span><br><span class="line">		组合关系例如树和树叶，一片树叶智能属于一棵树，树叶随着树的产生，也随着树的死亡而死亡，一片叶子是树的一部分。树叶的</span><br><span class="line">		的死亡，树并不会死亡。</span><br><span class="line">		聚合关系例如车和车轮，一个车必须有车轮，一个车轮可以安在不同的车辆上，车报废了该车轮不一定报废了；车轮爆了车不一</span><br><span class="line">		定报废。</span><br><span class="line"><span class="meta">	2&gt;</span><span class="bash">use<span class="_">-a</span> assotation 联系关系</span></span><br><span class="line">		战士和枪，独立率彼此存在，一个战士可以拥有多支枪，一只抢可以由许多战士使用；</span><br><span class="line"><span class="meta">	3&gt;</span><span class="bash">depends-on dependency 依赖关系</span></span><br><span class="line">		人和空气，人依赖于空气（单向关系），被依赖的人产生基于依赖者的需要，一旦被依赖者被破坏，依赖者将会丧失某个功能；</span><br><span class="line"><span class="meta">	4&gt;</span><span class="bash"> member container 包含关系</span></span><br><span class="line">		array 和item的关系</span><br><span class="line"><span class="meta">	5&gt;</span><span class="bash"> is<span class="_">-a</span> inherit 继承关系</span></span><br><span class="line">		父子关系，继承传代；</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/07/c-object/" data-id="cjdy2pjsz0016h5nmji4c09yb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-object-releation/">c_object_releation</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-c-study-bitflag" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/11/03/c-study-bitflag/" class="article-date">
@@ -88,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/03/c-study-bitflag/" data-id="cjcxen9cc001hnwnml5xa7jal" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/03/c-study-bitflag/" data-id="cjdy2pjtd001hh5nmt8tuyda3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-bitflag/">c_bitflag</a></li></ul>
@@ -127,7 +322,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/01/android-test-espresso-1/" data-id="cjcxen9c00016nwnm9d1c8r1k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/01/android-test-espresso-1/" data-id="cjdy2pjt00017h5nmolmbitsm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
@@ -169,7 +364,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/01/android-test-espressco/" data-id="cjcxen9by0013nwnmisg7smak" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/01/android-test-espressco/" data-id="cjdy2pjsx0013h5nm5t9tnt9e" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
@@ -208,7 +403,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/13/database-mysql-04/" data-id="cjcxen9ci001rnwnme0afqf2q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/08/13/database-mysql-04/" data-id="cjdy2pjtm001rh5nmcuso4awf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database-mysql/">database_mysql</a></li></ul>
@@ -249,227 +444,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/16/database-mysql-03/" data-id="cjcxen9ch001pnwnmlc2vvjrc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/01/16/database-mysql-03/" data-id="cjdy2pjti001ph5nmws3g6wb6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database-mysql-table/">database_mysql_table</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-database-mysql-02" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/12/20/database-mysql-02/" class="article-date">
-  <time datetime="2016-12-20T08:45:53.000Z" itemprop="datePublished">2016-12-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/20/database-mysql-02/">mysql_study_2</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 数据类型</span><br><span class="line">a. 字符类型</span><br><span class="line">  char(<span class="number">8</span>) <span class="number">8</span>个字节 ‘a’： <span class="number">8</span>，’ab'：<span class="number">8</span></span><br><span class="line">  varchar 可变的字节数根据内容‘a’：<span class="number">2</span>，’ab':<span class="number">3</span></span><br><span class="line">b. 时间类型</span><br><span class="line">  <span class="built_in">year</span>: <span class="built_in">year</span>（<span class="number">2</span>)<span class="number">17</span>,<span class="number">16</span>； <span class="built_in">year</span>（<span class="number">4</span>)<span class="number">2017</span>,<span class="number">1917</span>；</span><br><span class="line">  <span class="built_in">date</span> datetime timestamp <span class="built_in">time</span> 是有关联的，它们的区别联系如下：</span><br><span class="line">  <span class="number">1</span>&gt;<span class="built_in">date</span> “YYYY-MM-DD” <span class="number">1000</span><span class="number">-01</span><span class="number">-01</span> <span class="keyword">to</span> <span class="number">9999</span><span class="number">-12</span><span class="number">-31</span></span><br><span class="line">    datetime <span class="string">"YYYY-MM-DD HH:MM:SS"</span></span><br><span class="line">    <span class="built_in">time</span>: 'HH:MM:SS' <span class="number">23</span>:<span class="number">59</span>:<span class="number">59</span></span><br><span class="line">    timestamp:可以表示日期和时刻 范围为 <span class="number">1970</span><span class="number">-01</span><span class="number">-01</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> <span class="number">2038</span><span class="number">-01</span><span class="number">-19</span> <span class="number">03</span>:<span class="number">14</span>：<span class="number">07</span> （UTC)</span><br><span class="line">  <span class="number">2</span>&gt;timestamp 会把当前时区的时间转成UTC 格林时间进行存储。</span><br></pre></td></tr></table></figure>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">2.mysql 常用命令</span><br><span class="line">1&gt; create  table <span class="keyword">if</span> <span class="keyword">not</span> exists tablename (</span><br><span class="line">  id int <span class="keyword">not</span> <span class="literal">null</span> auto_increment ,</span><br><span class="line">  name char (18) <span class="keyword">not</span> <span class="literal">null</span> ,</span><br><span class="line">  age tinyint<span class="built_in"> default </span>0,</span><br><span class="line">  insert_time timestamp<span class="built_in"> default </span>current_timestamp on update current_timestamp</span><br><span class="line">  primary key (id)</span><br><span class="line">  );</span><br><span class="line">  2&gt;</span><br><span class="line">  drop table tablename;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/20/database-mysql-02/" data-id="cjcxen9cg001nnwnmp09m95xr" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database-mysql/">database_mysql</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-go-beego-study" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/06/go-beego-study/" class="article-date">
-  <time datetime="2016-06-06T09:22:54.000Z" itemprop="datePublished">2016-06-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/06/go-beego-study/">go_beego_study</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. beego 基于MVC的Web后端开发框架---路由正则注册</span><br><span class="line"><span class="meta">  1&gt;</span><span class="bash"> <span class="string">"/user/:id"</span> 可以匹配 <span class="string">"/user/register"</span> 不能匹配 <span class="string">"/user"</span></span></span><br><span class="line"><span class="meta">  2&gt;</span><span class="bash"> <span class="string">"/user/:?id"</span> 可以匹配 <span class="string">"/user/register"</span> 也可以匹配<span class="string">"/user"</span></span></span><br><span class="line"><span class="meta">  3&gt;</span><span class="bash"> <span class="string">"/user/*"</span> 可以匹配<span class="string">"/user/register/uid"</span></span></span><br><span class="line"><span class="meta">  4&gt;</span><span class="bash"> <span class="string">"/user/*.*"</span>可以匹配<span class="string">"/user/register/hi.html"</span></span></span><br><span class="line"><span class="meta">  5&gt;</span><span class="bash"> <span class="string">"/user/:id[1-9]+"</span></span></span><br><span class="line"><span class="meta">  6&gt;</span><span class="bash"> <span class="string">"/user/:id[\w]+"</span></span></span><br></pre></td></tr></table></figure>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span>. <span class="keyword">beego </span>支持注解</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/06/06/go-beego-study/" data-id="cjcxen9cp001znwnmbfm1qgfv" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/go-beego/">go_beego</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-android-studio-proguard" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/04/29/android-studio-proguard/" class="article-date">
-  <time datetime="2016-04-29T02:24:55.000Z" itemprop="datePublished">2016-04-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/29/android-studio-proguard/">android-studio-proguard</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>proguard的简介</p>
-<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">1&gt; </span>proguard 主要的作用 混淆代码和压缩资源</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>proguard 的主要步骤</p>
-<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">1&gt; </span>shrinking step 侦测和移除无用的class 字段 方法</span><br><span class="line"><span class="number">2</span>&gt;optimization step 优化字节码</span><br><span class="line"><span class="number">3</span>&gt;obfuscation step  混淆代码</span><br><span class="line"><span class="number">4</span>&gt;preverification step 添加预认证信息（-target <span class="number">1.6</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>文件过滤字符</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1&gt;*  匹配不含目录分隔符的文件名的任何部分（<span class="keyword">test</span>*.<span class="keyword">class</span> 以<span class="keyword">test</span>开头的<span class="keyword">class</span>文件）</span><br><span class="line">2&gt;** 匹配包含目录分隔符的文件名的任何部分（java\**.<span class="keyword">class</span> java目录下的所有<span class="keyword">class</span>文件）</span><br><span class="line">3&gt;? 代表单个字符（<span class="keyword">test</span>?.<span class="keyword">class</span> 可能是test1.<span class="keyword">class</span> testa.<span class="keyword">class</span>,但不会是test12.<span class="keyword">class</span>）</span><br><span class="line">4&gt;！排除字符（！foo.<span class="keyword">class</span>,**.<span class="keyword">class</span> 任何<span class="keyword">class</span>文件除了foo.<span class="keyword">class</span>）</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>proguard 配置文件的书写（Options）</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">1&gt;</span><span class="bash">@filename 读取配置文件</span></span><br><span class="line"><span class="meta">2&gt;</span><span class="bash">-include filename 等同于@filename</span></span><br><span class="line"><span class="meta">3&gt;</span><span class="bash">-basedirectory directoryname</span></span><br><span class="line">工程base目录，配置文件都是现对于它</span><br><span class="line"><span class="meta">4&gt;</span><span class="bash">-injars class_path</span></span><br><span class="line">要处理的jar包,这其中包括（jar or aars, wars, ears, zips, apks, or directories)</span><br><span class="line"><span class="meta">5&gt;</span><span class="bash">-outjars class_path</span></span><br><span class="line">处理后的生成新的jar包</span><br><span class="line"><span class="meta">6&gt;</span><span class="bash">-libraryjars class_path</span></span><br><span class="line"><span class="meta">7&gt;</span><span class="bash">-keepdirectories</span></span><br><span class="line">指定写入到outjars的目录</span><br><span class="line"><span class="meta">8&gt;</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>proguard 命令行的使用</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>&gt;java -jar proguard<span class="selector-class">.jar</span> options ...</span><br><span class="line"><span class="number">2</span>&gt;把所有的配置放在@myconfig.pro文件中</span><br><span class="line">java -jar proguard<span class="selector-class">.jar</span> @myconfig.pro</span><br><span class="line"><span class="number">3</span>&gt;把基本的配置放在@myconfig.pro文件中并且可以添加其他配置选项</span><br><span class="line">java -jar proguard<span class="selector-class">.jar</span> @myconfig<span class="selector-class">.pro</span> -verbose（详尽的展示）</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/29/android-studio-proguard/" data-id="cjcxen9bx0012nwnmt35d429b" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-proguard/">android proguard</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-gradle-study-project" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/04/15/gradle-study-project/" class="article-date">
-  <time datetime="2016-04-15T09:41:34.000Z" itemprop="datePublished">2016-04-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/15/gradle-study-project/">gradle-study-project</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>gradle 是一个强大的构建工具，其中主要立足于project这个对象进行构建。<br>project在这里不仅指工程本身，而还包括编译，打包，签名，上传，等多个任务。<br>project对应一个project_level的build.gradle文件，在这个文件中，有它的<br>任务相关所需要的配置。project的相关介绍如下：<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">1&gt; </span>build生命周期</span><br><span class="line">首先，如果存在setting.gradle，那么对工程结构进行设计。再者，如果存</span><br><span class="line">在子工程那么在子工程评估之前完成对该工程的评估。</span><br><span class="line"><span class="meta">2&gt; </span>project 有<span class="number">5</span>个属性范围。当project查询一个属性时按照以下顺序进行：</span><br><span class="line">project本身；extra;extensions；conventions;tasks;它们的特点如下：</span><br><span class="line">extra 是可读可写的；extensions 由plugins产生 ，只能读。</span><br><span class="line"><span class="number">3</span>&gt;project 有<span class="number">5</span>个方法区间。当project调用方法时按照以下顺序进行:project</span><br><span class="line">本身；build文件；extensions;conventions;taks;其中需要特别注意的是</span><br><span class="line">如果在task中调用某方法，那么事实上并且该方法只有一个参数并且该参数是</span><br><span class="line">闭包或者Action，那么</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/04/15/gradle-study-project/" data-id="cjcxen9cs0023nwnmoo10i2i3" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle-project/">gradle_project</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-java-study-threadpoolexcutor" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/03/22/java-study-threadpoolexcutor/" class="article-date">
-  <time datetime="2016-03-22T01:33:09.000Z" itemprop="datePublished">2016-03-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/22/java-study-threadpoolexcutor/">java_study_threadpoolexcutor</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">java<span class="symbol">\u</span>til<span class="symbol">\c</span>oncurrent<span class="symbol">\T</span>hreadPoolExecutor.java</span><br><span class="line">java<span class="symbol">\u</span>til<span class="symbol">\c</span>oncurrent<span class="symbol">\F</span>utureTask.java</span><br><span class="line">java<span class="symbol">\u</span>til<span class="symbol">\c</span>oncurrent<span class="symbol">\L</span>inkedBlockingQueue.java</span><br></pre></td></tr></table></figure>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> ThreadPoolExcutor 的生命周期</span><br><span class="line">    <span class="number">1</span>&gt;running 接受新的任务，并且处理已排队任务</span><br><span class="line">    <span class="number">2</span>&gt;shutdown 不在接受新的任务，但处理已排队的任务</span><br><span class="line">    <span class="number">3</span>&gt;stop     不在接受新的任务，也不处理已排队的任务,打断正在执行的任务</span><br><span class="line">    <span class="number">4</span>&gt;tidying  没有在工作的线程了，紧接着调用terminate()</span><br><span class="line">    <span class="number">5</span>&gt;terminate terminate()执行完成</span><br><span class="line"><span class="number">2.</span>  <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">execute</span><span class="params">(Runnable command)</span> </span>&#123;</span><br><span class="line">        <span class="number">1</span>&gt;判断当前线程的数量workcount若小于corePooleSize则创建新的线程，</span><br><span class="line">        即调用addWorker(command,<span class="keyword">true</span>).</span><br><span class="line">        <span class="number">2</span>&gt;若当前线程的数量workcount大于或者等于corePooleSize。并且当前处于</span><br><span class="line">        running,workQueue还未满。将任务command加入到workQueue的队尾,并且</span><br><span class="line">        进行二次检查看是否ThreadPoolExcutor处于要关闭状态，这时候要执行</span><br><span class="line">        reject(command)或者现存的线程已死，要开启新的线程。如果</span><br><span class="line">        workQueue已经满，那么调用addWorker(command,<span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//增加新的线程  如果core为true则以corePoolSize 作为边界否则以</span></span><br><span class="line">    <span class="comment">//maxPoolSize作为边界。</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">boolean</span> <span class="title">addWorker</span><span class="params">(Runnable firstTask, <span class="keyword">boolean</span> core)</span> </span>&#123;</span><br><span class="line">      <span class="number">1</span>&gt;通过ThreadPoolExcutor的状态来判断是否能够创建新的线程</span><br><span class="line">      <span class="number">2</span>&gt;通过当前的workcount的数量来判断是否能够创建新的线程</span><br><span class="line">    &#125;</span><br><span class="line"><span class="number">3.</span>FutureTask <span class="keyword">implements</span> RunnableFuture&lt;T&gt;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NEW          = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> COMPLETING   = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NORMAL       = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> EXCEPTIONAL  = <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> CANCELLED    = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INTERRUPTING = <span class="number">5</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> INTERRUPTED  = <span class="number">6</span>;</span><br><span class="line">    <span class="comment">//任务执行完的结果或者是异常  </span></span><br><span class="line">    T report(<span class="keyword">int</span> state)</span><br><span class="line">    <span class="keyword">boolean</span> cancle(<span class="keyword">boolean</span> mayInterruptIfRunning)</span><br><span class="line"><span class="number">4.</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/03/22/java-study-threadpoolexcutor/" data-id="cjcxen9d8002pnwnm2ogab6e5" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-concurrent/">java_concurrent</a></li></ul>
 
     </footer>
   </div>
@@ -494,7 +472,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-proguard/">android proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-aidl/">android_application_aidl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-content-provider/">android_application_content_provider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-customer-view/">android_application_customer_view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-event-dispatch/">android_application_event_dispatch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-handler/">android_application_handler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-long-running-operation/">android_application_long_running_operation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-parcelable/">android_application_parcelable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-security/">android_application_security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-threadlocal/">android_application_threadlocal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-binder/">android_framework_binder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-init-process/">android_framework_init_process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-launch-activity/">android_framework_launch_activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-servermanager/">android_framework_servermanager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-set-content-view/">android_framework_set_content_view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-view-root-iml/">android_framework_view_root_iml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bat/">bat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-bitflag/">c_bitflag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-object-releation/">c_object_releation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-operator/">c_operator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-flex-box/">css_flex_box</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-accurancy/">data_accurancy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql/">database_mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql-backup/">database_mysql_backup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql-install/">database_mysql_install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql-table/">database_mysql_table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-mode-mvp/">design_mode_mvp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go-beego/">go_beego</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-proguard/">gradle_proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-project/">gradle_project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-study/">gradle_study</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-task/">gradle_task</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-concurrent/">java_concurrent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-hash-index/">java_hash_index</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm/">java_jvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm-class-struct/">java_jvm_class_struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm-gc/">java_jvm_gc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-thread/">java_thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-basic/">javascript_basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-cmd/">linux_cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-reinstall/">linux_reinstall</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-http-status/">net_http_status</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-tls/">net_tls</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-cache/">nginx_cache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-https/">nginx_https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-loader-balance/">nginx_loader_balance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-reverse-proxy/">nginx_reverse-proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-server/">nginx_server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-cmd/">npm_cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-install/">python_install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reflect/">reflect</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-cmd/">ssh_cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svg-basic/">svg_basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool-svn/">tool_svn</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm-sort-order/">algorithm_sort_order</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-proguard/">android proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-aidl/">android_application_aidl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-content-provider/">android_application_content_provider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-customer-view/">android_application_customer_view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-event-dispatch/">android_application_event_dispatch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-handler/">android_application_handler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-long-running-operation/">android_application_long_running_operation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-parcelable/">android_application_parcelable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-security/">android_application_security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-threadlocal/">android_application_threadlocal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-binder/">android_framework_binder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-init-process/">android_framework_init_process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-launch-activity/">android_framework_launch_activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-servermanager/">android_framework_servermanager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-set-content-view/">android_framework_set_content_view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-view-root-iml/">android_framework_view_root_iml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bat/">bat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-bitflag/">c_bitflag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-object-releation/">c_object_releation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-operator/">c_operator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-flex-box/">css_flex_box</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-accurancy/">data_accurancy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql/">database_mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql-backup/">database_mysql_backup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql-install/">database_mysql_install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql-table/">database_mysql_table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-mode-mvp/">design_mode_mvp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go-beego/">go_beego</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-proguard/">gradle_proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-project/">gradle_project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-study/">gradle_study</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-task/">gradle_task</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-concurrent/">java_concurrent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-hash-index/">java_hash_index</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm/">java_jvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm-class-struct/">java_jvm_class_struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm-gc/">java_jvm_gc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-thread/">java_thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascipt-object/">javascipt_object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-basic/">javascript_basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-function/">javascript_function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-typescript/">javascript_typescript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-cmd/">linux_cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-reinstall/">linux_reinstall</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-http-status/">net_http_status</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-tls/">net_tls</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-cache/">nginx_cache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-https/">nginx_https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-loader-balance/">nginx_loader_balance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-reverse-proxy/">nginx_reverse-proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-server/">nginx_server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-cmd/">npm_cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proto-buf/">proto_buf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-install/">python_install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reflect/">reflect</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-cmd/">ssh_cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svg-basic/">svg_basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool-svn/">tool_svn</a></li></ul>
     </div>
   </div>
 
@@ -504,7 +482,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/android-proguard/" style="font-size: 10px;">android proguard</a> <a href="/tags/android-application-aidl/" style="font-size: 10px;">android_application_aidl</a> <a href="/tags/android-application-content-provider/" style="font-size: 10px;">android_application_content_provider</a> <a href="/tags/android-application-customer-view/" style="font-size: 10px;">android_application_customer_view</a> <a href="/tags/android-application-event-dispatch/" style="font-size: 10px;">android_application_event_dispatch</a> <a href="/tags/android-application-handler/" style="font-size: 10px;">android_application_handler</a> <a href="/tags/android-application-long-running-operation/" style="font-size: 10px;">android_application_long_running_operation</a> <a href="/tags/android-application-parcelable/" style="font-size: 10px;">android_application_parcelable</a> <a href="/tags/android-application-security/" style="font-size: 10px;">android_application_security</a> <a href="/tags/android-application-threadlocal/" style="font-size: 10px;">android_application_threadlocal</a> <a href="/tags/android-framework-binder/" style="font-size: 20px;">android_framework_binder</a> <a href="/tags/android-framework-init-process/" style="font-size: 10px;">android_framework_init_process</a> <a href="/tags/android-framework-launch-activity/" style="font-size: 13.33px;">android_framework_launch_activity</a> <a href="/tags/android-framework-servermanager/" style="font-size: 10px;">android_framework_servermanager</a> <a href="/tags/android-framework-set-content-view/" style="font-size: 10px;">android_framework_set_content_view</a> <a href="/tags/android-framework-view-root-iml/" style="font-size: 10px;">android_framework_view_root_iml</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/c-bitflag/" style="font-size: 10px;">c_bitflag</a> <a href="/tags/c-object-releation/" style="font-size: 13.33px;">c_object_releation</a> <a href="/tags/c-operator/" style="font-size: 10px;">c_operator</a> <a href="/tags/css-flex-box/" style="font-size: 10px;">css_flex_box</a> <a href="/tags/data-accurancy/" style="font-size: 10px;">data_accurancy</a> <a href="/tags/database-mysql/" style="font-size: 16.67px;">database_mysql</a> <a href="/tags/database-mysql-backup/" style="font-size: 13.33px;">database_mysql_backup</a> <a href="/tags/database-mysql-install/" style="font-size: 13.33px;">database_mysql_install</a> <a href="/tags/database-mysql-table/" style="font-size: 10px;">database_mysql_table</a> <a href="/tags/design-mode-mvp/" style="font-size: 10px;">design_mode_mvp</a> <a href="/tags/go-beego/" style="font-size: 10px;">go_beego</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/gradle-proguard/" style="font-size: 10px;">gradle_proguard</a> <a href="/tags/gradle-project/" style="font-size: 10px;">gradle_project</a> <a href="/tags/gradle-study/" style="font-size: 10px;">gradle_study</a> <a href="/tags/gradle-task/" style="font-size: 10px;">gradle_task</a> <a href="/tags/java-concurrent/" style="font-size: 10px;">java_concurrent</a> <a href="/tags/java-hash-index/" style="font-size: 10px;">java_hash_index</a> <a href="/tags/java-jvm/" style="font-size: 10px;">java_jvm</a> <a href="/tags/java-jvm-class-struct/" style="font-size: 10px;">java_jvm_class_struct</a> <a href="/tags/java-jvm-gc/" style="font-size: 10px;">java_jvm_gc</a> <a href="/tags/java-thread/" style="font-size: 10px;">java_thread</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/javascript-basic/" style="font-size: 10px;">javascript_basic</a> <a href="/tags/linux-cmd/" style="font-size: 13.33px;">linux_cmd</a> <a href="/tags/linux-reinstall/" style="font-size: 10px;">linux_reinstall</a> <a href="/tags/net-http-status/" style="font-size: 10px;">net_http_status</a> <a href="/tags/net-tls/" style="font-size: 10px;">net_tls</a> <a href="/tags/nginx-cache/" style="font-size: 10px;">nginx_cache</a> <a href="/tags/nginx-https/" style="font-size: 10px;">nginx_https</a> <a href="/tags/nginx-loader-balance/" style="font-size: 10px;">nginx_loader_balance</a> <a href="/tags/nginx-reverse-proxy/" style="font-size: 10px;">nginx_reverse-proxy</a> <a href="/tags/nginx-server/" style="font-size: 16.67px;">nginx_server</a> <a href="/tags/npm-cmd/" style="font-size: 10px;">npm_cmd</a> <a href="/tags/python-install/" style="font-size: 10px;">python_install</a> <a href="/tags/reflect/" style="font-size: 10px;">reflect</a> <a href="/tags/ssh-cmd/" style="font-size: 10px;">ssh_cmd</a> <a href="/tags/svg-basic/" style="font-size: 13.33px;">svg_basic</a> <a href="/tags/test/" style="font-size: 13.33px;">test</a> <a href="/tags/tool-svn/" style="font-size: 10px;">tool_svn</a>
+      <a href="/tags/algorithm-sort-order/" style="font-size: 10px;">algorithm_sort_order</a> <a href="/tags/android-proguard/" style="font-size: 10px;">android proguard</a> <a href="/tags/android-application-aidl/" style="font-size: 10px;">android_application_aidl</a> <a href="/tags/android-application-content-provider/" style="font-size: 10px;">android_application_content_provider</a> <a href="/tags/android-application-customer-view/" style="font-size: 10px;">android_application_customer_view</a> <a href="/tags/android-application-event-dispatch/" style="font-size: 10px;">android_application_event_dispatch</a> <a href="/tags/android-application-handler/" style="font-size: 10px;">android_application_handler</a> <a href="/tags/android-application-long-running-operation/" style="font-size: 10px;">android_application_long_running_operation</a> <a href="/tags/android-application-parcelable/" style="font-size: 10px;">android_application_parcelable</a> <a href="/tags/android-application-security/" style="font-size: 10px;">android_application_security</a> <a href="/tags/android-application-threadlocal/" style="font-size: 10px;">android_application_threadlocal</a> <a href="/tags/android-framework-binder/" style="font-size: 20px;">android_framework_binder</a> <a href="/tags/android-framework-init-process/" style="font-size: 10px;">android_framework_init_process</a> <a href="/tags/android-framework-launch-activity/" style="font-size: 13.33px;">android_framework_launch_activity</a> <a href="/tags/android-framework-servermanager/" style="font-size: 10px;">android_framework_servermanager</a> <a href="/tags/android-framework-set-content-view/" style="font-size: 10px;">android_framework_set_content_view</a> <a href="/tags/android-framework-view-root-iml/" style="font-size: 10px;">android_framework_view_root_iml</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/c-bitflag/" style="font-size: 10px;">c_bitflag</a> <a href="/tags/c-object-releation/" style="font-size: 13.33px;">c_object_releation</a> <a href="/tags/c-operator/" style="font-size: 10px;">c_operator</a> <a href="/tags/css-flex-box/" style="font-size: 10px;">css_flex_box</a> <a href="/tags/data-accurancy/" style="font-size: 10px;">data_accurancy</a> <a href="/tags/database-mysql/" style="font-size: 16.67px;">database_mysql</a> <a href="/tags/database-mysql-backup/" style="font-size: 13.33px;">database_mysql_backup</a> <a href="/tags/database-mysql-install/" style="font-size: 13.33px;">database_mysql_install</a> <a href="/tags/database-mysql-table/" style="font-size: 10px;">database_mysql_table</a> <a href="/tags/design-mode-mvp/" style="font-size: 10px;">design_mode_mvp</a> <a href="/tags/go-beego/" style="font-size: 10px;">go_beego</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/gradle-proguard/" style="font-size: 10px;">gradle_proguard</a> <a href="/tags/gradle-project/" style="font-size: 10px;">gradle_project</a> <a href="/tags/gradle-study/" style="font-size: 10px;">gradle_study</a> <a href="/tags/gradle-task/" style="font-size: 10px;">gradle_task</a> <a href="/tags/java-concurrent/" style="font-size: 10px;">java_concurrent</a> <a href="/tags/java-hash-index/" style="font-size: 10px;">java_hash_index</a> <a href="/tags/java-jvm/" style="font-size: 10px;">java_jvm</a> <a href="/tags/java-jvm-class-struct/" style="font-size: 10px;">java_jvm_class_struct</a> <a href="/tags/java-jvm-gc/" style="font-size: 10px;">java_jvm_gc</a> <a href="/tags/java-thread/" style="font-size: 10px;">java_thread</a> <a href="/tags/javascipt-object/" style="font-size: 10px;">javascipt_object</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/javascript-basic/" style="font-size: 10px;">javascript_basic</a> <a href="/tags/javascript-function/" style="font-size: 10px;">javascript_function</a> <a href="/tags/javascript-typescript/" style="font-size: 10px;">javascript_typescript</a> <a href="/tags/linux-cmd/" style="font-size: 13.33px;">linux_cmd</a> <a href="/tags/linux-reinstall/" style="font-size: 10px;">linux_reinstall</a> <a href="/tags/net-http-status/" style="font-size: 10px;">net_http_status</a> <a href="/tags/net-tls/" style="font-size: 10px;">net_tls</a> <a href="/tags/nginx-cache/" style="font-size: 10px;">nginx_cache</a> <a href="/tags/nginx-https/" style="font-size: 10px;">nginx_https</a> <a href="/tags/nginx-loader-balance/" style="font-size: 10px;">nginx_loader_balance</a> <a href="/tags/nginx-reverse-proxy/" style="font-size: 10px;">nginx_reverse-proxy</a> <a href="/tags/nginx-server/" style="font-size: 16.67px;">nginx_server</a> <a href="/tags/npm-cmd/" style="font-size: 10px;">npm_cmd</a> <a href="/tags/proto-buf/" style="font-size: 10px;">proto_buf</a> <a href="/tags/python-install/" style="font-size: 10px;">python_install</a> <a href="/tags/reflect/" style="font-size: 10px;">reflect</a> <a href="/tags/ssh-cmd/" style="font-size: 10px;">ssh_cmd</a> <a href="/tags/svg-basic/" style="font-size: 13.33px;">svg_basic</a> <a href="/tags/test/" style="font-size: 13.33px;">test</a> <a href="/tags/tool-svn/" style="font-size: 10px;">tool_svn</a>
     </div>
   </div>
 
@@ -513,7 +491,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li></ul>
     </div>
   </div>
 
@@ -526,23 +504,23 @@
       <ul>
         
           <li>
-            <a href="/2018/01/24/java-hash-index/">java-hash-index</a>
+            <a href="/2018/02/11/algorithm-basic/">algorithm-basic</a>
           </li>
         
           <li>
-            <a href="/2018/01/19/android-threadlocal/">android-threadlocal</a>
+            <a href="/2018/02/05/protocol-buffer/">protocol_buffer</a>
           </li>
         
           <li>
-            <a href="/2018/01/17/android-application-event-dispatch/">android-event-dispatch</a>
+            <a href="/2018/02/01/javascript-typescript/">javascript-typescript</a>
           </li>
         
           <li>
-            <a href="/2018/01/15/java-study-jvm-class/">java-study-class</a>
+            <a href="/2018/01/29/javascript-object-1/">javascript-object</a>
           </li>
         
           <li>
-            <a href="/2017/12/29/svg-study-1/">svg_study</a>
+            <a href="/2018/01/27/javascript-function/">javascript-function</a>
           </li>
         
       </ul>
