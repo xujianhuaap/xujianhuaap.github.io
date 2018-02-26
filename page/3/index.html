@@ -61,6 +61,84 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-net_http-status" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/29/net_http-status/" class="article-date">
+  <time datetime="2017-11-29T10:02:17.000Z" itemprop="datePublished">2017-11-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/29/net_http-status/">Http-Status</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">1&gt; </span><span class="number">304</span> not modify</span><br><span class="line">	当请求方法是get head 的时候并且请求是有条件的，只有满足一定</span><br><span class="line">	条件的时候，才返回<span class="number">200</span>；</span><br><span class="line">	a)通过请求头if-none-match和if-modified-since 设置可以实现请求</span><br><span class="line">	成为有条件的。</span><br><span class="line">	b)只有if-none-match 的值与响应头的ETag的值不一致，才会重新请求</span><br><span class="line">	server,返回<span class="number">200</span>;如果if-modified-since 的日期晚于响应头</span><br><span class="line">	Last-Modified,则返回<span class="number">200</span>; 如果if-none-match 与　if-modified－since</span><br><span class="line">	同时存在，那么if-modified-since 将会忽略。</span><br><span class="line">	c)响应头必然包含Cach-Control Content-Location Date Expire </span><br><span class="line">	ETag Vary;</span><br><span class="line"><span class="meta">2&gt; </span><span class="number">1</span>xx （不适用于Http <span class="number">1.0</span>)</span><br><span class="line">	表示请求已经收到并且理解，等候最终的响应。</span><br><span class="line">	<span class="number">100</span> 继续 场景 对于有request Body的请求，当body比较大时候，如果</span><br><span class="line">	请求被拒绝，效率不够高。为了实现者这个目标，需要请求头中包含，</span><br><span class="line">	Expect:<span class="number">100</span>-continue;客户端在收到状态码<span class="number">100</span>后发送request Body,</span><br><span class="line">	如果返回的状态码是<span class="number">403</span>（拒绝）或者<span class="number">405</span>（方法不正确）z这时候不应该</span><br><span class="line">	发送请求头。如果返回码是<span class="number">417</span>(异常),表示请求头不应该包含Expect:<span class="number">100</span></span><br><span class="line">	-continue。</span><br><span class="line">  	<span class="number">101</span> 表示更换协议 服务端认可这样做</span><br><span class="line"><span class="meta">3&gt; </span><span class="number">2</span>xx 表示请求已经收到，处理。</span><br><span class="line">	<span class="number">200</span> Ok </span><br><span class="line">	<span class="number">201</span> created </span><br><span class="line">	<span class="number">203</span> 非权威信息 成功收到代理服务器的信息，传给客户端会做修改 </span><br><span class="line">	<span class="number">204</span> no Content 请求已经处理，无返返回内容</span><br><span class="line">	<span class="number">205</span> reset Content 请求已经被成功处理，没有内容返回但需要客户</span><br><span class="line">	端</span><br><span class="line"><span class="meta">4&gt; </span><span class="number">3</span>xx 表示需要额外的意图来完成请求，一般用于Url重定向</span><br><span class="line">	<span class="number">300</span> 多个资源可以选择</span><br><span class="line">	<span class="number">301</span> 资源人为移除</span><br><span class="line">	<span class="number">304</span> Not Modified</span><br><span class="line">	<span class="number">305</span> Use Proxy 必须使用代理才能完成</span><br><span class="line">	<span class="number">307</span> Temporary Redirect 暂时使用新的Uri,然而未来的请求不变</span><br><span class="line">	<span class="number">308</span> Permanent Redirect 本次以及以后的请求都需要用新的Uri,</span><br><span class="line">	    同<span class="number">307</span> 一样 请求方法不能变</span><br><span class="line"><span class="meta">5&gt; </span><span class="number">5</span>xx 服务端错误</span><br><span class="line">	<span class="number">500</span> 内部错误 </span><br><span class="line">	<span class="number">501</span> 没实现</span><br><span class="line">	<span class="number">502</span> BadGateway 代理或者网关收到来自Upstream Server的响应无效</span><br><span class="line">	<span class="number">504</span> GateWay TimeOut 代理或者网关没有及时收到来自Upstream Server 的响应</span><br><span class="line">	</span><br><span class="line"><span class="meta">6&gt; </span><span class="number">4</span>xx 客户端错误</span><br><span class="line">	<span class="number">400</span> BadRequest</span><br><span class="line">        <span class="number">401</span> 未授权的</span><br><span class="line">	<span class="number">403</span> Forbidden 请求是有效的，但服务端拒绝，可能是此次权限不够</span><br><span class="line">	<span class="number">404</span> not found  请求的资源没有发现，但未来可能出现</span><br><span class="line">	<span class="number">405</span> method not allowed</span><br><span class="line">	<span class="number">406</span> Not Acceptable 请求的资源不支持</span><br><span class="line">	<span class="number">408</span> RequestTimeout</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/29/net_http-status/" data-id="cje49x6tl003dsenmktcuqmuu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/net-http-status/">net_http_status</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mysql-backup" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/26/mysql-backup/" class="article-date">
+  <time datetime="2017-11-26T11:43:15.000Z" itemprop="datePublished">2017-11-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/26/mysql-backup/">mysql-backup</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>. 进行备份</span><br><span class="line">	mysqldump -u root -<span class="selector-tag">p</span> database_name &gt; backup.sql</span><br><span class="line"><span class="number">2</span>. 导入备份</span><br><span class="line">　　　　mysql -u root -<span class="selector-tag">p</span> database_name &lt; backup.sql</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/26/mysql-backup/" data-id="cje49x6tj0039senmn79azty7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database-mysql-backup/">database_mysql_backup</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-database-mysql-backup" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/11/26/database-mysql-backup/" class="article-date">
@@ -88,49 +166,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/26/database-mysql-backup/" data-id="cjdy2pjtn001th5nm15i9a0ja" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/26/database-mysql-backup/" data-id="cje49x6sn001tsenmfbppz19t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database-mysql-backup/">database_mysql_backup</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-database-mysql-install" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/26/database-mysql-install/" class="article-date">
-  <time datetime="2017-11-26T06:53:04.000Z" itemprop="datePublished">2017-11-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/26/database-mysql-install/">mysql_install</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 下载压缩包</span><br><span class="line">  cd <span class="regexp">/usr/</span>local/</span><br><span class="line">  wget <span class="string">https:</span><span class="comment">//dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.38-linux-glibc2.12-x86_64.tar.gz</span></span><br><span class="line">  tar -xvf mysql<span class="number">-5.6</span><span class="number">.38</span>-linux-glibc2<span class="number">.12</span>-x86_64.tar.gz</span><br><span class="line">  rm -rf mysql<span class="number">-5.6</span><span class="number">.38</span>-linux-glibc2<span class="number">.12</span>-x86_64.tar.gz</span><br><span class="line"><span class="number">2.</span> 检查mysql组的存在</span><br><span class="line">  groups mysql</span><br><span class="line">  如果沒有 mysql 则添加组　mysql组</span><br><span class="line">　groupadd mysql</span><br><span class="line">  useradd -r -g mysql mysql</span><br><span class="line"><span class="number">3.</span> 重新命名</span><br><span class="line">　mv mysql<span class="number">-5.6</span><span class="number">.38</span>-linux-glibc2<span class="number">.12</span>-x86_64 mysql</span><br><span class="line"><span class="number">4.</span> 改变mysql的拥有者和组属性</span><br><span class="line">  cd mysql</span><br><span class="line">  chown <span class="string">root:</span>root ./</span><br><span class="line">  chown <span class="string">mysql:</span>mysql data</span><br><span class="line"><span class="number">5.</span> 启动server</span><br><span class="line">   .<span class="regexp">/scripts/</span>mysql_install_db</span><br><span class="line">   .<span class="regexp">/bin/</span>mysqladmin -u root -h xujianhua-ThinkPad-T450 -p password</span><br><span class="line">  .suport_files<span class="regexp">/mysql.server start /</span>/启动mysql    </span><br><span class="line">   如果失败查看是否已经有运行的进程</span><br><span class="line">	ps -aux | grep mysql</span><br><span class="line"></span><br><span class="line">  .<span class="regexp">/bin/</span>mysqladmin -u root -p <span class="comment">//初始化密码请记住密码</span></span><br><span class="line"><span class="number">6.</span> 添加到service </span><br><span class="line"> cp support_files<span class="regexp">/mysql.server /</span>etc/init.d</span><br><span class="line"> svf-rc-conf <span class="comment">//查看服务的运行情况</span></span><br><span class="line"> serive mysqld start</span><br><span class="line"><span class="number">7.</span> 登陆</span><br><span class="line">　.<span class="regexp">/bin/</span>mysql -u root -p</span><br><span class="line"><span class="number">8.</span> 配置环境变量</span><br><span class="line">　vi <span class="regexp">/etc/</span>profile</span><br><span class="line">  添加一下内容</span><br><span class="line">　export PATH=<span class="string">$PATH:</span><span class="regexp">/usr/</span>localmysql/bin</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/26/database-mysql-install/" data-id="cjdy2pjto001vh5nm2egoitfw" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database-mysql-install/">database_mysql_install</a></li></ul>
 
     </footer>
   </div>
@@ -166,7 +205,46 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/26/mysql-install/" data-id="cjdy2pjup003ah5nm8llc9igp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/26/mysql-install/" data-id="cje49x6tk003asenm5wb2klko" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database-mysql-install/">database_mysql_install</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-database-mysql-install" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/26/database-mysql-install/" class="article-date">
+  <time datetime="2017-11-26T06:53:04.000Z" itemprop="datePublished">2017-11-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/26/database-mysql-install/">mysql_install</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 下载压缩包</span><br><span class="line">  cd <span class="regexp">/usr/</span>local/</span><br><span class="line">  wget <span class="string">https:</span><span class="comment">//dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.38-linux-glibc2.12-x86_64.tar.gz</span></span><br><span class="line">  tar -xvf mysql<span class="number">-5.6</span><span class="number">.38</span>-linux-glibc2<span class="number">.12</span>-x86_64.tar.gz</span><br><span class="line">  rm -rf mysql<span class="number">-5.6</span><span class="number">.38</span>-linux-glibc2<span class="number">.12</span>-x86_64.tar.gz</span><br><span class="line"><span class="number">2.</span> 检查mysql组的存在</span><br><span class="line">  groups mysql</span><br><span class="line">  如果沒有 mysql 则添加组　mysql组</span><br><span class="line">　groupadd mysql</span><br><span class="line">  useradd -r -g mysql mysql</span><br><span class="line"><span class="number">3.</span> 重新命名</span><br><span class="line">　mv mysql<span class="number">-5.6</span><span class="number">.38</span>-linux-glibc2<span class="number">.12</span>-x86_64 mysql</span><br><span class="line"><span class="number">4.</span> 改变mysql的拥有者和组属性</span><br><span class="line">  cd mysql</span><br><span class="line">  chown <span class="string">root:</span>root ./</span><br><span class="line">  chown <span class="string">mysql:</span>mysql data</span><br><span class="line"><span class="number">5.</span> 启动server</span><br><span class="line">   .<span class="regexp">/scripts/</span>mysql_install_db</span><br><span class="line">   .<span class="regexp">/bin/</span>mysqladmin -u root -h xujianhua-ThinkPad-T450 -p password</span><br><span class="line">  .suport_files<span class="regexp">/mysql.server start /</span>/启动mysql    </span><br><span class="line">   如果失败查看是否已经有运行的进程</span><br><span class="line">	ps -aux | grep mysql</span><br><span class="line"></span><br><span class="line">  .<span class="regexp">/bin/</span>mysqladmin -u root -p <span class="comment">//初始化密码请记住密码</span></span><br><span class="line"><span class="number">6.</span> 添加到service </span><br><span class="line"> cp support_files<span class="regexp">/mysql.server /</span>etc/init.d</span><br><span class="line"> svf-rc-conf <span class="comment">//查看服务的运行情况</span></span><br><span class="line"> serive mysqld start</span><br><span class="line"><span class="number">7.</span> 登陆</span><br><span class="line">　.<span class="regexp">/bin/</span>mysql -u root -p</span><br><span class="line"><span class="number">8.</span> 配置环境变量</span><br><span class="line">　vi <span class="regexp">/etc/</span>profile</span><br><span class="line">  添加一下内容</span><br><span class="line">　export PATH=<span class="string">$PATH:</span><span class="regexp">/usr/</span>localmysql/bin</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/26/database-mysql-install/" data-id="cje49x6so001vsenml3x0d4ii" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database-mysql-install/">database_mysql_install</a></li></ul>
@@ -205,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/22/ssh-study/" data-id="cjdy2pjva0040h5nmyqkinbpq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/22/ssh-study/" data-id="cje49x6u0003zsenma6fh1yvk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssh-cmd/">ssh_cmd</a></li></ul>
@@ -258,7 +336,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/21/npm-study/" data-id="cjdy2pjv2003rh5nmq9b4gfl0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/21/npm-study/" data-id="cje49x6tx003usenmbinou3q4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/npm-cmd/">npm_cmd</a></li></ul>
@@ -297,7 +375,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/20/nginx-loader-balance/" data-id="cjdy2pjuv003jh5nma8ryw3ms" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/20/nginx-loader-balance/" data-id="cje49x6tq003ksenm0l8q887o" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx-loader-balance/">nginx_loader_balance</a></li></ul>
@@ -336,7 +414,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/20/nginx-https/" data-id="cjdy2pjus003eh5nmht3eut8w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/20/nginx-https/" data-id="cje49x6tp003isenmr0tgk5xk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx-https/">nginx_https</a></li></ul>
@@ -375,7 +453,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/20/nginx-cache/" data-id="cjdy2pjut003fh5nmk2x597jw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/20/nginx-cache/" data-id="cje49x6tn003gsenm9t4lflpr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx-cache/">nginx_cache</a></li></ul>
@@ -387,169 +465,10 @@
 
 
   
-    <article id="post-nginx-reverse-proxy" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/17/nginx-reverse-proxy/" class="article-date">
-  <time datetime="2017-11-17T10:52:09.000Z" itemprop="datePublished">2017-11-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/17/nginx-reverse-proxy/">nginx-reverse_proxy</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 透传请求</span><br><span class="line">　　location /www/<span class="class"><span class="keyword">data</span>/ &#123;</span></span><br><span class="line"><span class="class">        <span class="title">proxy_pass</span> <span class="title">https</span>://<span class="title">host</span>:<span class="title">port</span>/;</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line"><span class="class">    代理服务器的地址没有<span class="title">uri</span>(只有<span class="title">ip</span>和<span class="title">port</span>),因此<span class="title">request</span> 的<span class="title">uri</span>直接</span></span><br><span class="line"><span class="class">　　拼接上去。</span></span><br><span class="line"><span class="class">    <span class="title">location</span> /<span class="title">www</span>/<span class="title">data</span>/ &#123;</span></span><br><span class="line"><span class="class">	<span class="title">proxy_pass</span> <span class="title">https</span>://<span class="title">localhost</span>:<span class="title">port</span>/<span class="title">link</span>/; </span></span><br><span class="line"><span class="class">    &#125;</span></span><br><span class="line">    如果代理服务器的地址包含uri(/link/)请求是/www/<span class="class"><span class="keyword">data</span>/images/home.html</span></span><br><span class="line">    那么将会代理到https://localhost:port/link/images/home.html;</span><br><span class="line"><span class="number">2.</span> 请求头的透传 和缓存配置</span><br><span class="line">　　location /www/<span class="class"><span class="keyword">data</span>/ &#123;</span></span><br><span class="line"><span class="class">       <span class="title">proxy_buffering</span> <span class="title">on</span>;</span></span><br><span class="line"><span class="class">       #16代表缓存的请求数目　4<span class="title">k</span> 代表每个请求的缓存大小；</span></span><br><span class="line"><span class="class">       <span class="title">proxy_buffers</span> 16 4<span class="title">k</span>;</span></span><br><span class="line"><span class="class">       #来自代理服务器的响应第一部分缓存大小，通常缓存响应的<span class="title">header</span> ,比剩下的响应所占的缓存小；</span></span><br><span class="line"><span class="class">       <span class="title">proxy_buffer_size</span> 2<span class="title">k</span>;</span></span><br><span class="line"><span class="class">       <span class="title">proxy_set_header</span> <span class="type">Host</span> $<span class="title">host</span>;</span></span><br><span class="line"><span class="class">       <span class="title">proxy_set_header</span> <span class="type">X</span>-<span class="type">Real</span>-<span class="type">Ip</span> $<span class="title">remote_addr</span>;</span></span><br><span class="line"><span class="class">       <span class="title">proxy_pass</span> <span class="title">http</span>://<span class="title">baidu</span>.<span class="title">com</span>;</span></span><br><span class="line"><span class="class">    &#125;</span></span><br><span class="line"><span class="number">3.</span>  </span><br><span class="line">  　如果你的nginx 服务器是一个集群，有时候需要指定一个</span><br><span class="line">　 location /www/<span class="class"><span class="keyword">data</span>/ &#123;</span></span><br><span class="line"><span class="class">      <span class="title">proxy_bind</span> 127.0.0.1 ;</span></span><br><span class="line"><span class="class">      <span class="title">proxy_pass</span> <span class="title">http</span>://<span class="title">baidu</span>.<span class="title">com</span>/;</span></span><br><span class="line"><span class="class">   &#125;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/17/nginx-reverse-proxy/" data-id="cjdy2pjv3003sh5nm4t8509mg" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx-reverse-proxy/">nginx_reverse-proxy</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-nginx-static-content" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/16/nginx-static-content/" class="article-date">
-  <time datetime="2017-11-16T11:14:05.000Z" itemprop="datePublished">2017-11-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/16/nginx-static-content/">nginx-static_content</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre><code>1. root 指令
-　　root 指令是指定用于搜寻文件的根目录，为了获取需要的文件，nginx 用root 
-    指定的根目录与request URI 进行拼接。
-　　该指令可以放置在http server location 的任何级别上下文（context)
-    http{
-    server{
-        root /www/data;
-        location /images/{
-            autoindex on;
-        }
-        location / {
-        }
-        location ~\.(mp3|mp4){
-            root /www/media/;
-        }
-    }
-    }
-   server 下的root 适用于所有的不包括root指令的location
-   autoindex 指令　on是开启目录　off 是关闭目录
-2. index指令
-   如果request以／结尾，nginx 将视为在对应的目录下寻找所需的index文件,
-   这个index 指令定义了index文件的名字（默认情况下是index.html),在返回
-　 index 文件过程中，niginx 会检查文件的存在性然后内部重定向。 
-　 location / {
-    root /www/data;
-    index index.htm index.html index.php;
-   }
-
-   location ~\.php {
-    fastcgi_pass localhost:8000;
-   }
-   如果request url是/images/,如果/www/data/images/index.html　不存在
-   但是index.php存在，以/images/index.php为新的url重新定向,这时候就会走
-　 第二个location;
-3.try_files指令
-　try_files　指令是检查指定的文件和目录是否存在，如果存在则内部重定向，
-  否则返回特定的错误码。
-　server {
-    root /www/data;
-        location /images/ {
-         try_files $uri /images/default.gif;
-    }
-    location / {
-        try_files $uri $uri.html  =404;
-    }
-        location /data/{
-            try_files $uri $uri/ @backend;
-    }
-    location @backend{
-        proxy_pass: http://locahost:8080;
-    }
-  }
-  try_files 的最后一个参数可以是一个状态码或者location的名字
-4. sendfile指令
-　location /mp3 {
-    sendfile on;
-    #tcp_nopush 必须在sendfile on 才有效
-    tcp_nopush on;
-    sendfile_max_chunk 1m;
-  }
-  sendfile 指令避免了拷贝文件到buffer,直接拷贝文件
-　sendfile_max_chunk 限定了传输数据的大小
-  tcp_nopush 当开启的时候，在文件传输完成，自动把response 头封包并发送
-5. 调整系统最大的网络连接数
-　for linux
-  sudo sysctl -w net.coresomaxconn=4096;
-  你也可以通过配置文件
-　　　vi /etc/sysctl.conf
-  添加一下内容
-　　　net.core.somaxconn=4096
-  对于nginx默认值是512,r如果更大的话可以通过配置
-　　　server {
-      listen 80 backlog=4096;
-      }
-6. tcp_nodelay 指令
-　tcp_nodelay 指令重写Nagle的算法，以小的packet包解决在网络慢 的难题　　
-　适用于长连接
-　tcp_nodelay
-  location /mp3 {
-       tcp_nodelay on;
-       keeplive_timeout 65;
-  }
-</code></pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/16/nginx-static-content/" data-id="cjdy2pjux003lh5nmw2s0ci9k" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx-server/">nginx_server</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">__('next') &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -572,7 +491,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/algorithm-sort-order/" style="font-size: 10px;">algorithm_sort_order</a> <a href="/tags/android-proguard/" style="font-size: 10px;">android proguard</a> <a href="/tags/android-application-aidl/" style="font-size: 10px;">android_application_aidl</a> <a href="/tags/android-application-content-provider/" style="font-size: 10px;">android_application_content_provider</a> <a href="/tags/android-application-customer-view/" style="font-size: 10px;">android_application_customer_view</a> <a href="/tags/android-application-event-dispatch/" style="font-size: 10px;">android_application_event_dispatch</a> <a href="/tags/android-application-handler/" style="font-size: 10px;">android_application_handler</a> <a href="/tags/android-application-long-running-operation/" style="font-size: 10px;">android_application_long_running_operation</a> <a href="/tags/android-application-parcelable/" style="font-size: 10px;">android_application_parcelable</a> <a href="/tags/android-application-security/" style="font-size: 10px;">android_application_security</a> <a href="/tags/android-application-threadlocal/" style="font-size: 10px;">android_application_threadlocal</a> <a href="/tags/android-framework-binder/" style="font-size: 20px;">android_framework_binder</a> <a href="/tags/android-framework-init-process/" style="font-size: 10px;">android_framework_init_process</a> <a href="/tags/android-framework-launch-activity/" style="font-size: 13.33px;">android_framework_launch_activity</a> <a href="/tags/android-framework-servermanager/" style="font-size: 10px;">android_framework_servermanager</a> <a href="/tags/android-framework-set-content-view/" style="font-size: 10px;">android_framework_set_content_view</a> <a href="/tags/android-framework-view-root-iml/" style="font-size: 10px;">android_framework_view_root_iml</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/c-bitflag/" style="font-size: 10px;">c_bitflag</a> <a href="/tags/c-object-releation/" style="font-size: 13.33px;">c_object_releation</a> <a href="/tags/c-operator/" style="font-size: 10px;">c_operator</a> <a href="/tags/css-flex-box/" style="font-size: 10px;">css_flex_box</a> <a href="/tags/data-accurancy/" style="font-size: 10px;">data_accurancy</a> <a href="/tags/database-mysql/" style="font-size: 16.67px;">database_mysql</a> <a href="/tags/database-mysql-backup/" style="font-size: 13.33px;">database_mysql_backup</a> <a href="/tags/database-mysql-install/" style="font-size: 13.33px;">database_mysql_install</a> <a href="/tags/database-mysql-table/" style="font-size: 10px;">database_mysql_table</a> <a href="/tags/design-mode-mvp/" style="font-size: 10px;">design_mode_mvp</a> <a href="/tags/go-beego/" style="font-size: 10px;">go_beego</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/gradle-proguard/" style="font-size: 10px;">gradle_proguard</a> <a href="/tags/gradle-project/" style="font-size: 10px;">gradle_project</a> <a href="/tags/gradle-study/" style="font-size: 10px;">gradle_study</a> <a href="/tags/gradle-task/" style="font-size: 10px;">gradle_task</a> <a href="/tags/java-concurrent/" style="font-size: 10px;">java_concurrent</a> <a href="/tags/java-hash-index/" style="font-size: 10px;">java_hash_index</a> <a href="/tags/java-jvm/" style="font-size: 10px;">java_jvm</a> <a href="/tags/java-jvm-class-struct/" style="font-size: 10px;">java_jvm_class_struct</a> <a href="/tags/java-jvm-gc/" style="font-size: 10px;">java_jvm_gc</a> <a href="/tags/java-thread/" style="font-size: 10px;">java_thread</a> <a href="/tags/javascipt-object/" style="font-size: 10px;">javascipt_object</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/javascript-basic/" style="font-size: 10px;">javascript_basic</a> <a href="/tags/javascript-function/" style="font-size: 10px;">javascript_function</a> <a href="/tags/javascript-typescript/" style="font-size: 10px;">javascript_typescript</a> <a href="/tags/linux-cmd/" style="font-size: 13.33px;">linux_cmd</a> <a href="/tags/linux-reinstall/" style="font-size: 10px;">linux_reinstall</a> <a href="/tags/net-http-status/" style="font-size: 10px;">net_http_status</a> <a href="/tags/net-tls/" style="font-size: 10px;">net_tls</a> <a href="/tags/nginx-cache/" style="font-size: 10px;">nginx_cache</a> <a href="/tags/nginx-https/" style="font-size: 10px;">nginx_https</a> <a href="/tags/nginx-loader-balance/" style="font-size: 10px;">nginx_loader_balance</a> <a href="/tags/nginx-reverse-proxy/" style="font-size: 10px;">nginx_reverse-proxy</a> <a href="/tags/nginx-server/" style="font-size: 16.67px;">nginx_server</a> <a href="/tags/npm-cmd/" style="font-size: 10px;">npm_cmd</a> <a href="/tags/proto-buf/" style="font-size: 10px;">proto_buf</a> <a href="/tags/python-install/" style="font-size: 10px;">python_install</a> <a href="/tags/reflect/" style="font-size: 10px;">reflect</a> <a href="/tags/ssh-cmd/" style="font-size: 10px;">ssh_cmd</a> <a href="/tags/svg-basic/" style="font-size: 13.33px;">svg_basic</a> <a href="/tags/test/" style="font-size: 13.33px;">test</a> <a href="/tags/tool-svn/" style="font-size: 10px;">tool_svn</a>
+      <a href="/tags/algorithm-sort-order/" style="font-size: 10px;">algorithm_sort_order</a> <a href="/tags/android-proguard/" style="font-size: 10px;">android proguard</a> <a href="/tags/android-application-aidl/" style="font-size: 10px;">android_application_aidl</a> <a href="/tags/android-application-content-provider/" style="font-size: 10px;">android_application_content_provider</a> <a href="/tags/android-application-customer-view/" style="font-size: 10px;">android_application_customer_view</a> <a href="/tags/android-application-event-dispatch/" style="font-size: 10px;">android_application_event_dispatch</a> <a href="/tags/android-application-handler/" style="font-size: 10px;">android_application_handler</a> <a href="/tags/android-application-long-running-operation/" style="font-size: 10px;">android_application_long_running_operation</a> <a href="/tags/android-application-parcelable/" style="font-size: 10px;">android_application_parcelable</a> <a href="/tags/android-application-security/" style="font-size: 10px;">android_application_security</a> <a href="/tags/android-application-threadlocal/" style="font-size: 10px;">android_application_threadlocal</a> <a href="/tags/android-framework-binder/" style="font-size: 20px;">android_framework_binder</a> <a href="/tags/android-framework-init-process/" style="font-size: 10px;">android_framework_init_process</a> <a href="/tags/android-framework-launch-activity/" style="font-size: 13.33px;">android_framework_launch_activity</a> <a href="/tags/android-framework-servermanager/" style="font-size: 10px;">android_framework_servermanager</a> <a href="/tags/android-framework-set-content-view/" style="font-size: 10px;">android_framework_set_content_view</a> <a href="/tags/android-framework-view-root-iml/" style="font-size: 10px;">android_framework_view_root_iml</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/c-bitflag/" style="font-size: 10px;">c_bitflag</a> <a href="/tags/c-object-releation/" style="font-size: 13.33px;">c_object_releation</a> <a href="/tags/c-operator/" style="font-size: 10px;">c_operator</a> <a href="/tags/css-flex-box/" style="font-size: 10px;">css_flex_box</a> <a href="/tags/data-accurancy/" style="font-size: 10px;">data_accurancy</a> <a href="/tags/database-mysql/" style="font-size: 16.67px;">database_mysql</a> <a href="/tags/database-mysql-backup/" style="font-size: 13.33px;">database_mysql_backup</a> <a href="/tags/database-mysql-install/" style="font-size: 13.33px;">database_mysql_install</a> <a href="/tags/database-mysql-table/" style="font-size: 10px;">database_mysql_table</a> <a href="/tags/design-mode-mvp/" style="font-size: 10px;">design_mode_mvp</a> <a href="/tags/go-beego/" style="font-size: 10px;">go_beego</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/gradle-proguard/" style="font-size: 10px;">gradle_proguard</a> <a href="/tags/gradle-project/" style="font-size: 10px;">gradle_project</a> <a href="/tags/gradle-study/" style="font-size: 10px;">gradle_study</a> <a href="/tags/gradle-task/" style="font-size: 10px;">gradle_task</a> <a href="/tags/java-concurrent/" style="font-size: 10px;">java_concurrent</a> <a href="/tags/java-hash-index/" style="font-size: 10px;">java_hash_index</a> <a href="/tags/java-jvm/" style="font-size: 10px;">java_jvm</a> <a href="/tags/java-jvm-class-struct/" style="font-size: 10px;">java_jvm_class_struct</a> <a href="/tags/java-jvm-gc/" style="font-size: 10px;">java_jvm_gc</a> <a href="/tags/java-thread/" style="font-size: 10px;">java_thread</a> <a href="/tags/javascipt-object/" style="font-size: 10px;">javascipt_object</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/javascript-basic/" style="font-size: 10px;">javascript_basic</a> <a href="/tags/javascript-function/" style="font-size: 10px;">javascript_function</a> <a href="/tags/javascript-typescript/" style="font-size: 16.67px;">javascript_typescript</a> <a href="/tags/linux-cmd/" style="font-size: 13.33px;">linux_cmd</a> <a href="/tags/linux-reinstall/" style="font-size: 10px;">linux_reinstall</a> <a href="/tags/net-http-status/" style="font-size: 10px;">net_http_status</a> <a href="/tags/net-tls/" style="font-size: 10px;">net_tls</a> <a href="/tags/nginx-cache/" style="font-size: 10px;">nginx_cache</a> <a href="/tags/nginx-https/" style="font-size: 10px;">nginx_https</a> <a href="/tags/nginx-loader-balance/" style="font-size: 10px;">nginx_loader_balance</a> <a href="/tags/nginx-reverse-proxy/" style="font-size: 10px;">nginx_reverse-proxy</a> <a href="/tags/nginx-server/" style="font-size: 16.67px;">nginx_server</a> <a href="/tags/npm-cmd/" style="font-size: 10px;">npm_cmd</a> <a href="/tags/proto-buf/" style="font-size: 10px;">proto_buf</a> <a href="/tags/python-install/" style="font-size: 10px;">python_install</a> <a href="/tags/reflect/" style="font-size: 10px;">reflect</a> <a href="/tags/ssh-cmd/" style="font-size: 10px;">ssh_cmd</a> <a href="/tags/svg-basic/" style="font-size: 13.33px;">svg_basic</a> <a href="/tags/test/" style="font-size: 13.33px;">test</a> <a href="/tags/tool-svn/" style="font-size: 10px;">tool_svn</a>
     </div>
   </div>
 
@@ -594,6 +513,14 @@
       <ul>
         
           <li>
+            <a href="/2018/02/26/javascript-typescript-2/">javascript-typescript-2</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/22/javascript-typescript-1/">javascript-typescript-1</a>
+          </li>
+        
+          <li>
             <a href="/2018/02/11/algorithm-basic/">algorithm-basic</a>
           </li>
         
@@ -603,14 +530,6 @@
         
           <li>
             <a href="/2018/02/01/javascript-typescript/">javascript-typescript</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/29/javascript-object-1/">javascript-object</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/27/javascript-function/">javascript-function</a>
           </li>
         
       </ul>

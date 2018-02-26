@@ -61,6 +61,111 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-android-application-contentprovider" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/25/android-application-contentprovider/" class="article-date">
+  <time datetime="2016-01-25T12:27:59.000Z" itemprop="datePublished">2016-01-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/25/android-application-contentprovider/">android-application-contentprovider</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>参考文件</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">core<span class="meta-keyword">/java/</span>android<span class="meta-keyword">/content/</span>pm/ProviderInfo.java</span><br><span class="line">services<span class="meta-keyword">/java/</span>com<span class="meta-keyword">/android/</span>server<span class="meta-keyword">/am/</span>ContentProviderRecord.java</span><br><span class="line">core<span class="meta-keyword">/java/</span>android<span class="meta-keyword">/app/</span>IActivityManager.java</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ContentProvider的简介</p>
+<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">1&gt; </span> 实现数据在应用间共享.这是对SQliteDataBase的互补.</span><br><span class="line"><span class="meta">2&gt; </span> 管理数据主要是通过ContentResolver</span><br><span class="line"><span class="meta">3&gt; </span> contentprovider 是安卓本地数据库(repository)管理者,数据一般是关系型数据.</span><br><span class="line"><span class="meta">4&gt; </span> contentprovider与client必须提供标准的接口</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>contentprovider的主要方法</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">和Activity一样,需要在manifest.xml中配置<span class="variable">&lt;provider&gt;</span>&lt;/provider&gt;,contentprider的实例有系</span><br><span class="line">统创建,因此应用一般不需要直接实例化ContentProvider.在实例化后并不能直接使用他的属性和方法,必</span><br><span class="line">须由他的实现类在<span class="keyword">on</span>Create()进行初始化.</span><br><span class="line">contentprovider作为抽象类,我们必须实现它的抽象方法:<span class="keyword">on</span>Create()(),增删查改.</span><br><span class="line">Transport内部类的作用,就是跨进程的binder机制通信．Transport继承于ContentProviderNativie</span><br><span class="line">而ContentProviderNativie作为一个抽象类继承于Binder并且实现了Ｉcontentprovider.而且其内部</span><br><span class="line">类ContentProviderProxy实现了IContentProvider.IContentProvider</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>４．  抽象类ContentProviderNativie<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//根据obj查询出IContentProvider 若为空创建ContentProviderProxy,ContentProviderProxy</span></span><br><span class="line"><span class="comment">//实现了IContentProvider</span></span><br><span class="line"><span class="keyword">static</span> IContentProvider asInterface(IBinder obj)</span><br><span class="line"><span class="comment">//返回ContentProviderNativie的实例</span></span><br><span class="line"><span class="keyword">static</span> IBinder asBinder()</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li><p>ContentProviderHolder的介绍</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ＩActivityManager的内部类</span><br><span class="line"><span class="symbol">ContentProviderHolder</span>实现了Parcelable</span><br><span class="line">主要成员变量为IContentProvider ProviderInfo</span><br><span class="line">构造器为ContentProvider(ProviderInfo <span class="meta">info</span>)</span><br><span class="line">值得研究的方法：</span><br></pre></td></tr></table></figure>
+</li>
+<li></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/01/25/android-application-contentprovider/" data-id="cje49x6r50004senmhzobr598" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-application-content-provider/">android_application_content_provider</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-android-framework-launch-activity01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/25/android-framework-launch-activity01/" class="article-date">
+  <time datetime="2016-01-25T03:18:44.000Z" itemprop="datePublished">2016-01-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/25/android-framework-launch-activity01/">android-frameworks-launchactivity01</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>参考文件</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frameworks<span class="regexp">/base/</span>core<span class="regexp">/java/</span>android<span class="regexp">/view/</span>WindowManagerImpl.java</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Activity下的attach()</p>
+<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">1&gt; </span>设置有关属性</span><br><span class="line"><span class="number">2</span>&gt;创建Window的实列,并且设置WindowManager</span><br><span class="line">  &lt;<span class="number">1</span>&gt;PolicyManager.makeNewWindow()--&gt;mPolicy.makeNewWindow()---&gt;</span><br><span class="line">    new PhoneWindow()</span><br><span class="line">  &lt;<span class="number">2</span>&gt; window.setWindowmanger(wm),wm为WindowManagerImpl的实例,若其为空,</span><br><span class="line">  测创建一个新的实例.然后为window设置一个LocalWindowManager(wm)</span><br><span class="line">  小结:</span><br><span class="line">  这里是对代理设计模式的应用,以LocalWindowManager 为例 windowManagerImpl已经</span><br><span class="line">  实现了addView()为什么LocalWindowManager又重写该方法?代理模式有什么优势,在框</span><br><span class="line">  架层有如此广泛的应用.首先,代理模式,可以控制实现类的访问权限.再者,代理类可以修改对</span><br><span class="line">  应的operator(),这样维护了实现类的稳定性,当该operator()稳定后在移到实现类.</span><br><span class="line">  一般来说,在一个类创建对象耗费资源较多时,考虑使用代理类,当确实需要调用operator()</span><br><span class="line">  时才会,创建实现类的实例.当一个类功能较复杂,还有些不稳定的,可以使用代理类.需要对实</span><br><span class="line">  现类访问权限限制的,也可以使用代理类.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>WindowManagerImpl的addView(decorView)</p>
+<figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">1&gt; </span>声明局部变量ViewRoot root</span><br><span class="line"><span class="meta">2&gt; </span>寻找在WindowManagerImpl的成员变量mViews中查找是否有decorView如果有返回index</span><br><span class="line"><span class="meta">3&gt; </span>root=roots[index]//roots是ViewRooot的集合,并且设置有关属性LayoutParams,并且</span><br><span class="line">   return 函数堵塞</span><br><span class="line"><span class="meta">4&gt; </span>如果没有相应的decorView的,则创建相应的root,刷新roots,刷新views,root.setView()</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/01/25/android-framework-launch-activity01/" data-id="cje49x6ru000wsenm32kuagw7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-framework-launch-activity/">android_framework_launch_activity</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-android-framework-servermanager" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/01/19/android-framework-servermanager/" class="article-date">
@@ -98,7 +203,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/01/19/android-framework-servermanager/" data-id="cjdy2pjst0010h5nmj6u6c6fj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/01/19/android-framework-servermanager/" data-id="cje49x6rw0010senmdzagftfm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-framework-servermanager/">android_framework_servermanager</a></li></ul>
@@ -147,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/01/19/c-operator/" data-id="cjdy2pjt8001dh5nmtv2fmkzx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/01/19/c-operator/" data-id="cje49x6sa001fsenmob68q9ns" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-operator/">c_operator</a></li></ul>
@@ -196,7 +301,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/01/18/android-framework-binder-ipc-thread-state/" data-id="cjdy2pjsf000mh5nmpg72173b" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/01/18/android-framework-binder-ipc-thread-state/" data-id="cje49x6rj000jsenmrudwingw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-framework-binder/">android_framework_binder</a></li></ul>
@@ -239,7 +344,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/01/15/android-framework-binder-common-class/" data-id="cjdy2pjs7000fh5nmsaffxi7d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/01/15/android-framework-binder-common-class/" data-id="cje49x6rh000hsenm7uqo4a5l" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-framework-binder/">android_framework_binder</a></li></ul>
@@ -291,7 +396,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/01/15/android-framework-binder-communication/" data-id="cjdy2pjsc000jh5nmsp608y88" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/01/15/android-framework-binder-communication/" data-id="cje49x6rm000msenmqq8mstsg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-framework-binder/">android_framework_binder</a></li></ul>
@@ -346,7 +451,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/01/15/android-framework-binder/" data-id="cjdy2pjsd000lh5nmak2aylwh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/01/15/android-framework-binder/" data-id="cje49x6rk000lsenmmpyv22sm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-framework-binder/">android_framework_binder</a></li></ul>
@@ -392,7 +497,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/01/13/android-framework-launch-activity-viewroot/" data-id="cjdy2pjso000uh5nmpk4lh45p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/01/13/android-framework-launch-activity-viewroot/" data-id="cje49x6rv000ysenmm7j9mv4l" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-framework-view-root-iml/">android_framework_view_root_iml</a></li></ul>
@@ -444,7 +549,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/01/12/android-framework-launch-activity-setContentView/" data-id="cjdy2pjsm000sh5nm9oevjwh9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/01/12/android-framework-launch-activity-setContentView/" data-id="cje49x6rr000ssenmgxqqiqi2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-framework-set-content-view/">android_framework_set_content_view</a></li></ul>
@@ -456,109 +561,10 @@
 
 
   
-    <article id="post-android-framework-launch-activity" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/01/12/android-framework-launch-activity/" class="article-date">
-  <time datetime="2016-01-12T07:50:54.000Z" itemprop="datePublished">2016-01-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/12/android-framework-launch-activity/">Activity 启动</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>参考文件</p>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">framework<span class="meta-keyword">/base/</span>core<span class="meta-keyword">/java/</span>android<span class="meta-keyword">/app/</span>ActivityThread.java</span><br><span class="line">framework<span class="meta-keyword">/base/</span>core<span class="meta-keyword">/java/</span>android<span class="meta-keyword">/content/</span>pm/ActivityInfo.java</span><br><span class="line">framework<span class="meta-keyword">/base/</span>services<span class="meta-keyword">/java/</span>com<span class="meta-keyword">/android/</span>server<span class="meta-keyword">/am/</span>ActivityRecord.java</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>zygote该进程会fork一个子进程即app进程,该进程的入口处是Activity<br>Thread的main函数,主要进行如下工作:</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) &#123;</span><br><span class="line">  <span class="number">1.</span>准备工作 开启事件追踪--事件Tag为ActivityThreadMain,</span><br><span class="line">  初始化当前用户,创建Looper对象,创建MainHandler                 </span><br><span class="line">  <span class="number">2.</span>创建ActivityThread的实例thread,并调用<span class="built_in">attach</span>(<span class="keyword">boolean</span>)</span><br><span class="line">  <span class="number">3.</span>获得Looper 并启动它looper.<span class="built_in">loop</span>();</span><br><span class="line">  <span class="number">4.</span>thread.<span class="built_in">detach</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>ActivityThread中的handleLauchActivity(<br>ActivityClientRecord r, Intent customIntent)中<br>的主要逻辑</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">ActivityClientRecord 主要记录一下信息:</span><br><span class="line"><span class="meta">1&gt;</span><span class="bash">Intent</span></span><br><span class="line"><span class="meta">2&gt;</span><span class="bash">ActivityInfo</span></span><br><span class="line"><span class="meta">3&gt;</span><span class="bash">LoadApk 主要包括ApplicationInfo ActivityThread packageName(String)</span></span><br><span class="line">  appDir,libDir,dataDir,Resource,ClassLoader,Application,</span><br><span class="line">  CompatibilityInfo(关于屏幕匹配的信息density,屏幕applicationscaled).</span><br><span class="line"><span class="meta">4&gt;</span><span class="bash">Window</span></span><br><span class="line"><span class="meta">5&gt;</span><span class="bash">Activity</span></span><br><span class="line"><span class="meta">6&gt;</span><span class="bash">boolean paused stoped</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">private void handleLaunchActivity(ActivityClientRecord r,</span><br><span class="line"> Intent customIntent) &#123;</span><br><span class="line">       Activity a = performLaunchActivity(r, customIntent);</span><br><span class="line">       handleResumeActivity(r.token,false,r.isForward,</span><br><span class="line">         !r.activity.mFinished &amp;&amp; !r.startsNotResumed);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>performLaunchActivity的逻辑如下:</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> void Activity performLaunchActivity(ActivityClientRecord r, Intent customIntent) &#123;</span><br><span class="line">  <span class="number">1</span>&gt;获得ActiviytInfo<span class="comment">-- r.activityInfo</span></span><br><span class="line">    activityInfo 主要包含了以下信息:targgetActivity softInput theme ,permission,</span><br><span class="line">    screenOrintion,launchMode.</span><br><span class="line">  <span class="number">2</span>&gt;获得packageInfo <span class="comment">--getPackageInfo(applicationInfo,compatInfo,flag)</span></span><br><span class="line">  <span class="number">3</span>&gt;获得组件的名字<span class="comment">--r.intent.getComponent(),如果activityInfo.tatargetActivity 不为空,创建ComponentName的对象</span></span><br><span class="line">  component = <span class="keyword">new</span> ComponentName(r.activityInfo.packageName,</span><br><span class="line">                r.activityInfo.targetActivity);</span><br><span class="line">  <span class="number">4</span>&gt;获得Activity的实例</span><br><span class="line">    <span class="number">1</span>&gt;获得ClassLoader<span class="comment">---r.packageInfo.getClassLoader();</span></span><br><span class="line">    <span class="number">2</span>&gt;生成Activity实例<span class="comment">---activity = mInstrumentation.newActivity(</span></span><br><span class="line">            cl, component.getClassName(), r.intent);</span><br><span class="line">  <span class="number">5</span>&gt;activity的属性设置</span><br><span class="line">      <span class="number">1</span>&gt;生成Application 实例<span class="comment">---r.packageInfo.makeApplication(false, mInstrumentation)</span></span><br><span class="line">      <span class="number">2</span>&gt;生成Context<span class="comment">---appContext = new ContextIml()                                     ;</span></span><br><span class="line">      <span class="number">3</span>&gt;生成Configuration</span><br><span class="line">      <span class="number">4</span>&gt;将相关属性设置到activity,生成Window,设置windowmanager<span class="comment">-----activity.attach();</span></span><br><span class="line">  <span class="number">6</span>&gt;activity 生命周期</span><br><span class="line">      <span class="number">1</span>&gt;  <span class="keyword">if</span> (r.isPersistable()) &#123;</span><br><span class="line">            mInstrumentation.callActivityOnCreate(activity, r.state, r.persistentState);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            mInstrumentation.callActivityOnCreate(activity, r.state);</span><br><span class="line">        &#125;</span><br><span class="line">      <span class="number">2</span>&gt; 根据条件启动start restore</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>handleResumeActivity()的具体逻辑</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">void</span>  handleResumeActivity(IBinder token,</span><br><span class="line">            <span class="keyword">boolean</span> clearHide, <span class="keyword">boolean</span> isForward, <span class="keyword">boolean</span> reallyResume) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="number">1</span>&gt;调用GC</span><br><span class="line">        <span class="number">2</span>&gt;执行performResumeActivity(token, clearHide)并 且获得ActivityClientRecord r</span><br><span class="line">        <span class="number">3</span>&gt;设置activity在生命周期变化后一些属性,activity位于栈的顶端时自动设置软件盘</span><br><span class="line">        的显示.</span><br><span class="line">        <span class="number">4</span>&gt;获得Activity的window,将获得DecorView,并添加到WindowManager中</span><br><span class="line">              *window是绘制顶层窗口和标题栏,以及背景</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Instrument的作用—-控制创建Activity的实例和Activity的生命周期</p>
-<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Activity <span class="keyword">new</span><span class="type">Activity</span>(ClassLoader cl, <span class="keyword">String</span> className,</span><br><span class="line">        Intent intent)throws InstantiationException,IllegalAccessException,</span><br><span class="line">        ClassNotFoundException &#123;</span><br><span class="line">          <span class="keyword">return</span> (Activity)cl.loadClass(className).<span class="keyword">new</span><span class="type">Instance</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/01/12/android-framework-launch-activity/" data-id="cjdy2pjsq000wh5nmp41q9xw5" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-framework-launch-activity/">android_framework_launch_activity</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-android-framework-init-process" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/01/12/android-framework-init-process/" class="article-date">
-  <time datetime="2016-01-12T05:18:05.000Z" itemprop="datePublished">2016-01-12</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/12/android-framework-init-process/">android_framework_init_process</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>所涉及到的文件路径<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">system/core/rootdir/<span class="keyword">init</span>.rc</span><br><span class="line">system/core/<span class="keyword">init</span>/<span class="keyword">init</span>.cpp</span><br></pre></td></tr></table></figure></p>
-<p>1.作为android系统的第一个进程编号为1</p>
-<p>2.该进程文件位于system/core/init/init.cpp其main函数主要作了如下工作<br><figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">1&gt; </span>创建文件夹 挂载设备</span><br><span class="line"><span class="number">2</span>&gt;解析init.rc 和init.xiaomi.rc配置文件获得一系列的Action.</span><br><span class="line">这些Action处于不同的阶段(Session).</span><br><span class="line"><span class="number">3</span>&gt;执行各个阶段的Action</span><br><span class="line"><span class="number">4</span>&gt;首先执行early_init 阶段的Action,创建Uevnet与Linux内核交互</span><br><span class="line">的Socket,初始化相关的属性资源,初始化keychord的设备(与调试有关),</span><br><span class="line">加载开机动画文件.</span><br><span class="line"><span class="number">5</span>&gt;其次执行init阶段的动画,启动属性服务调用socketpair函数创建两个</span><br><span class="line">已经连接好的socket</span><br><span class="line"><span class="number">6</span>&gt;继续执行early_boot阶段的Action</span><br><span class="line"><span class="number">7</span>&gt;再执行booot阶段的Action</span><br><span class="line"><span class="number">8</span>&gt;监听来自四个方面的事情,来自内核的Uevent事件,来自属性服务器的事件</span><br><span class="line">,由socketpair创建的来自另一个socket的事件,以及keychord初始化成功</span><br><span class="line">情况下,来自该设备的事件.</span><br><span class="line"><span class="meta">9&gt; </span>开启无限循环,重启死去的子进程</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/01/12/android-framework-init-process/" data-id="cjdy2pjsi000ph5nm0xpyz1ew" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-framework-init-process/">android_framework_init_process</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/6/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/">__('next') &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/6/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/8/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -581,7 +587,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/algorithm-sort-order/" style="font-size: 10px;">algorithm_sort_order</a> <a href="/tags/android-proguard/" style="font-size: 10px;">android proguard</a> <a href="/tags/android-application-aidl/" style="font-size: 10px;">android_application_aidl</a> <a href="/tags/android-application-content-provider/" style="font-size: 10px;">android_application_content_provider</a> <a href="/tags/android-application-customer-view/" style="font-size: 10px;">android_application_customer_view</a> <a href="/tags/android-application-event-dispatch/" style="font-size: 10px;">android_application_event_dispatch</a> <a href="/tags/android-application-handler/" style="font-size: 10px;">android_application_handler</a> <a href="/tags/android-application-long-running-operation/" style="font-size: 10px;">android_application_long_running_operation</a> <a href="/tags/android-application-parcelable/" style="font-size: 10px;">android_application_parcelable</a> <a href="/tags/android-application-security/" style="font-size: 10px;">android_application_security</a> <a href="/tags/android-application-threadlocal/" style="font-size: 10px;">android_application_threadlocal</a> <a href="/tags/android-framework-binder/" style="font-size: 20px;">android_framework_binder</a> <a href="/tags/android-framework-init-process/" style="font-size: 10px;">android_framework_init_process</a> <a href="/tags/android-framework-launch-activity/" style="font-size: 13.33px;">android_framework_launch_activity</a> <a href="/tags/android-framework-servermanager/" style="font-size: 10px;">android_framework_servermanager</a> <a href="/tags/android-framework-set-content-view/" style="font-size: 10px;">android_framework_set_content_view</a> <a href="/tags/android-framework-view-root-iml/" style="font-size: 10px;">android_framework_view_root_iml</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/c-bitflag/" style="font-size: 10px;">c_bitflag</a> <a href="/tags/c-object-releation/" style="font-size: 13.33px;">c_object_releation</a> <a href="/tags/c-operator/" style="font-size: 10px;">c_operator</a> <a href="/tags/css-flex-box/" style="font-size: 10px;">css_flex_box</a> <a href="/tags/data-accurancy/" style="font-size: 10px;">data_accurancy</a> <a href="/tags/database-mysql/" style="font-size: 16.67px;">database_mysql</a> <a href="/tags/database-mysql-backup/" style="font-size: 13.33px;">database_mysql_backup</a> <a href="/tags/database-mysql-install/" style="font-size: 13.33px;">database_mysql_install</a> <a href="/tags/database-mysql-table/" style="font-size: 10px;">database_mysql_table</a> <a href="/tags/design-mode-mvp/" style="font-size: 10px;">design_mode_mvp</a> <a href="/tags/go-beego/" style="font-size: 10px;">go_beego</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/gradle-proguard/" style="font-size: 10px;">gradle_proguard</a> <a href="/tags/gradle-project/" style="font-size: 10px;">gradle_project</a> <a href="/tags/gradle-study/" style="font-size: 10px;">gradle_study</a> <a href="/tags/gradle-task/" style="font-size: 10px;">gradle_task</a> <a href="/tags/java-concurrent/" style="font-size: 10px;">java_concurrent</a> <a href="/tags/java-hash-index/" style="font-size: 10px;">java_hash_index</a> <a href="/tags/java-jvm/" style="font-size: 10px;">java_jvm</a> <a href="/tags/java-jvm-class-struct/" style="font-size: 10px;">java_jvm_class_struct</a> <a href="/tags/java-jvm-gc/" style="font-size: 10px;">java_jvm_gc</a> <a href="/tags/java-thread/" style="font-size: 10px;">java_thread</a> <a href="/tags/javascipt-object/" style="font-size: 10px;">javascipt_object</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/javascript-basic/" style="font-size: 10px;">javascript_basic</a> <a href="/tags/javascript-function/" style="font-size: 10px;">javascript_function</a> <a href="/tags/javascript-typescript/" style="font-size: 10px;">javascript_typescript</a> <a href="/tags/linux-cmd/" style="font-size: 13.33px;">linux_cmd</a> <a href="/tags/linux-reinstall/" style="font-size: 10px;">linux_reinstall</a> <a href="/tags/net-http-status/" style="font-size: 10px;">net_http_status</a> <a href="/tags/net-tls/" style="font-size: 10px;">net_tls</a> <a href="/tags/nginx-cache/" style="font-size: 10px;">nginx_cache</a> <a href="/tags/nginx-https/" style="font-size: 10px;">nginx_https</a> <a href="/tags/nginx-loader-balance/" style="font-size: 10px;">nginx_loader_balance</a> <a href="/tags/nginx-reverse-proxy/" style="font-size: 10px;">nginx_reverse-proxy</a> <a href="/tags/nginx-server/" style="font-size: 16.67px;">nginx_server</a> <a href="/tags/npm-cmd/" style="font-size: 10px;">npm_cmd</a> <a href="/tags/proto-buf/" style="font-size: 10px;">proto_buf</a> <a href="/tags/python-install/" style="font-size: 10px;">python_install</a> <a href="/tags/reflect/" style="font-size: 10px;">reflect</a> <a href="/tags/ssh-cmd/" style="font-size: 10px;">ssh_cmd</a> <a href="/tags/svg-basic/" style="font-size: 13.33px;">svg_basic</a> <a href="/tags/test/" style="font-size: 13.33px;">test</a> <a href="/tags/tool-svn/" style="font-size: 10px;">tool_svn</a>
+      <a href="/tags/algorithm-sort-order/" style="font-size: 10px;">algorithm_sort_order</a> <a href="/tags/android-proguard/" style="font-size: 10px;">android proguard</a> <a href="/tags/android-application-aidl/" style="font-size: 10px;">android_application_aidl</a> <a href="/tags/android-application-content-provider/" style="font-size: 10px;">android_application_content_provider</a> <a href="/tags/android-application-customer-view/" style="font-size: 10px;">android_application_customer_view</a> <a href="/tags/android-application-event-dispatch/" style="font-size: 10px;">android_application_event_dispatch</a> <a href="/tags/android-application-handler/" style="font-size: 10px;">android_application_handler</a> <a href="/tags/android-application-long-running-operation/" style="font-size: 10px;">android_application_long_running_operation</a> <a href="/tags/android-application-parcelable/" style="font-size: 10px;">android_application_parcelable</a> <a href="/tags/android-application-security/" style="font-size: 10px;">android_application_security</a> <a href="/tags/android-application-threadlocal/" style="font-size: 10px;">android_application_threadlocal</a> <a href="/tags/android-framework-binder/" style="font-size: 20px;">android_framework_binder</a> <a href="/tags/android-framework-init-process/" style="font-size: 10px;">android_framework_init_process</a> <a href="/tags/android-framework-launch-activity/" style="font-size: 13.33px;">android_framework_launch_activity</a> <a href="/tags/android-framework-servermanager/" style="font-size: 10px;">android_framework_servermanager</a> <a href="/tags/android-framework-set-content-view/" style="font-size: 10px;">android_framework_set_content_view</a> <a href="/tags/android-framework-view-root-iml/" style="font-size: 10px;">android_framework_view_root_iml</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/c-bitflag/" style="font-size: 10px;">c_bitflag</a> <a href="/tags/c-object-releation/" style="font-size: 13.33px;">c_object_releation</a> <a href="/tags/c-operator/" style="font-size: 10px;">c_operator</a> <a href="/tags/css-flex-box/" style="font-size: 10px;">css_flex_box</a> <a href="/tags/data-accurancy/" style="font-size: 10px;">data_accurancy</a> <a href="/tags/database-mysql/" style="font-size: 16.67px;">database_mysql</a> <a href="/tags/database-mysql-backup/" style="font-size: 13.33px;">database_mysql_backup</a> <a href="/tags/database-mysql-install/" style="font-size: 13.33px;">database_mysql_install</a> <a href="/tags/database-mysql-table/" style="font-size: 10px;">database_mysql_table</a> <a href="/tags/design-mode-mvp/" style="font-size: 10px;">design_mode_mvp</a> <a href="/tags/go-beego/" style="font-size: 10px;">go_beego</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/gradle-proguard/" style="font-size: 10px;">gradle_proguard</a> <a href="/tags/gradle-project/" style="font-size: 10px;">gradle_project</a> <a href="/tags/gradle-study/" style="font-size: 10px;">gradle_study</a> <a href="/tags/gradle-task/" style="font-size: 10px;">gradle_task</a> <a href="/tags/java-concurrent/" style="font-size: 10px;">java_concurrent</a> <a href="/tags/java-hash-index/" style="font-size: 10px;">java_hash_index</a> <a href="/tags/java-jvm/" style="font-size: 10px;">java_jvm</a> <a href="/tags/java-jvm-class-struct/" style="font-size: 10px;">java_jvm_class_struct</a> <a href="/tags/java-jvm-gc/" style="font-size: 10px;">java_jvm_gc</a> <a href="/tags/java-thread/" style="font-size: 10px;">java_thread</a> <a href="/tags/javascipt-object/" style="font-size: 10px;">javascipt_object</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/javascript-basic/" style="font-size: 10px;">javascript_basic</a> <a href="/tags/javascript-function/" style="font-size: 10px;">javascript_function</a> <a href="/tags/javascript-typescript/" style="font-size: 16.67px;">javascript_typescript</a> <a href="/tags/linux-cmd/" style="font-size: 13.33px;">linux_cmd</a> <a href="/tags/linux-reinstall/" style="font-size: 10px;">linux_reinstall</a> <a href="/tags/net-http-status/" style="font-size: 10px;">net_http_status</a> <a href="/tags/net-tls/" style="font-size: 10px;">net_tls</a> <a href="/tags/nginx-cache/" style="font-size: 10px;">nginx_cache</a> <a href="/tags/nginx-https/" style="font-size: 10px;">nginx_https</a> <a href="/tags/nginx-loader-balance/" style="font-size: 10px;">nginx_loader_balance</a> <a href="/tags/nginx-reverse-proxy/" style="font-size: 10px;">nginx_reverse-proxy</a> <a href="/tags/nginx-server/" style="font-size: 16.67px;">nginx_server</a> <a href="/tags/npm-cmd/" style="font-size: 10px;">npm_cmd</a> <a href="/tags/proto-buf/" style="font-size: 10px;">proto_buf</a> <a href="/tags/python-install/" style="font-size: 10px;">python_install</a> <a href="/tags/reflect/" style="font-size: 10px;">reflect</a> <a href="/tags/ssh-cmd/" style="font-size: 10px;">ssh_cmd</a> <a href="/tags/svg-basic/" style="font-size: 13.33px;">svg_basic</a> <a href="/tags/test/" style="font-size: 13.33px;">test</a> <a href="/tags/tool-svn/" style="font-size: 10px;">tool_svn</a>
     </div>
   </div>
 
@@ -603,6 +609,14 @@
       <ul>
         
           <li>
+            <a href="/2018/02/26/javascript-typescript-2/">javascript-typescript-2</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/22/javascript-typescript-1/">javascript-typescript-1</a>
+          </li>
+        
+          <li>
             <a href="/2018/02/11/algorithm-basic/">algorithm-basic</a>
           </li>
         
@@ -612,14 +626,6 @@
         
           <li>
             <a href="/2018/02/01/javascript-typescript/">javascript-typescript</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/29/javascript-object-1/">javascript-object</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/27/javascript-function/">javascript-function</a>
           </li>
         
       </ul>

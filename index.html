@@ -61,6 +61,84 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-javascript-typescript-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/26/javascript-typescript-2/" class="article-date">
+  <time datetime="2018-02-26T12:21:39.000Z" itemprop="datePublished">2018-02-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/26/javascript-typescript-2/">javascript-typescript-2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">  <span class="number">1.</span> intersection <span class="keyword">type</span> （交集<span class="keyword">type</span>)</span><br><span class="line">     <span class="keyword">type</span> LiHong =  Person &amp; Teacher &amp; Customer  </span><br><span class="line">     LiHong 拥有多重特性（Person Teacher Customer)</span><br><span class="line">  <span class="number">2.</span> union <span class="keyword">type</span></span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">padLeft</span>(<span class="params">value: <span class="built_in">string</span>, padding: <span class="built_in">string</span>|<span class="built_in">number</span></span>) </span>&#123;</span><br><span class="line">	    <span class="keyword">if</span> (<span class="keyword">typeof</span> padding === <span class="string">"number"</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">Array</span>(padding + <span class="number">1</span>).join(<span class="string">" "</span>) + value;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">if</span> (<span class="keyword">typeof</span> padding === <span class="string">"string"</span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> padding + value;</span><br><span class="line">	    &#125;</span><br><span class="line">	    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">`Expected string or number, got '<span class="subst">$&#123;padding&#125;</span>'.`</span>);</span><br><span class="line">	&#125; </span><br><span class="line">     padding 可以是<span class="built_in">string</span> 或者<span class="built_in">number</span></span><br><span class="line"> <span class="number">3.</span> <span class="keyword">typeof</span> 类型检查</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">isNumber</span>(<span class="params">x: <span class="built_in">any</span></span>): <span class="title">x</span> <span class="title">is</span> <span class="title">number</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">return</span> <span class="keyword">typeof</span> x === <span class="string">"number"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">    只能是<span class="built_in">number</span> <span class="built_in">string</span> symbol <span class="built_in">boolean</span></span><br><span class="line"> <span class="number">4.</span> instanceOf 类型检查</span><br><span class="line">	<span class="keyword">interface</span> Padder &#123;</span><br><span class="line">	    getPaddingString(): <span class="built_in">string</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">class</span> SpaceRepeatingPadder <span class="keyword">implements</span> Padder &#123;</span><br><span class="line">	    <span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> numSpaces: <span class="built_in">number</span></span>) &#123; &#125;</span><br><span class="line">	    getPaddingString() &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="built_in">Array</span>(<span class="keyword">this</span>.numSpaces + <span class="number">1</span>).join(<span class="string">" "</span>);</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">class</span> StringPadder <span class="keyword">implements</span> Padder &#123;</span><br><span class="line">	    <span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> value: <span class="built_in">string</span></span>) &#123; &#125;</span><br><span class="line">	    getPaddingString() &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span>.value;</span><br><span class="line">	    &#125;</span><br><span class="line">        &#125;	</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">getRandomPadder</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	    <span class="keyword">return</span> <span class="built_in">Math</span>.random() &lt; <span class="number">0.5</span> ?</span><br><span class="line">		<span class="keyword">new</span> SpaceRepeatingPadder(<span class="number">4</span>) :</span><br><span class="line">		<span class="keyword">new</span> StringPadder(<span class="string">"  "</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// Type is 'SpaceRepeatingPadder | StringPadder'</span></span><br><span class="line">	<span class="keyword">let</span> padder: Padder = getRandomPadder();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (padder <span class="keyword">instanceof</span> SpaceRepeatingPadder) &#123;</span><br><span class="line">	    padder; <span class="comment">// type narrowed to 'SpaceRepeatingPadder'</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (padder <span class="keyword">instanceof</span> StringPadder) &#123;</span><br><span class="line">	    padder; <span class="comment">// type narrowed to 'StringPadder'</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span> 映射类型</span><br><span class="line">   <span class="keyword">interface</span> Person &#123;</span><br><span class="line">      name?:<span class="built_in">string</span>;</span><br><span class="line">      age?:<span class="built_in">number</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">class</span> ReadOnly&lt;T&gt;&#123;</span><br><span class="line">     readonly [ p keyof T]:T[p];</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/26/javascript-typescript-2/" data-id="cje49x6tg0033senmq0ih5zpe" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-typescript/">javascript_typescript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-javascript-typescript-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/22/javascript-typescript-1/" class="article-date">
+  <time datetime="2018-02-22T12:58:21.000Z" itemprop="datePublished">2018-02-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/22/javascript-typescript-1/">javascript-typescript-1</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 基本数据类型定义</span><br><span class="line">   <span class="keyword">let</span> name:<span class="built_in">string</span> = <span class="string">"xujianhua"</span>;</span><br><span class="line">   <span class="keyword">let</span> title:<span class="built_in">string</span> = <span class="string">`welcome to school ,<span class="subst">$&#123;name&#125;</span>`</span>;</span><br><span class="line">   <span class="keyword">let</span> isMan: <span class="built_in">boolean</span> = <span class="literal">true</span>;</span><br><span class="line">   <span class="keyword">let</span> age:<span class="built_in">number</span> = <span class="number">27</span>;</span><br><span class="line">   <span class="keyword">let</span> arr: <span class="built_in">number</span>[] = [<span class="number">23</span>,<span class="number">23</span>,<span class="number">34</span>];</span><br><span class="line">   <span class="keyword">enum</span> Color &#123;red,green,white&#125;</span><br><span class="line">   <span class="keyword">let</span> red : Color = Color.red;</span><br><span class="line">   <span class="keyword">let</span> someThing:<span class="built_in">any</span> = <span class="string">"xujianhua"</span>;</span><br><span class="line"><span class="number">2.</span> 变量的作用域</span><br><span class="line">   <span class="keyword">var</span> vs <span class="keyword">let</span></span><br><span class="line">   <span class="keyword">var</span>的缺点：</span><br><span class="line">   a&gt; 一个方法内部可以重复声明同一个变量</span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> i= <span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">          <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">1</span>; i&lt;<span class="number">5</span>; i++)&#123;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      容易出现逻辑错误</span><br><span class="line">   b&gt; <span class="keyword">var</span> 声明的作用域是方法域</span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">         <span class="keyword">if</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">            <span class="keyword">var</span> str = <span class="string">"xujianhua"</span>;</span><br><span class="line">         &#125;</span><br><span class="line">         returb str;</span><br><span class="line">      &#125;</span><br><span class="line">      str 可以在print的任何位置声明，str的访问也是整个方法内部。</span><br><span class="line">   c&gt;  <span class="keyword">for</span>(<span class="keyword">var</span> i =<span class="number">0</span>; i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">		setTimeout(<span class="number">2</span>s,<span class="built_in">console</span>.log(i));</span><br><span class="line">        &#125;</span><br><span class="line">        结果是 <span class="number">4</span> ，<span class="number">4</span> ，<span class="number">4</span> ，<span class="number">4</span> ,<span class="number">4</span></span><br><span class="line"><span class="number">3.</span> 接口</span><br><span class="line">   <span class="keyword">interface</span> person &#123;</span><br><span class="line">      sports ?:<span class="built_in">string</span>[];<span class="comment">//可选属性</span></span><br><span class="line">      score ?: <span class="built_in">number</span>;</span><br><span class="line">      name:<span class="built_in">string</span>;</span><br><span class="line">      age: <span class="built_in">number</span>;</span><br><span class="line">   &#125;</span><br><span class="line"><span class="number">4.</span> 模块</span><br><span class="line">   内部模块（<span class="keyword">namespace</span>)</span><br><span class="line">   外部模块（<span class="keyword">module</span>)</span><br><span class="line">        任何包含import 或export的文件都是一个模块</span><br><span class="line">        任何一个模块都有一个默认导出,</span><br><span class="line">        模块导出的是方法 变量 类 接口</span><br><span class="line">	    student.ts//js 文件</span><br><span class="line">            export default class Student&#123;&#125;</span><br><span class="line">            score.ts <span class="comment">// 成绩js文件 </span></span><br><span class="line">            <span class="keyword">import</span> student <span class="keyword">from</span> <span class="string">"./student"</span></span><br><span class="line">            <span class="keyword">var</span> s1= <span class="keyword">new</span> student();</span><br><span class="line">        模块导出的形式</span><br><span class="line">	    <span class="number">1</span>&gt; <span class="keyword">export</span> <span class="keyword">class</span> Student&#123;&#125;</span><br><span class="line">            <span class="number">2</span>&gt;</span><br><span class="line">              <span class="keyword">class</span> Student&#123;&#125;</span><br><span class="line">              <span class="keyword">export</span> = Student; </span><br><span class="line"><span class="number">5.</span> example</span><br><span class="line">   shapes.ts<span class="comment">//形状文件</span></span><br><span class="line">   <span class="keyword">export</span> <span class="keyword">class</span> Circle&#123;&#125;</span><br><span class="line">   <span class="keyword">export</span> <span class="keyword">class</span> Rectangle&#123;&#125;</span><br><span class="line">   shapeDrawer.ts<span class="comment">//绘制文件</span></span><br><span class="line">   <span class="keyword">import</span> * <span class="keyword">as</span> shape <span class="keyword">from</span> <span class="string">"shape"</span></span><br><span class="line">   <span class="keyword">var</span> circle = <span class="keyword">new</span> shape.Circle();</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">type</span> Task = <span class="function">(<span class="params">taskData:<span class="built_in">any</span></span>)=&gt;</span>&#123;</span><br><span class="line">        &#125;</span><br><span class="line">   <span class="keyword">export</span>= Task;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/22/javascript-typescript-1/" data-id="cje49x6tf0031senm9i3zrf35" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-typescript/">javascript_typescript</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-algorithm-basic" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/11/algorithm-basic/" class="article-date">
@@ -88,7 +166,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/algorithm-basic/" data-id="cjdy2pjri0000h5nmieczsdsl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/11/algorithm-basic/" data-id="cje49x6qz0001senmgf2swdd6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm-sort-order/">algorithm_sort_order</a></li></ul>
@@ -141,7 +219,7 @@ message Person {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/05/protocol-buffer/" data-id="cjdy2pjv1003ph5nmr71d0mvo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/05/protocol-buffer/" data-id="cje49x6ty003vsenm6oo0gk76" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/proto-buf/">proto_buf</a></li></ul>
@@ -190,7 +268,7 @@ message Person {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/01/javascript-typescript/" data-id="cjdy2pjug002th5nm55elxm50" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/01/javascript-typescript/" data-id="cje49x6th0035senmr3l46d3f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-typescript/">javascript_typescript</a></li></ul>
@@ -236,7 +314,7 @@ message Person {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/29/javascript-object-1/" data-id="cjdy2pjuf002rh5nm19rs4prq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/29/javascript-object-1/" data-id="cje49x6td002xsenm5vkn7mb1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascipt-object/">javascipt_object</a></li></ul>
@@ -285,7 +363,7 @@ message Person {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/27/javascript-function/" data-id="cjdy2pjue002ph5nm820o0brf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/27/javascript-function/" data-id="cje49x6tc002vsenmyhsz4qpa" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-function/">javascript_function</a></li></ul>
@@ -324,7 +402,7 @@ message Person {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/24/java-hash-index/" data-id="cjdy2pju8002gh5nmy8mkzr4c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/24/java-hash-index/" data-id="cje49x6t2002csenmiwa05f7t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-hash-index/">java_hash_index</a></li></ul>
@@ -376,7 +454,7 @@ message Person {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/19/android-threadlocal/" data-id="cjdy2pjt5001bh5nmo6zang4w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/19/android-threadlocal/" data-id="cje49x6s10017senma2dni0xj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-application-threadlocal/">android_application_threadlocal</a></li></ul>
@@ -415,7 +493,7 @@ message Person {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/17/android-application-event-dispatch/" data-id="cjdy2pjs10008h5nm77u8d0pa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/17/android-application-event-dispatch/" data-id="cje49x6r80008senm0psz0nvr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-application-event-dispatch/">android_application_event_dispatch</a></li></ul>
@@ -427,88 +505,10 @@ message Person {
 
 
   
-    <article id="post-java-study-jvm-class" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/15/java-study-jvm-class/" class="article-date">
-  <time datetime="2018-01-15T01:42:20.000Z" itemprop="datePublished">2018-01-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/15/java-study-jvm-class/">java-study-class</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">1. class的结构组成</span><br><span class="line"><span class="meta">	1&gt;</span><span class="bash"> class 是字节流.可以是class 文件,也可以是从网络直接获取的字节流(jsp).</span></span><br><span class="line">	jvm 支持的class字节流,可以是java 编译而来,也可以是Groovy的动态语言,</span><br><span class="line">	编译而来.</span><br><span class="line"><span class="meta">	2&gt;</span><span class="bash"> class字节流由无符号数和表组成.表是由若干无符号数和若干表组成.</span></span><br><span class="line">	无符号数具体表示数字,索引值,数值. 表以_info结尾.</span><br><span class="line"><span class="meta">	3&gt;</span><span class="bash"> class 结构</span></span><br><span class="line">	u4 (四个字节） magic(魔法数）  区别语言标记</span><br><span class="line">	u2 minior_version (次版本号）</span><br><span class="line">	u2 major_version (主版本号）jdk 版本号必须大于等于主版本号</span><br><span class="line">	u2 constant_pool_count</span><br><span class="line">	cp_info constant_info</span><br><span class="line">	u2 access_flag </span><br><span class="line">	u2 this_class (类索引） //确定类的全名</span><br><span class="line">	u2 super_class (父类索引） //确定父类的全名</span><br><span class="line">	u2 interface_count </span><br><span class="line">	u2 interface</span><br><span class="line">	u2 fields_count</span><br><span class="line">	field_info  fields</span><br><span class="line">	u2  method_count</span><br><span class="line">	method_info</span><br><span class="line">	u2 attribute_count</span><br><span class="line">	attribute_info</span><br><span class="line">	</span><br><span class="line">2. 版本号</span><br><span class="line">	jdk        class</span><br><span class="line">	1.1        45</span><br><span class="line">	1.7        51</span><br><span class="line">	</span><br><span class="line">3. 常量池</span><br><span class="line"><span class="meta">	1&gt;</span><span class="bash"> 常量池中的元素结构</span></span><br><span class="line"><span class="meta">		a&gt;</span><span class="bash"> contant_utf-8_info</span></span><br><span class="line"><span class="meta">		b&gt;</span><span class="bash"> constant_Integer_info</span></span><br><span class="line"><span class="meta">		c&gt;</span><span class="bash"> constant_float_info</span></span><br><span class="line"><span class="meta">		d&gt;</span><span class="bash"> constant_long_info</span></span><br><span class="line"><span class="meta">		e&gt;</span><span class="bash"> constant_double_info</span></span><br><span class="line"><span class="meta">		f&gt;</span><span class="bash"> constant_class_info</span></span><br><span class="line"><span class="meta">		g&gt;</span><span class="bash"> constant_string_info</span></span><br><span class="line"><span class="meta">		h&gt;</span><span class="bash"> constant_field_ref_info</span></span><br><span class="line"><span class="meta">		i&gt;</span><span class="bash"> constant_method_ref_info</span></span><br><span class="line"><span class="meta">		j&gt;</span><span class="bash"> constant_interface_ref_info</span></span><br><span class="line">4. 访问权限修饰符</span><br><span class="line"><span class="meta">	1&gt;</span><span class="bash"> public private</span></span><br><span class="line"><span class="meta">	2&gt;</span><span class="bash"> class interface annotation enm </span></span><br><span class="line"><span class="meta">	3&gt;</span><span class="bash"> abstract </span></span><br><span class="line"><span class="meta">	4&gt;</span><span class="bash"> final </span></span><br><span class="line"><span class="meta">	5&gt;</span><span class="bash"> super </span></span><br><span class="line"><span class="meta">	6&gt;</span><span class="bash"> synthetic (合成的）</span></span><br><span class="line">	access_flag 包含了class的以上信息,是由一系列的布尔值表示的</span><br><span class="line">5. 方法和字段描述符号</span><br><span class="line">	int a ; I </span><br><span class="line">	String s; Ljava/lang/String</span><br><span class="line">	int[] arr; [I</span><br><span class="line">	int[][] arr_1; [[I</span><br><span class="line">	</span><br><span class="line">	void() add; ()V</span><br><span class="line">	String getName(); ()Ljava/lang/String</span><br><span class="line">	int getAge(String student); (Ljava/lang/String)I</span><br><span class="line">6. 方法表</span><br><span class="line"></span><br><span class="line">	u2	access_flags</span><br><span class="line">	u2      name_index</span><br><span class="line">	u2      descriptor_index</span><br><span class="line">	u2      atrribute_count</span><br><span class="line">	attribute_info attributes</span><br><span class="line">6. 属性表</span><br><span class="line"><span class="meta">	a&gt;</span><span class="bash"> code 的属性</span></span><br><span class="line">	java方法中的代码经过javac编译器处理后,最终变为字节码指令存储在Code 属性内</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/15/java-study-jvm-class/" data-id="cjdy2pju6002eh5nmb4agcnrs" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-jvm-class-struct/">java_jvm_class_struct</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-svg-study-1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/29/svg-study-1/" class="article-date">
-  <time datetime="2017-12-29T03:45:38.000Z" itemprop="datePublished">2017-12-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/29/svg-study-1/">svg_study</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> &lt;svg version=<span class="string">"1.1"</span> xmlns=<span class="string">"http://www.w3.org/svg"</span></span><br><span class="line">	<span class="built_in">width</span>=<span class="string">"a"</span> <span class="built_in">height</span>=<span class="string">"b"</span> viewbox=<span class="string">" e f  c d"</span>&gt;</span><br><span class="line">	&lt;<span class="built_in">rect</span> <span class="built_in">width</span> =<span class="string">"r1"</span> <span class="built_in">height</span>=<span class="string">"r2"</span> <span class="built_in">fill</span>=<span class="string">"#00ffee"</span>/&gt;</span><br><span class="line">&lt;/svg&gt;</span><br><span class="line"></span><br><span class="line">viewbox 定义了显示的区域,分别对应min_x min_y </span><br><span class="line"><span class="built_in">width</span> <span class="built_in">height</span> .其中<span class="built_in">width</span> 代表将Viewport 的a分成</span><br><span class="line">c份，<span class="built_in">height</span>代表将viewport的b分成d份</span><br><span class="line"> </span><br><span class="line">viewport 视图定义看到区域的大小</span><br><span class="line"><span class="built_in">rect</span> 显示的大小<span class="built_in">width</span>为r1*a/c <span class="built_in">height</span> 为r2*b/d</span><br><span class="line"></span><br><span class="line">preserveAspectRatio 当viewport 宽高比例与viewbox的宽</span><br><span class="line">高比例不一致，meet 用系数低的（Min(a/c,b/d)) slice </span><br><span class="line">用系数高的Max(a/c,b/d);</span><br><span class="line">xMin 将视图平移-e      <span class="comment">//以右为正</span></span><br><span class="line">xMax 将视图平移(a-e-c)</span><br><span class="line">YMin 将视图下移 -f</span><br><span class="line">YMax 将视图下移 (b-f-d) <span class="comment">//一下为正</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/29/svg-study-1/" data-id="cjdy2pjva003yh5nm2i7oum9o" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/svg-basic/">svg_basic</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -531,7 +531,7 @@ message Person {
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/algorithm-sort-order/" style="font-size: 10px;">algorithm_sort_order</a> <a href="/tags/android-proguard/" style="font-size: 10px;">android proguard</a> <a href="/tags/android-application-aidl/" style="font-size: 10px;">android_application_aidl</a> <a href="/tags/android-application-content-provider/" style="font-size: 10px;">android_application_content_provider</a> <a href="/tags/android-application-customer-view/" style="font-size: 10px;">android_application_customer_view</a> <a href="/tags/android-application-event-dispatch/" style="font-size: 10px;">android_application_event_dispatch</a> <a href="/tags/android-application-handler/" style="font-size: 10px;">android_application_handler</a> <a href="/tags/android-application-long-running-operation/" style="font-size: 10px;">android_application_long_running_operation</a> <a href="/tags/android-application-parcelable/" style="font-size: 10px;">android_application_parcelable</a> <a href="/tags/android-application-security/" style="font-size: 10px;">android_application_security</a> <a href="/tags/android-application-threadlocal/" style="font-size: 10px;">android_application_threadlocal</a> <a href="/tags/android-framework-binder/" style="font-size: 20px;">android_framework_binder</a> <a href="/tags/android-framework-init-process/" style="font-size: 10px;">android_framework_init_process</a> <a href="/tags/android-framework-launch-activity/" style="font-size: 13.33px;">android_framework_launch_activity</a> <a href="/tags/android-framework-servermanager/" style="font-size: 10px;">android_framework_servermanager</a> <a href="/tags/android-framework-set-content-view/" style="font-size: 10px;">android_framework_set_content_view</a> <a href="/tags/android-framework-view-root-iml/" style="font-size: 10px;">android_framework_view_root_iml</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/c-bitflag/" style="font-size: 10px;">c_bitflag</a> <a href="/tags/c-object-releation/" style="font-size: 13.33px;">c_object_releation</a> <a href="/tags/c-operator/" style="font-size: 10px;">c_operator</a> <a href="/tags/css-flex-box/" style="font-size: 10px;">css_flex_box</a> <a href="/tags/data-accurancy/" style="font-size: 10px;">data_accurancy</a> <a href="/tags/database-mysql/" style="font-size: 16.67px;">database_mysql</a> <a href="/tags/database-mysql-backup/" style="font-size: 13.33px;">database_mysql_backup</a> <a href="/tags/database-mysql-install/" style="font-size: 13.33px;">database_mysql_install</a> <a href="/tags/database-mysql-table/" style="font-size: 10px;">database_mysql_table</a> <a href="/tags/design-mode-mvp/" style="font-size: 10px;">design_mode_mvp</a> <a href="/tags/go-beego/" style="font-size: 10px;">go_beego</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/gradle-proguard/" style="font-size: 10px;">gradle_proguard</a> <a href="/tags/gradle-project/" style="font-size: 10px;">gradle_project</a> <a href="/tags/gradle-study/" style="font-size: 10px;">gradle_study</a> <a href="/tags/gradle-task/" style="font-size: 10px;">gradle_task</a> <a href="/tags/java-concurrent/" style="font-size: 10px;">java_concurrent</a> <a href="/tags/java-hash-index/" style="font-size: 10px;">java_hash_index</a> <a href="/tags/java-jvm/" style="font-size: 10px;">java_jvm</a> <a href="/tags/java-jvm-class-struct/" style="font-size: 10px;">java_jvm_class_struct</a> <a href="/tags/java-jvm-gc/" style="font-size: 10px;">java_jvm_gc</a> <a href="/tags/java-thread/" style="font-size: 10px;">java_thread</a> <a href="/tags/javascipt-object/" style="font-size: 10px;">javascipt_object</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/javascript-basic/" style="font-size: 10px;">javascript_basic</a> <a href="/tags/javascript-function/" style="font-size: 10px;">javascript_function</a> <a href="/tags/javascript-typescript/" style="font-size: 10px;">javascript_typescript</a> <a href="/tags/linux-cmd/" style="font-size: 13.33px;">linux_cmd</a> <a href="/tags/linux-reinstall/" style="font-size: 10px;">linux_reinstall</a> <a href="/tags/net-http-status/" style="font-size: 10px;">net_http_status</a> <a href="/tags/net-tls/" style="font-size: 10px;">net_tls</a> <a href="/tags/nginx-cache/" style="font-size: 10px;">nginx_cache</a> <a href="/tags/nginx-https/" style="font-size: 10px;">nginx_https</a> <a href="/tags/nginx-loader-balance/" style="font-size: 10px;">nginx_loader_balance</a> <a href="/tags/nginx-reverse-proxy/" style="font-size: 10px;">nginx_reverse-proxy</a> <a href="/tags/nginx-server/" style="font-size: 16.67px;">nginx_server</a> <a href="/tags/npm-cmd/" style="font-size: 10px;">npm_cmd</a> <a href="/tags/proto-buf/" style="font-size: 10px;">proto_buf</a> <a href="/tags/python-install/" style="font-size: 10px;">python_install</a> <a href="/tags/reflect/" style="font-size: 10px;">reflect</a> <a href="/tags/ssh-cmd/" style="font-size: 10px;">ssh_cmd</a> <a href="/tags/svg-basic/" style="font-size: 13.33px;">svg_basic</a> <a href="/tags/test/" style="font-size: 13.33px;">test</a> <a href="/tags/tool-svn/" style="font-size: 10px;">tool_svn</a>
+      <a href="/tags/algorithm-sort-order/" style="font-size: 10px;">algorithm_sort_order</a> <a href="/tags/android-proguard/" style="font-size: 10px;">android proguard</a> <a href="/tags/android-application-aidl/" style="font-size: 10px;">android_application_aidl</a> <a href="/tags/android-application-content-provider/" style="font-size: 10px;">android_application_content_provider</a> <a href="/tags/android-application-customer-view/" style="font-size: 10px;">android_application_customer_view</a> <a href="/tags/android-application-event-dispatch/" style="font-size: 10px;">android_application_event_dispatch</a> <a href="/tags/android-application-handler/" style="font-size: 10px;">android_application_handler</a> <a href="/tags/android-application-long-running-operation/" style="font-size: 10px;">android_application_long_running_operation</a> <a href="/tags/android-application-parcelable/" style="font-size: 10px;">android_application_parcelable</a> <a href="/tags/android-application-security/" style="font-size: 10px;">android_application_security</a> <a href="/tags/android-application-threadlocal/" style="font-size: 10px;">android_application_threadlocal</a> <a href="/tags/android-framework-binder/" style="font-size: 20px;">android_framework_binder</a> <a href="/tags/android-framework-init-process/" style="font-size: 10px;">android_framework_init_process</a> <a href="/tags/android-framework-launch-activity/" style="font-size: 13.33px;">android_framework_launch_activity</a> <a href="/tags/android-framework-servermanager/" style="font-size: 10px;">android_framework_servermanager</a> <a href="/tags/android-framework-set-content-view/" style="font-size: 10px;">android_framework_set_content_view</a> <a href="/tags/android-framework-view-root-iml/" style="font-size: 10px;">android_framework_view_root_iml</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/c-bitflag/" style="font-size: 10px;">c_bitflag</a> <a href="/tags/c-object-releation/" style="font-size: 13.33px;">c_object_releation</a> <a href="/tags/c-operator/" style="font-size: 10px;">c_operator</a> <a href="/tags/css-flex-box/" style="font-size: 10px;">css_flex_box</a> <a href="/tags/data-accurancy/" style="font-size: 10px;">data_accurancy</a> <a href="/tags/database-mysql/" style="font-size: 16.67px;">database_mysql</a> <a href="/tags/database-mysql-backup/" style="font-size: 13.33px;">database_mysql_backup</a> <a href="/tags/database-mysql-install/" style="font-size: 13.33px;">database_mysql_install</a> <a href="/tags/database-mysql-table/" style="font-size: 10px;">database_mysql_table</a> <a href="/tags/design-mode-mvp/" style="font-size: 10px;">design_mode_mvp</a> <a href="/tags/go-beego/" style="font-size: 10px;">go_beego</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/gradle-proguard/" style="font-size: 10px;">gradle_proguard</a> <a href="/tags/gradle-project/" style="font-size: 10px;">gradle_project</a> <a href="/tags/gradle-study/" style="font-size: 10px;">gradle_study</a> <a href="/tags/gradle-task/" style="font-size: 10px;">gradle_task</a> <a href="/tags/java-concurrent/" style="font-size: 10px;">java_concurrent</a> <a href="/tags/java-hash-index/" style="font-size: 10px;">java_hash_index</a> <a href="/tags/java-jvm/" style="font-size: 10px;">java_jvm</a> <a href="/tags/java-jvm-class-struct/" style="font-size: 10px;">java_jvm_class_struct</a> <a href="/tags/java-jvm-gc/" style="font-size: 10px;">java_jvm_gc</a> <a href="/tags/java-thread/" style="font-size: 10px;">java_thread</a> <a href="/tags/javascipt-object/" style="font-size: 10px;">javascipt_object</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/javascript-basic/" style="font-size: 10px;">javascript_basic</a> <a href="/tags/javascript-function/" style="font-size: 10px;">javascript_function</a> <a href="/tags/javascript-typescript/" style="font-size: 16.67px;">javascript_typescript</a> <a href="/tags/linux-cmd/" style="font-size: 13.33px;">linux_cmd</a> <a href="/tags/linux-reinstall/" style="font-size: 10px;">linux_reinstall</a> <a href="/tags/net-http-status/" style="font-size: 10px;">net_http_status</a> <a href="/tags/net-tls/" style="font-size: 10px;">net_tls</a> <a href="/tags/nginx-cache/" style="font-size: 10px;">nginx_cache</a> <a href="/tags/nginx-https/" style="font-size: 10px;">nginx_https</a> <a href="/tags/nginx-loader-balance/" style="font-size: 10px;">nginx_loader_balance</a> <a href="/tags/nginx-reverse-proxy/" style="font-size: 10px;">nginx_reverse-proxy</a> <a href="/tags/nginx-server/" style="font-size: 16.67px;">nginx_server</a> <a href="/tags/npm-cmd/" style="font-size: 10px;">npm_cmd</a> <a href="/tags/proto-buf/" style="font-size: 10px;">proto_buf</a> <a href="/tags/python-install/" style="font-size: 10px;">python_install</a> <a href="/tags/reflect/" style="font-size: 10px;">reflect</a> <a href="/tags/ssh-cmd/" style="font-size: 10px;">ssh_cmd</a> <a href="/tags/svg-basic/" style="font-size: 13.33px;">svg_basic</a> <a href="/tags/test/" style="font-size: 13.33px;">test</a> <a href="/tags/tool-svn/" style="font-size: 10px;">tool_svn</a>
     </div>
   </div>
 
@@ -553,6 +553,14 @@ message Person {
       <ul>
         
           <li>
+            <a href="/2018/02/26/javascript-typescript-2/">javascript-typescript-2</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/22/javascript-typescript-1/">javascript-typescript-1</a>
+          </li>
+        
+          <li>
             <a href="/2018/02/11/algorithm-basic/">algorithm-basic</a>
           </li>
         
@@ -562,14 +570,6 @@ message Person {
         
           <li>
             <a href="/2018/02/01/javascript-typescript/">javascript-typescript</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/29/javascript-object-1/">javascript-object</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/27/javascript-function/">javascript-function</a>
           </li>
         
       </ul>

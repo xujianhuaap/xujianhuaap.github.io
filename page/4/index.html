@@ -61,6 +61,165 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-nginx-reverse-proxy" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/17/nginx-reverse-proxy/" class="article-date">
+  <time datetime="2017-11-17T10:52:09.000Z" itemprop="datePublished">2017-11-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/17/nginx-reverse-proxy/">nginx-reverse_proxy</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 透传请求</span><br><span class="line">　　location /www/<span class="class"><span class="keyword">data</span>/ &#123;</span></span><br><span class="line"><span class="class">        <span class="title">proxy_pass</span> <span class="title">https</span>://<span class="title">host</span>:<span class="title">port</span>/;</span></span><br><span class="line"><span class="class">    &#123;</span></span><br><span class="line"><span class="class">    代理服务器的地址没有<span class="title">uri</span>(只有<span class="title">ip</span>和<span class="title">port</span>),因此<span class="title">request</span> 的<span class="title">uri</span>直接</span></span><br><span class="line"><span class="class">　　拼接上去。</span></span><br><span class="line"><span class="class">    <span class="title">location</span> /<span class="title">www</span>/<span class="title">data</span>/ &#123;</span></span><br><span class="line"><span class="class">	<span class="title">proxy_pass</span> <span class="title">https</span>://<span class="title">localhost</span>:<span class="title">port</span>/<span class="title">link</span>/; </span></span><br><span class="line"><span class="class">    &#125;</span></span><br><span class="line">    如果代理服务器的地址包含uri(/link/)请求是/www/<span class="class"><span class="keyword">data</span>/images/home.html</span></span><br><span class="line">    那么将会代理到https://localhost:port/link/images/home.html;</span><br><span class="line"><span class="number">2.</span> 请求头的透传 和缓存配置</span><br><span class="line">　　location /www/<span class="class"><span class="keyword">data</span>/ &#123;</span></span><br><span class="line"><span class="class">       <span class="title">proxy_buffering</span> <span class="title">on</span>;</span></span><br><span class="line"><span class="class">       #16代表缓存的请求数目　4<span class="title">k</span> 代表每个请求的缓存大小；</span></span><br><span class="line"><span class="class">       <span class="title">proxy_buffers</span> 16 4<span class="title">k</span>;</span></span><br><span class="line"><span class="class">       #来自代理服务器的响应第一部分缓存大小，通常缓存响应的<span class="title">header</span> ,比剩下的响应所占的缓存小；</span></span><br><span class="line"><span class="class">       <span class="title">proxy_buffer_size</span> 2<span class="title">k</span>;</span></span><br><span class="line"><span class="class">       <span class="title">proxy_set_header</span> <span class="type">Host</span> $<span class="title">host</span>;</span></span><br><span class="line"><span class="class">       <span class="title">proxy_set_header</span> <span class="type">X</span>-<span class="type">Real</span>-<span class="type">Ip</span> $<span class="title">remote_addr</span>;</span></span><br><span class="line"><span class="class">       <span class="title">proxy_pass</span> <span class="title">http</span>://<span class="title">baidu</span>.<span class="title">com</span>;</span></span><br><span class="line"><span class="class">    &#125;</span></span><br><span class="line"><span class="number">3.</span>  </span><br><span class="line">  　如果你的nginx 服务器是一个集群，有时候需要指定一个</span><br><span class="line">　 location /www/<span class="class"><span class="keyword">data</span>/ &#123;</span></span><br><span class="line"><span class="class">      <span class="title">proxy_bind</span> 127.0.0.1 ;</span></span><br><span class="line"><span class="class">      <span class="title">proxy_pass</span> <span class="title">http</span>://<span class="title">baidu</span>.<span class="title">com</span>/;</span></span><br><span class="line"><span class="class">   &#125;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/17/nginx-reverse-proxy/" data-id="cje49x6tr003msenmfzv1zs9m" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx-reverse-proxy/">nginx_reverse-proxy</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-nginx-static-content" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/16/nginx-static-content/" class="article-date">
+  <time datetime="2017-11-16T11:14:05.000Z" itemprop="datePublished">2017-11-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/16/nginx-static-content/">nginx-static_content</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <pre><code>1. root 指令
+　　root 指令是指定用于搜寻文件的根目录，为了获取需要的文件，nginx 用root 
+    指定的根目录与request URI 进行拼接。
+　　该指令可以放置在http server location 的任何级别上下文（context)
+    http{
+    server{
+        root /www/data;
+        location /images/{
+            autoindex on;
+        }
+        location / {
+        }
+        location ~\.(mp3|mp4){
+            root /www/media/;
+        }
+    }
+    }
+   server 下的root 适用于所有的不包括root指令的location
+   autoindex 指令　on是开启目录　off 是关闭目录
+2. index指令
+   如果request以／结尾，nginx 将视为在对应的目录下寻找所需的index文件,
+   这个index 指令定义了index文件的名字（默认情况下是index.html),在返回
+　 index 文件过程中，niginx 会检查文件的存在性然后内部重定向。 
+　 location / {
+    root /www/data;
+    index index.htm index.html index.php;
+   }
+
+   location ~\.php {
+    fastcgi_pass localhost:8000;
+   }
+   如果request url是/images/,如果/www/data/images/index.html　不存在
+   但是index.php存在，以/images/index.php为新的url重新定向,这时候就会走
+　 第二个location;
+3.try_files指令
+　try_files　指令是检查指定的文件和目录是否存在，如果存在则内部重定向，
+  否则返回特定的错误码。
+　server {
+    root /www/data;
+        location /images/ {
+         try_files $uri /images/default.gif;
+    }
+    location / {
+        try_files $uri $uri.html  =404;
+    }
+        location /data/{
+            try_files $uri $uri/ @backend;
+    }
+    location @backend{
+        proxy_pass: http://locahost:8080;
+    }
+  }
+  try_files 的最后一个参数可以是一个状态码或者location的名字
+4. sendfile指令
+　location /mp3 {
+    sendfile on;
+    #tcp_nopush 必须在sendfile on 才有效
+    tcp_nopush on;
+    sendfile_max_chunk 1m;
+  }
+  sendfile 指令避免了拷贝文件到buffer,直接拷贝文件
+　sendfile_max_chunk 限定了传输数据的大小
+  tcp_nopush 当开启的时候，在文件传输完成，自动把response 头封包并发送
+5. 调整系统最大的网络连接数
+　for linux
+  sudo sysctl -w net.coresomaxconn=4096;
+  你也可以通过配置文件
+　　　vi /etc/sysctl.conf
+  添加一下内容
+　　　net.core.somaxconn=4096
+  对于nginx默认值是512,r如果更大的话可以通过配置
+　　　server {
+      listen 80 backlog=4096;
+      }
+6. tcp_nodelay 指令
+　tcp_nodelay 指令重写Nagle的算法，以小的packet包解决在网络慢 的难题　　
+　适用于长连接
+　tcp_nodelay
+  location /mp3 {
+       tcp_nodelay on;
+       keeplive_timeout 65;
+  }
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/16/nginx-static-content/" data-id="cje49x6ts003osenm9fino55s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx-server/">nginx_server</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-nginx-study01" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/11/15/nginx-study01/" class="article-date">
@@ -88,7 +247,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/15/nginx-study01/" data-id="cjdy2pjv7003vh5nmuidzpd2s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/15/nginx-study01/" data-id="cje49x6tw003rsenmftaddkis" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx-server/">nginx_server</a></li></ul>
@@ -127,7 +286,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/14/nginx-study/" data-id="cjdy2pjuy003nh5nm6hlagq9p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/14/nginx-study/" data-id="cje49x6tu003qsenmvj8q04rd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx-server/">nginx_server</a></li></ul>
@@ -166,49 +325,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/09/css-study/" data-id="cjdy2pjte001jh5nmjy7su5j7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/09/css-study/" data-id="cje49x6sb001hsenmxog2y2os" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css-flex-box/">css_flex_box</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-c-object-releation" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/11/07/c-object-releation/" class="article-date">
-  <time datetime="2017-11-07T13:40:21.000Z" itemprop="datePublished">2017-11-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/07/c-object-releation/">C-Object</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1. 面向对象编程</span><br><span class="line">	分析对象之前的关系，主要有以下几种：</span><br><span class="line"><span class="meta">	1&gt;</span><span class="bash">has<span class="_">-a</span> composition 具体可以分为两种aggrevation(聚合关系) 和composition(组合关系）</span></span><br><span class="line">		组合关系例如树和树叶，一片树叶智能属于一棵树，树叶随着树的产生，也随着树的死亡而死亡，一片叶子是树的一部分。树叶的</span><br><span class="line">		的死亡，树并不会死亡。</span><br><span class="line">		聚合关系例如车和车轮，一个车必须有车轮，一个车轮可以安在不同的车辆上，车报废了该车轮不一定报废了；车轮爆了车不一</span><br><span class="line">		定报废。</span><br><span class="line"><span class="meta">	2&gt;</span><span class="bash">use<span class="_">-a</span> assotation 联系关系</span></span><br><span class="line">		战士和枪，独立率彼此存在，一个战士可以拥有多支枪，一只抢可以由许多战士使用；</span><br><span class="line"><span class="meta">	3&gt;</span><span class="bash">depends-on dependency 依赖关系</span></span><br><span class="line">		人和空气，人依赖于空气（单向关系），被依赖的人产生基于依赖者的需要，一旦被依赖者被破坏，依赖者将会丧失某个功能；</span><br><span class="line"><span class="meta">	4&gt;</span><span class="bash"> member container 包含关系</span></span><br><span class="line">		array 和item的关系</span><br><span class="line"><span class="meta">	5&gt;</span><span class="bash"> is<span class="_">-a</span> inherit 继承关系</span></span><br><span class="line">		父子关系，继承传代；</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/07/c-object-releation/" data-id="cjdy2pjt20019h5nmhd23lysf" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-object-releation/">c_object_releation</a></li></ul>
 
     </footer>
   </div>
@@ -244,7 +364,46 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/07/c-object/" data-id="cjdy2pjsz0016h5nmji4c09yb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/07/c-object/" data-id="cje49x6s8001dsenmd7iva9q5" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-object-releation/">c_object_releation</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-c-object-releation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/07/c-object-releation/" class="article-date">
+  <time datetime="2017-11-07T13:40:21.000Z" itemprop="datePublished">2017-11-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/07/c-object-releation/">C-Object</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1. 面向对象编程</span><br><span class="line">	分析对象之前的关系，主要有以下几种：</span><br><span class="line"><span class="meta">	1&gt;</span><span class="bash">has<span class="_">-a</span> composition 具体可以分为两种aggrevation(聚合关系) 和composition(组合关系）</span></span><br><span class="line">		组合关系例如树和树叶，一片树叶智能属于一棵树，树叶随着树的产生，也随着树的死亡而死亡，一片叶子是树的一部分。树叶的</span><br><span class="line">		的死亡，树并不会死亡。</span><br><span class="line">		聚合关系例如车和车轮，一个车必须有车轮，一个车轮可以安在不同的车辆上，车报废了该车轮不一定报废了；车轮爆了车不一</span><br><span class="line">		定报废。</span><br><span class="line"><span class="meta">	2&gt;</span><span class="bash">use<span class="_">-a</span> assotation 联系关系</span></span><br><span class="line">		战士和枪，独立率彼此存在，一个战士可以拥有多支枪，一只抢可以由许多战士使用；</span><br><span class="line"><span class="meta">	3&gt;</span><span class="bash">depends-on dependency 依赖关系</span></span><br><span class="line">		人和空气，人依赖于空气（单向关系），被依赖的人产生基于依赖者的需要，一旦被依赖者被破坏，依赖者将会丧失某个功能；</span><br><span class="line"><span class="meta">	4&gt;</span><span class="bash"> member container 包含关系</span></span><br><span class="line">		array 和item的关系</span><br><span class="line"><span class="meta">	5&gt;</span><span class="bash"> is<span class="_">-a</span> inherit 继承关系</span></span><br><span class="line">		父子关系，继承传代；</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/11/07/c-object-releation/" data-id="cje49x6s5001bsenm70qg7gfx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-object-releation/">c_object_releation</a></li></ul>
@@ -283,7 +442,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/03/c-study-bitflag/" data-id="cjdy2pjtd001hh5nmt8tuyda3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/03/c-study-bitflag/" data-id="cje49x6se001lsenmn5hknlbk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-bitflag/">c_bitflag</a></li></ul>
@@ -322,7 +481,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/01/android-test-espresso-1/" data-id="cjdy2pjt00017h5nmolmbitsm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/01/android-test-espresso-1/" data-id="cje49x6s00016senm54qepiyh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
@@ -364,7 +523,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/11/01/android-test-espressco/" data-id="cjdy2pjsx0013h5nm5t9tnt9e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/11/01/android-test-espressco/" data-id="cje49x6rz0013senmyr2vyz7e" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/test/">test</a></li></ul>
@@ -376,90 +535,10 @@
 
 
   
-    <article id="post-database-mysql-04" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/08/13/database-mysql-04/" class="article-date">
-  <time datetime="2017-08-13T12:24:39.000Z" itemprop="datePublished">2017-08-13</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/13/database-mysql-04/">database_mysql_04</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">1. 联表查询</span><br><span class="line"><span class="keyword">select</span> c_name_1,c_name_2 <span class="keyword">from</span> t_name_1 <span class="keyword">left</span> <span class="keyword">join</span> t_name_2 <span class="keyword">on</span> [join_condition]</span><br><span class="line">显性连接</span><br><span class="line"><span class="number">1</span>&gt;内部连接　<span class="keyword">inner</span> <span class="keyword">join</span></span><br><span class="line">  必须两张表中，记录都存在</span><br><span class="line"><span class="number">2</span>&gt;外部连接　</span><br><span class="line">  <span class="keyword">left</span> <span class="keyword">join</span> ; 左表记录都显示</span><br><span class="line">  right join；右表记录都显示</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t_name_1,t_name_2 <span class="keyword">where</span> condition;</span><br><span class="line">这个属于隐形连接查询，不建议再使用，更建议使用显性连接查询。</span><br><span class="line"></span><br><span class="line">2. limit</span><br><span class="line"><span class="keyword">select</span> Salary <span class="keyword">As</span> SecondHighestSalary <span class="keyword">from</span> Employee <span class="keyword">order</span> <span class="keyword">by</span> Salary <span class="keyword">DESC</span> <span class="keyword">limit</span> <span class="number">1</span>,<span class="number">1</span>;</span><br><span class="line">limit ６ 表示记录的前６行</span><br><span class="line">limit ５，３　表示记录第六行开始，往后３行，</span><br><span class="line"></span><br><span class="line">３．　ifnull 函数</span><br><span class="line">ifnull(exp1,exp2); 如果　exp1　不为NULL return exp1;否则,return　exp2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">    <span class="built_in">IFNULL</span>(</span><br><span class="line">      (<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> Salary</span><br><span class="line">       <span class="keyword">FROM</span> Employee</span><br><span class="line">       <span class="keyword">ORDER</span> <span class="keyword">BY</span> Salary <span class="keyword">DESC</span></span><br><span class="line">        <span class="keyword">LIMIT</span> <span class="number">1</span> <span class="keyword">OFFSET</span> <span class="number">1</span>),</span><br><span class="line">    <span class="literal">NULL</span>)</span><br><span class="line"> <span class="keyword">AS</span> SecondHighestSalary</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/13/database-mysql-04/" data-id="cjdy2pjtm001rh5nmcuso4awf" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database-mysql/">database_mysql</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-database-mysql-03" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/01/16/database-mysql-03/" class="article-date">
-  <time datetime="2017-01-16T03:20:18.000Z" itemprop="datePublished">2017-01-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/16/database-mysql-03/">database-mysql-study-03</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">table</span><br><span class="line">1. <span class="keyword">create</span> table</span><br><span class="line"> <span class="keyword">create</span> table <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">exists</span> t_name (</span><br><span class="line">    id tinyint <span class="keyword">not</span> <span class="literal">null</span> auto_increment,</span><br><span class="line">    name char(<span class="number">18</span>) <span class="keyword">not</span> <span class="literal">null</span>,</span><br><span class="line">    part_id int <span class="keyword">not</span> <span class="literal">null</span> default <span class="number">1</span> references t_name_2(column),</span><br><span class="line">    priamry <span class="keyword">key</span> (id)</span><br><span class="line">    ) engine = innodb default charset =utf8 <span class="keyword">select</span> colum_1, colum_2 <span class="keyword">from</span> t_name_1;</span><br><span class="line"></span><br><span class="line">2.modify table </span><br><span class="line">    1&gt; alert table t_name add coumn;</span><br><span class="line">    2&gt; alert table t_name change column_old_name column_new_name tinyint not null;</span><br><span class="line">    3&gt; alert table t_name add primary key (column_name);</span><br><span class="line">    4&gt; alert table t_name add foreign key (column_name) references t_name_1 (column_name);</span><br><span class="line">    4&gt;alert table t_name <span class="keyword">drop</span> column_name;</span><br><span class="line">    5&gt;alert table t_name <span class="keyword">drop</span> <span class="keyword">primary</span> <span class="keyword">key</span> (column_name);</span><br><span class="line">    6&gt;alert table t_name <span class="keyword">drop</span> references foreign <span class="keyword">key</span> (fk_symbol);</span><br><span class="line">3.drop table</span><br><span class="line">    <span class="keyword">drop</span> table <span class="keyword">if</span> <span class="keyword">exists</span> t_name;</span><br><span class="line"></span><br><span class="line">4. query table</span><br><span class="line">    1&gt;<span class="keyword">select</span> * <span class="keyword">from</span> t_name;</span><br><span class="line">    2&gt;<span class="keyword">select</span> column_name ,column_name1 <span class="keyword">from</span> t_name;</span><br><span class="line">    3&gt;<span class="keyword">select</span> top <span class="number">3</span> * <span class="keyword">from</span> t_name <span class="keyword">join</span> t_name_1 <span class="keyword">on</span> t1.column=t2.column.column;</span><br><span class="line">    4&gt;<span class="keyword">select</span> <span class="keyword">distinct</span> column_name <span class="keyword">from</span> t_name ;</span><br><span class="line">5 <span class="keyword">create</span> <span class="keyword">index</span></span><br><span class="line">    <span class="keyword">create</span> <span class="keyword">index</span> index_name <span class="keyword">on</span> t_name (column_name);</span><br></pre></td></tr></table></figure>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"> <span class="built_in">partition</span></span><br><span class="line"><span class="number">1</span>&gt; create table <span class="keyword">if</span> <span class="keyword">not</span> exists  t_name(</span><br><span class="line">    id int <span class="keyword">not</span> null auto_increment,</span><br><span class="line">    name char(<span class="number">18</span>) <span class="keyword">not</span> null,</span><br><span class="line">    age tinyint <span class="keyword">not</span> null,</span><br><span class="line">    gender enum ('man','woman') <span class="keyword">not</span> null uique,</span><br><span class="line">    part_id int constraint fk_symbol references t_name_1 (column_name1,column_name_2),</span><br><span class="line">    primary <span class="built_in">key</span> (id),</span><br><span class="line">    check(id&gt;<span class="number">0</span>),</span><br><span class="line">    )engine= innodb default charater set utf8 </span><br><span class="line">    <span class="built_in">partition</span> by <span class="built_in">range</span> <span class="built_in">columns</span>(id)(</span><br><span class="line">        <span class="built_in">partition</span> p0 <span class="built_in">values</span> less than (<span class="number">10</span>),</span><br><span class="line">        <span class="built_in">partition</span> p1 <span class="built_in">values</span> less than (<span class="number">20</span>)</span><br><span class="line">    );</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="number">2</span>&gt; partitions type</span><br><span class="line">    a)<span class="built_in">range</span> </span><br><span class="line">        <span class="built_in">partition</span> by <span class="built_in">range</span> <span class="built_in">columns</span>(id)(</span><br><span class="line">            <span class="built_in">partition</span> p0 <span class="built_in">values</span> less than (<span class="number">10</span>),</span><br><span class="line">            <span class="built_in">partition</span> p1 <span class="built_in">values</span> less than (<span class="number">20</span>)</span><br><span class="line">        );</span><br><span class="line">    b)<span class="built_in">key</span></span><br><span class="line">        <span class="built_in">partition</span> by <span class="built_in">key</span> ()</span><br><span class="line">        partitions <span class="number">2</span>;</span><br><span class="line">    c)hash</span><br><span class="line">    d)list</span><br><span class="line">        <span class="built_in">partition</span> by list <span class="built_in">columns</span> (id)(</span><br><span class="line">            <span class="built_in">partition</span> p0 <span class="built_in">values</span> <span class="keyword">in</span> (<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>),</span><br><span class="line">            <span class="built_in">partition</span> p1 <span class="built_in">values</span> <span class="keyword">in</span> (<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>)</span><br><span class="line">        );</span><br></pre></td></tr></table></figure>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">database</span><br><span class="line"> 1&gt;create database <span class="keyword">if</span> <span class="keyword">not</span> exists db_name<span class="built_in"> default </span>character <span class="builtin-name">set</span> utf8;</span><br><span class="line"> 2&gt; drop database <span class="keyword">if</span> exists db_name;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/01/16/database-mysql-03/" data-id="cjdy2pjti001ph5nmws3g6wb6" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database-mysql-table/">database_mysql_table</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/">__('next') &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/">__('next') &raquo;</a>
   </nav>
 </section>
         
@@ -482,7 +561,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/algorithm-sort-order/" style="font-size: 10px;">algorithm_sort_order</a> <a href="/tags/android-proguard/" style="font-size: 10px;">android proguard</a> <a href="/tags/android-application-aidl/" style="font-size: 10px;">android_application_aidl</a> <a href="/tags/android-application-content-provider/" style="font-size: 10px;">android_application_content_provider</a> <a href="/tags/android-application-customer-view/" style="font-size: 10px;">android_application_customer_view</a> <a href="/tags/android-application-event-dispatch/" style="font-size: 10px;">android_application_event_dispatch</a> <a href="/tags/android-application-handler/" style="font-size: 10px;">android_application_handler</a> <a href="/tags/android-application-long-running-operation/" style="font-size: 10px;">android_application_long_running_operation</a> <a href="/tags/android-application-parcelable/" style="font-size: 10px;">android_application_parcelable</a> <a href="/tags/android-application-security/" style="font-size: 10px;">android_application_security</a> <a href="/tags/android-application-threadlocal/" style="font-size: 10px;">android_application_threadlocal</a> <a href="/tags/android-framework-binder/" style="font-size: 20px;">android_framework_binder</a> <a href="/tags/android-framework-init-process/" style="font-size: 10px;">android_framework_init_process</a> <a href="/tags/android-framework-launch-activity/" style="font-size: 13.33px;">android_framework_launch_activity</a> <a href="/tags/android-framework-servermanager/" style="font-size: 10px;">android_framework_servermanager</a> <a href="/tags/android-framework-set-content-view/" style="font-size: 10px;">android_framework_set_content_view</a> <a href="/tags/android-framework-view-root-iml/" style="font-size: 10px;">android_framework_view_root_iml</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/c-bitflag/" style="font-size: 10px;">c_bitflag</a> <a href="/tags/c-object-releation/" style="font-size: 13.33px;">c_object_releation</a> <a href="/tags/c-operator/" style="font-size: 10px;">c_operator</a> <a href="/tags/css-flex-box/" style="font-size: 10px;">css_flex_box</a> <a href="/tags/data-accurancy/" style="font-size: 10px;">data_accurancy</a> <a href="/tags/database-mysql/" style="font-size: 16.67px;">database_mysql</a> <a href="/tags/database-mysql-backup/" style="font-size: 13.33px;">database_mysql_backup</a> <a href="/tags/database-mysql-install/" style="font-size: 13.33px;">database_mysql_install</a> <a href="/tags/database-mysql-table/" style="font-size: 10px;">database_mysql_table</a> <a href="/tags/design-mode-mvp/" style="font-size: 10px;">design_mode_mvp</a> <a href="/tags/go-beego/" style="font-size: 10px;">go_beego</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/gradle-proguard/" style="font-size: 10px;">gradle_proguard</a> <a href="/tags/gradle-project/" style="font-size: 10px;">gradle_project</a> <a href="/tags/gradle-study/" style="font-size: 10px;">gradle_study</a> <a href="/tags/gradle-task/" style="font-size: 10px;">gradle_task</a> <a href="/tags/java-concurrent/" style="font-size: 10px;">java_concurrent</a> <a href="/tags/java-hash-index/" style="font-size: 10px;">java_hash_index</a> <a href="/tags/java-jvm/" style="font-size: 10px;">java_jvm</a> <a href="/tags/java-jvm-class-struct/" style="font-size: 10px;">java_jvm_class_struct</a> <a href="/tags/java-jvm-gc/" style="font-size: 10px;">java_jvm_gc</a> <a href="/tags/java-thread/" style="font-size: 10px;">java_thread</a> <a href="/tags/javascipt-object/" style="font-size: 10px;">javascipt_object</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/javascript-basic/" style="font-size: 10px;">javascript_basic</a> <a href="/tags/javascript-function/" style="font-size: 10px;">javascript_function</a> <a href="/tags/javascript-typescript/" style="font-size: 10px;">javascript_typescript</a> <a href="/tags/linux-cmd/" style="font-size: 13.33px;">linux_cmd</a> <a href="/tags/linux-reinstall/" style="font-size: 10px;">linux_reinstall</a> <a href="/tags/net-http-status/" style="font-size: 10px;">net_http_status</a> <a href="/tags/net-tls/" style="font-size: 10px;">net_tls</a> <a href="/tags/nginx-cache/" style="font-size: 10px;">nginx_cache</a> <a href="/tags/nginx-https/" style="font-size: 10px;">nginx_https</a> <a href="/tags/nginx-loader-balance/" style="font-size: 10px;">nginx_loader_balance</a> <a href="/tags/nginx-reverse-proxy/" style="font-size: 10px;">nginx_reverse-proxy</a> <a href="/tags/nginx-server/" style="font-size: 16.67px;">nginx_server</a> <a href="/tags/npm-cmd/" style="font-size: 10px;">npm_cmd</a> <a href="/tags/proto-buf/" style="font-size: 10px;">proto_buf</a> <a href="/tags/python-install/" style="font-size: 10px;">python_install</a> <a href="/tags/reflect/" style="font-size: 10px;">reflect</a> <a href="/tags/ssh-cmd/" style="font-size: 10px;">ssh_cmd</a> <a href="/tags/svg-basic/" style="font-size: 13.33px;">svg_basic</a> <a href="/tags/test/" style="font-size: 13.33px;">test</a> <a href="/tags/tool-svn/" style="font-size: 10px;">tool_svn</a>
+      <a href="/tags/algorithm-sort-order/" style="font-size: 10px;">algorithm_sort_order</a> <a href="/tags/android-proguard/" style="font-size: 10px;">android proguard</a> <a href="/tags/android-application-aidl/" style="font-size: 10px;">android_application_aidl</a> <a href="/tags/android-application-content-provider/" style="font-size: 10px;">android_application_content_provider</a> <a href="/tags/android-application-customer-view/" style="font-size: 10px;">android_application_customer_view</a> <a href="/tags/android-application-event-dispatch/" style="font-size: 10px;">android_application_event_dispatch</a> <a href="/tags/android-application-handler/" style="font-size: 10px;">android_application_handler</a> <a href="/tags/android-application-long-running-operation/" style="font-size: 10px;">android_application_long_running_operation</a> <a href="/tags/android-application-parcelable/" style="font-size: 10px;">android_application_parcelable</a> <a href="/tags/android-application-security/" style="font-size: 10px;">android_application_security</a> <a href="/tags/android-application-threadlocal/" style="font-size: 10px;">android_application_threadlocal</a> <a href="/tags/android-framework-binder/" style="font-size: 20px;">android_framework_binder</a> <a href="/tags/android-framework-init-process/" style="font-size: 10px;">android_framework_init_process</a> <a href="/tags/android-framework-launch-activity/" style="font-size: 13.33px;">android_framework_launch_activity</a> <a href="/tags/android-framework-servermanager/" style="font-size: 10px;">android_framework_servermanager</a> <a href="/tags/android-framework-set-content-view/" style="font-size: 10px;">android_framework_set_content_view</a> <a href="/tags/android-framework-view-root-iml/" style="font-size: 10px;">android_framework_view_root_iml</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/c-bitflag/" style="font-size: 10px;">c_bitflag</a> <a href="/tags/c-object-releation/" style="font-size: 13.33px;">c_object_releation</a> <a href="/tags/c-operator/" style="font-size: 10px;">c_operator</a> <a href="/tags/css-flex-box/" style="font-size: 10px;">css_flex_box</a> <a href="/tags/data-accurancy/" style="font-size: 10px;">data_accurancy</a> <a href="/tags/database-mysql/" style="font-size: 16.67px;">database_mysql</a> <a href="/tags/database-mysql-backup/" style="font-size: 13.33px;">database_mysql_backup</a> <a href="/tags/database-mysql-install/" style="font-size: 13.33px;">database_mysql_install</a> <a href="/tags/database-mysql-table/" style="font-size: 10px;">database_mysql_table</a> <a href="/tags/design-mode-mvp/" style="font-size: 10px;">design_mode_mvp</a> <a href="/tags/go-beego/" style="font-size: 10px;">go_beego</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/gradle-proguard/" style="font-size: 10px;">gradle_proguard</a> <a href="/tags/gradle-project/" style="font-size: 10px;">gradle_project</a> <a href="/tags/gradle-study/" style="font-size: 10px;">gradle_study</a> <a href="/tags/gradle-task/" style="font-size: 10px;">gradle_task</a> <a href="/tags/java-concurrent/" style="font-size: 10px;">java_concurrent</a> <a href="/tags/java-hash-index/" style="font-size: 10px;">java_hash_index</a> <a href="/tags/java-jvm/" style="font-size: 10px;">java_jvm</a> <a href="/tags/java-jvm-class-struct/" style="font-size: 10px;">java_jvm_class_struct</a> <a href="/tags/java-jvm-gc/" style="font-size: 10px;">java_jvm_gc</a> <a href="/tags/java-thread/" style="font-size: 10px;">java_thread</a> <a href="/tags/javascipt-object/" style="font-size: 10px;">javascipt_object</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/javascript-basic/" style="font-size: 10px;">javascript_basic</a> <a href="/tags/javascript-function/" style="font-size: 10px;">javascript_function</a> <a href="/tags/javascript-typescript/" style="font-size: 16.67px;">javascript_typescript</a> <a href="/tags/linux-cmd/" style="font-size: 13.33px;">linux_cmd</a> <a href="/tags/linux-reinstall/" style="font-size: 10px;">linux_reinstall</a> <a href="/tags/net-http-status/" style="font-size: 10px;">net_http_status</a> <a href="/tags/net-tls/" style="font-size: 10px;">net_tls</a> <a href="/tags/nginx-cache/" style="font-size: 10px;">nginx_cache</a> <a href="/tags/nginx-https/" style="font-size: 10px;">nginx_https</a> <a href="/tags/nginx-loader-balance/" style="font-size: 10px;">nginx_loader_balance</a> <a href="/tags/nginx-reverse-proxy/" style="font-size: 10px;">nginx_reverse-proxy</a> <a href="/tags/nginx-server/" style="font-size: 16.67px;">nginx_server</a> <a href="/tags/npm-cmd/" style="font-size: 10px;">npm_cmd</a> <a href="/tags/proto-buf/" style="font-size: 10px;">proto_buf</a> <a href="/tags/python-install/" style="font-size: 10px;">python_install</a> <a href="/tags/reflect/" style="font-size: 10px;">reflect</a> <a href="/tags/ssh-cmd/" style="font-size: 10px;">ssh_cmd</a> <a href="/tags/svg-basic/" style="font-size: 13.33px;">svg_basic</a> <a href="/tags/test/" style="font-size: 13.33px;">test</a> <a href="/tags/tool-svn/" style="font-size: 10px;">tool_svn</a>
     </div>
   </div>
 
@@ -504,6 +583,14 @@
       <ul>
         
           <li>
+            <a href="/2018/02/26/javascript-typescript-2/">javascript-typescript-2</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/22/javascript-typescript-1/">javascript-typescript-1</a>
+          </li>
+        
+          <li>
             <a href="/2018/02/11/algorithm-basic/">algorithm-basic</a>
           </li>
         
@@ -513,14 +600,6 @@
         
           <li>
             <a href="/2018/02/01/javascript-typescript/">javascript-typescript</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/29/javascript-object-1/">javascript-object</a>
-          </li>
-        
-          <li>
-            <a href="/2018/01/27/javascript-function/">javascript-function</a>
           </li>
         
       </ul>
