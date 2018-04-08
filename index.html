@@ -61,6 +61,134 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-mysql-orm" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/08/mysql-orm/" class="article-date">
+  <time datetime="2018-04-08T02:43:05.000Z" itemprop="datePublished">2018-04-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/04/08/mysql-orm/">mysql-orm</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">1.<span class="built_in"> type </span>Student struct&#123;</span><br><span class="line">       id  int64 </span><br><span class="line">       teacher []*Teacher `orm:<span class="string">"rel(m2m)"</span>`</span><br><span class="line">father <span class="number">*Fa</span>ther `orm:<span class="string">"rel(fk)"</span>`</span><br><span class="line">wife *Wife `orm:<span class="string">"rel(one)"</span>`</span><br><span class="line">   &#125;</span><br><span class="line">  <span class="built_in"> type </span>Teacher struct&#123;</span><br><span class="line">       id int64</span><br><span class="line">       student []*Student `orm:<span class="string">"reverse(many)"</span>`</span><br><span class="line">   &#125;</span><br><span class="line">  <span class="built_in"> type </span>Father struct&#123;</span><br><span class="line">       id int64</span><br><span class="line">       student []*Student `orm:<span class="string">"reverse(many)"</span>`</span><br><span class="line">   &#125;</span><br><span class="line">  <span class="built_in"> type </span>Wife struct&#123;</span><br><span class="line">       id int64</span><br><span class="line">studnet *Student `orm:<span class="string">"reverse(one)"</span>`</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/08/mysql-orm/" data-id="cjfq8xg2y003elanm3o058zqw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql-beego-orm/">mysql_beego_orm</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-android-application-cmake-config" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/13/android-application-cmake-config/" class="article-date">
+  <time datetime="2018-03-13T02:32:37.000Z" itemprop="datePublished">2018-03-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/13/android-application-cmake-config/">android_application_cmake_config</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>```<br> app.build</p>
+<p> android{<br>   …<br>   defalutConfig{<br>       …<br>       externalNativeBuild{<br>        cmake{<br>        }<br>        }<br>        ndk{<br>      abiFilters “x_86”,”x_86_64”,”armeabi”,”armeabi_v7a”,”arm64-v8a”<br>        }<br>   }</p>
+<p>   externalNativeBuild{<br>      cmake{<br>    path “ CMakeLists.txt”<br>      }<br>   }</p>
+<p>   productFlavors{<br>    release{<br>            applicationId com.example.xu.test<br>        externalNativeBuild{<br>            cmake{<br>                targets “Test”<br>                        }<br>                  }<br>         }<br>   }</p>
+<p>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/13/android-application-cmake-config/" data-id="cjfq8xg0l0005lanm7kgepcya" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-application-cmake/">android_application_cmake</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-C-CMake" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/12/C-CMake/" class="article-date">
+  <time datetime="2018-03-12T12:37:06.000Z" itemprop="datePublished">2018-03-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/12/C-CMake/">C_CMake</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>CMake </p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CMake</span> 创建一个本地构建环境,这个环境可以编译源码，生成libary,并且以组合的方式生成可执行文件</span><br><span class="line"><span class="built_in">CMake</span> 被设计成可以构建目录复杂的工程.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>CMakeList.txt</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">CMakeList.txt 是配置文件</span><br><span class="line">例子如下</span><br><span class="line"><span class="meta">a&gt;</span><span class="bash"> cmakeList.txt</span></span><br><span class="line">cmake_minimum_required(VERSION 2.6)</span><br><span class="line">project (Tutorial)#工程名</span><br><span class="line">set (Tutorial_VERSION_MAJOR 1)# 设置工程主版本号</span><br><span class="line">set (Turorial_VERSION_MINOR 0)# 设置工程次版本号</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 配置文件</span></span><br><span class="line">configure_file( "$&#123;PROJECT_SOURCE_DIR&#125;/TutorialConfig.h.in"</span><br><span class="line">                "$&#123;PROJECT_BINARY_DIR&#125;/TutorialConfig.h")</span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置.h文件所在的根目录</span></span><br><span class="line">include_directories("$&#123;PROJECT_BINARY_DIR&#125;)</span><br><span class="line"><span class="meta">#</span><span class="bash">添加新的依赖库</span></span><br><span class="line">include_directories("$&#123;PROJECT_SOUCE_DIR&#125;/MathFuctions")</span><br><span class="line"><span class="meta">#</span><span class="bash"> 调用MathFuctions目录下的CMakeLists.txt</span></span><br><span class="line">add_subdirectory(MathFuctions)</span><br><span class="line"><span class="meta">#</span><span class="bash"> 生成一个Tutorial的可执行文件</span></span><br><span class="line">add_executable( Tutorial tutorial.cpp)</span><br><span class="line"><span class="meta">#</span><span class="bash"> 动态链接 MathFuctions</span></span><br><span class="line">target_link_libraries(Tutorial MathFuctions)</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装与测试</span></span><br><span class="line"><span class="meta">b&gt;</span><span class="bash"> TutorialConfig.h.in</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define Tutorial_VERSION_MAJOR @Tutorial_VERSION_MAJOR@</span></span><br><span class="line"><span class="meta">#</span><span class="bash">define Tutorial_VERSION_MINOR @Tutorial_VERSION_MINOR@</span></span><br><span class="line"><span class="meta">c&gt;</span><span class="bash"> /MathFutions/CMakeLists.txt</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 生成一个静态库   </span></span><br><span class="line">add_library(MathFuction mysqrt.cpp)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/03/12/C-CMake/" data-id="cjfq8xg070000lanm37fjtx17" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-cmake/">c_cmake</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-javascript-typescript-2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/02/26/javascript-typescript-2/" class="article-date">
@@ -88,7 +216,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/26/javascript-typescript-2/" data-id="cje5cdqcv0038hwnmbznnpekf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/26/javascript-typescript-2/" data-id="cjfq8xg2w003blanm91z8xkzu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-typescript/">javascript_typescript</a></li></ul>
@@ -127,7 +255,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/22/javascript-typescript-1/" data-id="cje5cdqct0033hwnmybzfpth5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/22/javascript-typescript-1/" data-id="cjfq8xg2u0036lanm3m1kc7k3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-typescript/">javascript_typescript</a></li></ul>
@@ -166,7 +294,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/11/algorithm-basic/" data-id="cje5cdqa80000hwnmjegk96pe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/11/algorithm-basic/" data-id="cjfq8xg0i0003lanm82cnpcbv" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm-sort-order/">algorithm_sort_order</a></li></ul>
@@ -219,7 +347,7 @@ message Person {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/05/protocol-buffer/" data-id="cje5cdqdi003yhwnmqti05bpy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/05/protocol-buffer/" data-id="cjfq8xg3o004dlanmnfpi054r" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/proto-buf/">proto_buf</a></li></ul>
@@ -268,7 +396,7 @@ message Person {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/01/javascript-typescript/" data-id="cje5cdqcu0035hwnmw22aw4tm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/02/01/javascript-typescript/" data-id="cjfq8xg2v0039lanm8oe06je3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-typescript/">javascript_typescript</a></li></ul>
@@ -314,7 +442,7 @@ message Person {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/29/javascript-object-1/" data-id="cje5cdqco002xhwnmaj0ecvnm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/29/javascript-object-1/" data-id="cjfq8xg2o002xlanmtikcmrx6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascipt-object/">javascipt_object</a></li></ul>
@@ -363,140 +491,10 @@ message Person {
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/27/javascript-function/" data-id="cje5cdqcn002vhwnmstng37ys" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/01/27/javascript-function/" data-id="cjfq8xg2s0033lanm5jw4nk0i" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript-function/">javascript_function</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-java-hash-index" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/24/java-hash-index/" class="article-date">
-  <time datetime="2018-01-24T04:13:47.000Z" itemprop="datePublished">2018-01-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/24/java-hash-index/">java-hash-index</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> mask = <span class="number">2</span>的n次方<span class="number">-1</span>; <span class="comment">// 转换二进制全是1 2的三次方 111 ; 2的四次方 1111;；</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* hash 是散列数,没有冲突的</span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line"><span class="number">2.</span> hash = new AtomicInteger(<span class="number">0</span>).getAndAdd(delta);</span><br><span class="line">   delta = <span class="number">2</span> * <span class="number">0x61c88647</span>;</span><br><span class="line"><span class="number">3.</span> index = hash &amp; mask;</span><br><span class="line">   public int next (int index)&#123;</span><br><span class="line">	return (index + <span class="number">2</span>) &amp; mask; </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/24/java-hash-index/" data-id="cje5cdqcd002ihwnmr8ytjgc5" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java-hash-index/">java_hash_index</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-android-threadlocal" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/19/android-threadlocal/" class="article-date">
-  <time datetime="2018-01-19T09:04:39.000Z" itemprop="datePublished">2018-01-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/19/android-threadlocal/">android-threadlocal</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p>涉及的文件</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">sdk<span class="regexp">/android/</span><span class="keyword">source</span><span class="regexp">/android-23/</span>android<span class="regexp">/os/</span>java<span class="regexp">/lang/</span>ThreadLocal</span><br><span class="line">sdk<span class="regexp">/android/</span><span class="keyword">source</span><span class="regexp">/android-23/</span>android<span class="regexp">/os/</span>java<span class="regexp">/lang/</span>Thread</span><br><span class="line">sdk<span class="regexp">/android/</span><span class="keyword">source</span><span class="regexp">/android-23/</span>adnroid<span class="regexp">/os/</span>java<span class="regexp">/util/</span>concurrent<span class="regexp">/atomic</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>ThreadLocal 简介</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ThreadLocal 经常用于线程自有变量的缓存,获取,移除.</span><br><span class="line">ThreadLocal的变量缓存在Thread的localvalues这个字段,</span><br><span class="line">该字段为ThreadLocal<span class="selector-class">.Values</span>,ThreadLocal<span class="selector-class">.Values</span> 是</span><br><span class="line">一个静态内部类.</span><br><span class="line">ThreadLocal 一个重要的字段是reference (WeakReference),存储的是</span><br><span class="line">该ThreadLocal的实例.</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>ThreadLocal.Values的主要方法</p>
-<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 一般适合在调用cleanup之后使用</span></span><br><span class="line"> <span class="number">1.</span> <span class="built_in">add</span>(threadlocal,object)&#123;</span><br><span class="line">       <span class="number">1</span>&gt; <span class="keyword">for</span>(index=mask&amp;threadlocal.hash;;next(index))&#123;</span><br><span class="line">	<span class="keyword">Object</span> k = table[index];</span><br><span class="line">	<span class="keyword">if</span>(k == <span class="keyword">null</span>)&#123;</span><br><span class="line">		table[index] = threadlocal.reference;</span><br><span class="line">		table[index+<span class="number">1</span>] = object;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">          &#125;	</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="number">2.</span>  next(index)&#123;</span><br><span class="line"><span class="keyword">return</span> (index +<span class="number">2</span>) &amp; mask;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> <span class="number">3.</span> rehash()&#123;</span><br><span class="line"><span class="comment">// capacity  new Object[capacity*2],表示可以缓存的key-value的数量</span></span><br><span class="line">       <span class="comment">// maxnumLoad capacity*2/3    size 表示存活的key-value个数</span></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">size</span> + tombSize &lt; maxnumLoad)&#123;</span><br><span class="line">   <span class="keyword">return</span> fase;</span><br><span class="line">       &#125;</span><br><span class="line">       </span><br><span class="line">       <span class="comment">//当存活的key-value超过一半,需要按照目前的key-value数目扩从一倍的容量</span></span><br><span class="line"><span class="comment">// 如果存活的key-value少于一半, 按照目前key-value数目改变容量 </span></span><br><span class="line"><span class="built_in">int</span> capacity = table.length; </span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">size</span> &gt; capacity /<span class="number">2</span>)&#123;</span><br><span class="line">	capacity *= <span class="number">2</span>;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">Object</span>[] oldTable = <span class="keyword">this</span>.table;</span><br><span class="line">       initializeTable(capacity);</span><br><span class="line"><span class="keyword">this</span>.tombSize = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">if</span>(<span class="built_in">size</span> ==<span class="number">0</span>)&#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">       &#125;</span><br><span class="line"><span class="keyword">for</span>()&#123;</span><br><span class="line">   <span class="comment">//清除掉 k==null k==tombstone</span></span><br><span class="line">   <span class="comment">// 如果是存活的那么,就调用add(threadlocal,object)</span></span><br><span class="line">       &#125;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="number">4.</span> cleanUp()&#123;</span><br><span class="line"><span class="keyword">if</span>(rehash)&#123;</span><br><span class="line">   <span class="keyword">return</span> ;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="built_in">int</span> index =clean;</span><br><span class="line">       <span class="keyword">Object</span>[] oldTable = <span class="keyword">this</span>.table;</span><br><span class="line"><span class="keyword">for</span>(<span class="built_in">int</span> counter= oldTable.length;counter&gt;<span class="number">0</span>;counter&gt;&gt;=<span class="number">1</span>,</span><br><span class="line">           index=next(index))&#123;</span><br><span class="line">  <span class="number">1</span>&gt; <span class="keyword">Object</span> <span class="built_in">key</span> = oldTable[index);</span><br><span class="line">  <span class="number">2</span>&gt; <span class="keyword">if</span>(<span class="built_in">key</span> == <span class="keyword">null</span> | <span class="built_in">key</span> == TOMBSTONE )&#123;</span><br><span class="line">	<span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">         <span class="number">3</span>&gt; ThreadLocal t = <span class="built_in">key</span>.<span class="built_in">get</span>();</span><br><span class="line">            <span class="keyword">if</span>(t== <span class="keyword">null</span>)&#123;</span><br><span class="line">	oldTable[index] = TOMBSTONE;</span><br><span class="line">	oldTable&#123;index+<span class="number">1</span>] = <span class="keyword">null</span>;</span><br><span class="line">	<span class="built_in">size</span> --;</span><br><span class="line">               tombSize++;</span><br><span class="line">            &#125;</span><br><span class="line">&#125;</span><br><span class="line">       clean = index; </span><br><span class="line"> &#125;</span><br><span class="line"> <span class="number">5.</span> remove(ThreadLocal <span class="built_in">key</span>)&#123;</span><br><span class="line"><span class="comment">//</span></span><br><span class="line">cleanUp();</span><br><span class="line"><span class="keyword">for</span>(<span class="built_in">int</span> index= <span class="built_in">key</span>.hash &amp; <span class="keyword">this</span>.mask;; index= next(index) )&#123;</span><br><span class="line">              <span class="keyword">Object</span> reference = <span class="keyword">this</span>.table[index];</span><br><span class="line">       <span class="keyword">if</span>(reference == <span class="built_in">key</span>.reference)&#123;</span><br><span class="line">	   <span class="keyword">this</span>.table[index] = TOMBSTONE;</span><br><span class="line">	   <span class="keyword">this</span>.value = <span class="keyword">null</span>; </span><br><span class="line">		   <span class="built_in">size</span> --;</span><br><span class="line">                  <span class="keyword">this</span>.tombSize ++;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span>(reference == <span class="keyword">null</span>)&#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">     &#125;</span><br><span class="line">  <span class="number">6.</span> put(ThreadLocal <span class="built_in">key</span> ,<span class="keyword">Object</span> value)&#123;</span><br><span class="line">cleanUp();</span><br><span class="line">       <span class="comment">//</span></span><br><span class="line"><span class="built_in">int</span> firstTombStone =<span class="number">-1</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="built_in">int</span> index = <span class="built_in">key</span>.hash &amp; <span class="keyword">this</span>.mask;;index= next(index))&#123;</span><br><span class="line">	<span class="keyword">Object</span> reference = <span class="keyword">this</span>.table[index];</span><br><span class="line">	<span class="keyword">if</span>(reference == <span class="built_in">key</span>.reference)&#123;</span><br><span class="line">		<span class="keyword">this</span>.table[index+<span class="number">1</span>]= value;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(<span class="built_in">key</span> == <span class="keyword">null</span>)&#123;</span><br><span class="line">		<span class="keyword">if</span> ( firstTombStone == <span class="number">-1</span>)&#123;</span><br><span class="line">			<span class="keyword">this</span>.table[index]=<span class="built_in">key</span>.reference;</span><br><span class="line">			<span class="keyword">this</span>.table[index+<span class="number">1</span>]=value;</span><br><span class="line">			<span class="built_in">size</span> ++;</span><br><span class="line">			<span class="keyword">return</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	        <span class="keyword">this</span>.table[firstTomeStone]=<span class="built_in">key</span>.reference;</span><br><span class="line">		<span class="keyword">this</span>.table[firstTombStone+<span class="number">1</span>] = value;</span><br><span class="line">		<span class="built_in">size</span> ++;</span><br><span class="line">		tombSize --;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(reference == TOMBSTONE &amp;&amp; firstTombStone == <span class="number">-1</span>)&#123;</span><br><span class="line">		firstTombStone = index;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">     &#125; </span><br><span class="line">&#125;</span><br><span class="line"> ps:   values.mask是values.table.len<span class="number">-1</span>, hash 是一个标明该ThreadLocal的数字,</span><br><span class="line">也就是说不同的ThreadLocal实例的hash不同.但是hash之间是有规律的,</span><br><span class="line">       values.table.capacity是<span class="number">2</span>的n次方,那也就意味着有n个二进制位,而且</span><br><span class="line">       values.table.capacity随时根据情况扩容,如果capacity是<span class="number">16</span>(<span class="keyword">new</span> </span><br><span class="line">       <span class="keyword">Object</span>[<span class="number">16</span>*<span class="number">2</span>]),如果table长</span><br><span class="line">       度是<span class="number">8</span>, values.mask转成二进制,为<span class="number">111</span>,hash &amp; mask的值肯定是小于mask,</span><br><span class="line">       而且值互不相同,因此可以用这个值作为index,缓存和取都可以通过它进行</span><br><span class="line">       .而且我们知道,values.table的数据是以key1 value1 key2 value2...  排</span><br><span class="line">       列的,<span class="built_in">key</span> 有三种情况<span class="keyword">null</span> bombstone <span class="built_in">key</span>.</span><br><span class="line">values只会扩容，不会缩容</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>ThreadLocal的主要方法</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> T <span class="built_in">get</span>()&#123;</span><br><span class="line"><span class="number">1</span>. Thread t = Thread.currentThread();</span><br><span class="line"><span class="number">2</span>. ThreadLocal.Values <span class="built_in">values</span>  = <span class="built_in">values</span>(t);</span><br><span class="line"><span class="number">3</span>. <span class="keyword">if</span>(<span class="built_in">values</span> != null)&#123;</span><br><span class="line">	[]Object table = <span class="built_in">values</span>.table;</span><br><span class="line">	int index = hash &amp; <span class="built_in">values</span>.mask;</span><br><span class="line">	<span class="keyword">if</span>(reference == table[index])&#123;</span><br><span class="line">		<span class="built_in">return</span> (T) table[index+<span class="number">1</span>];</span><br><span class="line">	&#125;</span><br><span class="line">          &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="built_in">values</span> = initValues(t);</span><br><span class="line">   &#125;</span><br><span class="line"><span class="number">4</span>. <span class="built_in">return</span> <span class="built_in">values</span>.getAfterMiss(this);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> ps:</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/19/android-threadlocal/" data-id="cje5cdqbm001dhwnmv3qw1vcz" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-application-threadlocal/">android_application_threadlocal</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-android-application-event-dispatch" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/01/17/android-application-event-dispatch/" class="article-date">
-  <time datetime="2018-01-17T09:12:47.000Z" itemprop="datePublished">2018-01-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/17/android-application-event-dispatch/">android-event-dispatch</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> touch <span class="keyword">event</span> 事件的分发</span><br><span class="line">	MotionEvent.ACTION_DOWN = <span class="number">0000</span> <span class="number">0000</span>;</span><br><span class="line">	MotionEvent.ACTION_UP = <span class="number">0000</span> <span class="number">0001</span>;</span><br><span class="line">	MotionEVent.ACTION_MOVE = <span class="number">0000</span> <span class="number">0010</span>;</span><br><span class="line">	MotionEvent.ACTION_CANCLE = <span class="number">0000</span> <span class="number">0011</span>;</span><br><span class="line">	MotionEvent.ACTION_MASK = <span class="number">1111</span> <span class="number">1111</span>;</span><br><span class="line"><span class="number">2.</span> Action 分发流程</span><br><span class="line">	<span class="function">Activity <span class="title">dispatchTouchEvent</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	       	    <span class="keyword">if</span>(window.dispatchTouchEvent())&#123;<span class="keyword">return</span> <span class="literal">true</span>&#125;;</span><br><span class="line">		    <span class="keyword">return</span> onTouchEvent();</span><br><span class="line">		&#125; </span><br><span class="line">		</span><br><span class="line">		onTouchEvent(<span class="keyword">event</span>)&#123;</span><br><span class="line">			<span class="comment">//如果activity正在退出返回true,其他默认返回false</span></span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function">Window <span class="title">dispatchTouchEvent</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		mDecorView.dispatchTouchEvent();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	DecorView (extends Framelayout) dispatchTouchEvent()&#123;</span><br><span class="line">		super.dispatchTouchEvent();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">       <span class="function">ViewGroup <span class="title">dispatchTouchEvent</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		若无子view，super.dispatchTouchEvent();</span><br><span class="line">		如果有子view child.dispatchTouchEvent();</span><br><span class="line">	<span class="comment">//	如果子view 是ViewGroup 继续走一样的逻辑 否则,调用View.dispatchTouchEvent()</span></span><br><span class="line">	<span class="comment">//     	super.dispatchTouchEvent();实际就是View.dispatchTouchEvent()</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="function">View <span class="title">dispatchTouchEvent</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> onTouchEvent();</span><br><span class="line"></span><br><span class="line">	      &#125;</span><br><span class="line"></span><br><span class="line">	     onTouchEvent(<span class="keyword">event</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(clickable)&#123;</span><br><span class="line">			    <span class="comment">// 根据MotionEvent.Action 作不同的业务处理</span></span><br><span class="line">			    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	    &#125;</span><br><span class="line"><span class="number">4.</span> ViewGroup dispatchTouchEvent 具体实现步骤</span><br><span class="line">	<span class="number">1.</span> 若<span class="keyword">event</span> 的Action是ActionDown,清除touchTarget.</span><br><span class="line">	<span class="number">2.</span> 若<span class="keyword">event</span>.Action 不是Action_CANCEL 并且不Intercepted,</span><br><span class="line">		在Action是ACTION_MOVE ACTION_DOWN 的情况下,从所有的子View集合中,遍历到</span><br><span class="line">		能够接受到TouchEvent的View,并依据这个View,继续分发事件，若分发事件返回为<span class="literal">true</span></span><br><span class="line">		,创建newTouchTarget,并且将mFirstTouchTarget赋值给newTouchTarget.next,</span><br><span class="line">                并且alreadyDispatchToNewTouchTarget设置为<span class="literal">true</span> </span><br><span class="line">	<span class="number">3.</span> 遍历该ViewGroup的所有的touchTarget</span><br><span class="line">	   若alreadyDispatchToNewTouchTarget 为<span class="literal">true</span> 并且 newTouchTarget == touchTarget </span><br><span class="line">		则 返回 <span class="literal">true</span> 事件结束</span><br><span class="line">	   否则 调用dispatchTransformedTouchEvent(touchTarget.child),并且返回该返回值 </span><br><span class="line">		</span><br><span class="line">		dispatchTansformedTouchEvent(child,<span class="keyword">event</span>)&#123;</span><br><span class="line">			<span class="keyword">if</span>(view != <span class="literal">null</span>)&#123;</span><br><span class="line">			        child.dispatchTouchEvent(<span class="keyword">event</span>);</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="comment">// 即View 的dispatchTouchEvent()</span></span><br><span class="line">				super.dispatchTouchEvent(<span class="keyword">event</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"><span class="number">5.</span> 小结</span><br><span class="line">	<span class="number">1.</span> TouchTarget数据结构 next=&gt; touchTarget child=&gt; view</span><br><span class="line">	<span class="number">2.</span> 只有存在MotionEvent.ACTION_MOVE 时,ViewGroup 的TouchTarget的链长度为大于<span class="number">1</span></span><br><span class="line">	当ViewGroup没有child 时 touchTarget链的长度为<span class="number">0</span></span><br><span class="line">	<span class="number">3.</span> 获取焦点的view,会随着MotionEvent_ACTION_MOVE,不停的变换,因此对应的TouchTarget可能会增加</span><br><span class="line">	<span class="number">4.</span> 当ACTION_DOWN 或者ACTION_MOVE被拦截的情况下,就不会创建新的TouchTarget ,事件也不会继续分发</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/01/17/android-application-event-dispatch/" data-id="cje5cdqap0009hwnmrs9mib6u" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-application-event-dispatch/">android_application_event_dispatch</a></li></ul>
 
     </footer>
   </div>
@@ -521,7 +519,7 @@ message Person {
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm-sort-order/">algorithm_sort_order</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-proguard/">android proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-aidl/">android_application_aidl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-content-provider/">android_application_content_provider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-customer-view/">android_application_customer_view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-event-dispatch/">android_application_event_dispatch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-handler/">android_application_handler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-long-running-operation/">android_application_long_running_operation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-parcelable/">android_application_parcelable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-security/">android_application_security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-threadlocal/">android_application_threadlocal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-binder/">android_framework_binder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-init-process/">android_framework_init_process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-launch-activity/">android_framework_launch_activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-servermanager/">android_framework_servermanager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-set-content-view/">android_framework_set_content_view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-view-root-iml/">android_framework_view_root_iml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bat/">bat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-bitflag/">c_bitflag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-object-releation/">c_object_releation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-operator/">c_operator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-flex-box/">css_flex_box</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-accurancy/">data_accurancy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql/">database_mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql-backup/">database_mysql_backup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql-install/">database_mysql_install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql-table/">database_mysql_table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-mode-mvp/">design_mode_mvp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go-beego/">go_beego</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-proguard/">gradle_proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-project/">gradle_project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-study/">gradle_study</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-task/">gradle_task</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-concurrent/">java_concurrent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-hash-index/">java_hash_index</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm/">java_jvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm-class-struct/">java_jvm_class_struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm-gc/">java_jvm_gc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-thread/">java_thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascipt-object/">javascipt_object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-basic/">javascript_basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-function/">javascript_function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-typescript/">javascript_typescript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-cmd/">linux_cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-reinstall/">linux_reinstall</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-http-status/">net_http_status</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-tls/">net_tls</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-cache/">nginx_cache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-https/">nginx_https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-loader-balance/">nginx_loader_balance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-reverse-proxy/">nginx_reverse-proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-server/">nginx_server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-cmd/">npm_cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proto-buf/">proto_buf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-install/">python_install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reflect/">reflect</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-cmd/">ssh_cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svg-basic/">svg_basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool-svn/">tool_svn</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm-sort-order/">algorithm_sort_order</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-proguard/">android proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-aidl/">android_application_aidl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-cmake/">android_application_cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-content-provider/">android_application_content_provider</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-customer-view/">android_application_customer_view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-event-dispatch/">android_application_event_dispatch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-handler/">android_application_handler</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-long-running-operation/">android_application_long_running_operation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-parcelable/">android_application_parcelable</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-security/">android_application_security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-application-threadlocal/">android_application_threadlocal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-binder/">android_framework_binder</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-init-process/">android_framework_init_process</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-launch-activity/">android_framework_launch_activity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-servermanager/">android_framework_servermanager</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-set-content-view/">android_framework_set_content_view</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/android-framework-view-root-iml/">android_framework_view_root_iml</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bat/">bat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-bitflag/">c_bitflag</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-cmake/">c_cmake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-object-releation/">c_object_releation</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-operator/">c_operator</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-flex-box/">css_flex_box</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/data-accurancy/">data_accurancy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql/">database_mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql-backup/">database_mysql_backup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql-install/">database_mysql_install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/database-mysql-table/">database_mysql_table</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-mode-mvp/">design_mode_mvp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/go-beego/">go_beego</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle/">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-proguard/">gradle_proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-project/">gradle_project</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-study/">gradle_study</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gradle-task/">gradle_task</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-concurrent/">java_concurrent</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-hash-index/">java_hash_index</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm/">java_jvm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm-class-struct/">java_jvm_class_struct</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-jvm-gc/">java_jvm_gc</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java-thread/">java_thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascipt-object/">javascipt_object</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-basic/">javascript_basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-function/">javascript_function</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript-typescript/">javascript_typescript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-cmd/">linux_cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-reinstall/">linux_reinstall</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql-beego-orm/">mysql_beego_orm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-http-status/">net_http_status</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/net-tls/">net_tls</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-cache/">nginx_cache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-https/">nginx_https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-loader-balance/">nginx_loader_balance</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-reverse-proxy/">nginx_reverse-proxy</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx-server/">nginx_server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/npm-cmd/">npm_cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/proto-buf/">proto_buf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-install/">python_install</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/reflect/">reflect</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssh-cmd/">ssh_cmd</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/svg-basic/">svg_basic</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/test/">test</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tool-svn/">tool_svn</a></li></ul>
     </div>
   </div>
 
@@ -531,7 +529,7 @@ message Person {
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/algorithm-sort-order/" style="font-size: 10px;">algorithm_sort_order</a> <a href="/tags/android-proguard/" style="font-size: 10px;">android proguard</a> <a href="/tags/android-application-aidl/" style="font-size: 10px;">android_application_aidl</a> <a href="/tags/android-application-content-provider/" style="font-size: 10px;">android_application_content_provider</a> <a href="/tags/android-application-customer-view/" style="font-size: 10px;">android_application_customer_view</a> <a href="/tags/android-application-event-dispatch/" style="font-size: 10px;">android_application_event_dispatch</a> <a href="/tags/android-application-handler/" style="font-size: 10px;">android_application_handler</a> <a href="/tags/android-application-long-running-operation/" style="font-size: 10px;">android_application_long_running_operation</a> <a href="/tags/android-application-parcelable/" style="font-size: 10px;">android_application_parcelable</a> <a href="/tags/android-application-security/" style="font-size: 10px;">android_application_security</a> <a href="/tags/android-application-threadlocal/" style="font-size: 10px;">android_application_threadlocal</a> <a href="/tags/android-framework-binder/" style="font-size: 20px;">android_framework_binder</a> <a href="/tags/android-framework-init-process/" style="font-size: 10px;">android_framework_init_process</a> <a href="/tags/android-framework-launch-activity/" style="font-size: 13.33px;">android_framework_launch_activity</a> <a href="/tags/android-framework-servermanager/" style="font-size: 10px;">android_framework_servermanager</a> <a href="/tags/android-framework-set-content-view/" style="font-size: 10px;">android_framework_set_content_view</a> <a href="/tags/android-framework-view-root-iml/" style="font-size: 10px;">android_framework_view_root_iml</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/c-bitflag/" style="font-size: 10px;">c_bitflag</a> <a href="/tags/c-object-releation/" style="font-size: 13.33px;">c_object_releation</a> <a href="/tags/c-operator/" style="font-size: 10px;">c_operator</a> <a href="/tags/css-flex-box/" style="font-size: 10px;">css_flex_box</a> <a href="/tags/data-accurancy/" style="font-size: 10px;">data_accurancy</a> <a href="/tags/database-mysql/" style="font-size: 16.67px;">database_mysql</a> <a href="/tags/database-mysql-backup/" style="font-size: 13.33px;">database_mysql_backup</a> <a href="/tags/database-mysql-install/" style="font-size: 13.33px;">database_mysql_install</a> <a href="/tags/database-mysql-table/" style="font-size: 10px;">database_mysql_table</a> <a href="/tags/design-mode-mvp/" style="font-size: 10px;">design_mode_mvp</a> <a href="/tags/go-beego/" style="font-size: 10px;">go_beego</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/gradle-proguard/" style="font-size: 10px;">gradle_proguard</a> <a href="/tags/gradle-project/" style="font-size: 10px;">gradle_project</a> <a href="/tags/gradle-study/" style="font-size: 10px;">gradle_study</a> <a href="/tags/gradle-task/" style="font-size: 10px;">gradle_task</a> <a href="/tags/java-concurrent/" style="font-size: 10px;">java_concurrent</a> <a href="/tags/java-hash-index/" style="font-size: 10px;">java_hash_index</a> <a href="/tags/java-jvm/" style="font-size: 10px;">java_jvm</a> <a href="/tags/java-jvm-class-struct/" style="font-size: 10px;">java_jvm_class_struct</a> <a href="/tags/java-jvm-gc/" style="font-size: 10px;">java_jvm_gc</a> <a href="/tags/java-thread/" style="font-size: 10px;">java_thread</a> <a href="/tags/javascipt-object/" style="font-size: 10px;">javascipt_object</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/javascript-basic/" style="font-size: 10px;">javascript_basic</a> <a href="/tags/javascript-function/" style="font-size: 10px;">javascript_function</a> <a href="/tags/javascript-typescript/" style="font-size: 16.67px;">javascript_typescript</a> <a href="/tags/linux-cmd/" style="font-size: 13.33px;">linux_cmd</a> <a href="/tags/linux-reinstall/" style="font-size: 10px;">linux_reinstall</a> <a href="/tags/net-http-status/" style="font-size: 10px;">net_http_status</a> <a href="/tags/net-tls/" style="font-size: 10px;">net_tls</a> <a href="/tags/nginx-cache/" style="font-size: 10px;">nginx_cache</a> <a href="/tags/nginx-https/" style="font-size: 10px;">nginx_https</a> <a href="/tags/nginx-loader-balance/" style="font-size: 10px;">nginx_loader_balance</a> <a href="/tags/nginx-reverse-proxy/" style="font-size: 10px;">nginx_reverse-proxy</a> <a href="/tags/nginx-server/" style="font-size: 16.67px;">nginx_server</a> <a href="/tags/npm-cmd/" style="font-size: 10px;">npm_cmd</a> <a href="/tags/proto-buf/" style="font-size: 10px;">proto_buf</a> <a href="/tags/python-install/" style="font-size: 10px;">python_install</a> <a href="/tags/reflect/" style="font-size: 10px;">reflect</a> <a href="/tags/ssh-cmd/" style="font-size: 10px;">ssh_cmd</a> <a href="/tags/svg-basic/" style="font-size: 13.33px;">svg_basic</a> <a href="/tags/test/" style="font-size: 13.33px;">test</a> <a href="/tags/tool-svn/" style="font-size: 10px;">tool_svn</a>
+      <a href="/tags/algorithm-sort-order/" style="font-size: 10px;">algorithm_sort_order</a> <a href="/tags/android-proguard/" style="font-size: 10px;">android proguard</a> <a href="/tags/android-application-aidl/" style="font-size: 10px;">android_application_aidl</a> <a href="/tags/android-application-cmake/" style="font-size: 10px;">android_application_cmake</a> <a href="/tags/android-application-content-provider/" style="font-size: 10px;">android_application_content_provider</a> <a href="/tags/android-application-customer-view/" style="font-size: 10px;">android_application_customer_view</a> <a href="/tags/android-application-event-dispatch/" style="font-size: 10px;">android_application_event_dispatch</a> <a href="/tags/android-application-handler/" style="font-size: 10px;">android_application_handler</a> <a href="/tags/android-application-long-running-operation/" style="font-size: 10px;">android_application_long_running_operation</a> <a href="/tags/android-application-parcelable/" style="font-size: 10px;">android_application_parcelable</a> <a href="/tags/android-application-security/" style="font-size: 10px;">android_application_security</a> <a href="/tags/android-application-threadlocal/" style="font-size: 10px;">android_application_threadlocal</a> <a href="/tags/android-framework-binder/" style="font-size: 20px;">android_framework_binder</a> <a href="/tags/android-framework-init-process/" style="font-size: 10px;">android_framework_init_process</a> <a href="/tags/android-framework-launch-activity/" style="font-size: 13.33px;">android_framework_launch_activity</a> <a href="/tags/android-framework-servermanager/" style="font-size: 10px;">android_framework_servermanager</a> <a href="/tags/android-framework-set-content-view/" style="font-size: 10px;">android_framework_set_content_view</a> <a href="/tags/android-framework-view-root-iml/" style="font-size: 10px;">android_framework_view_root_iml</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/c-bitflag/" style="font-size: 10px;">c_bitflag</a> <a href="/tags/c-cmake/" style="font-size: 10px;">c_cmake</a> <a href="/tags/c-object-releation/" style="font-size: 13.33px;">c_object_releation</a> <a href="/tags/c-operator/" style="font-size: 10px;">c_operator</a> <a href="/tags/css-flex-box/" style="font-size: 10px;">css_flex_box</a> <a href="/tags/data-accurancy/" style="font-size: 10px;">data_accurancy</a> <a href="/tags/database-mysql/" style="font-size: 16.67px;">database_mysql</a> <a href="/tags/database-mysql-backup/" style="font-size: 13.33px;">database_mysql_backup</a> <a href="/tags/database-mysql-install/" style="font-size: 13.33px;">database_mysql_install</a> <a href="/tags/database-mysql-table/" style="font-size: 10px;">database_mysql_table</a> <a href="/tags/design-mode-mvp/" style="font-size: 10px;">design_mode_mvp</a> <a href="/tags/go-beego/" style="font-size: 10px;">go_beego</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/gradle-proguard/" style="font-size: 10px;">gradle_proguard</a> <a href="/tags/gradle-project/" style="font-size: 10px;">gradle_project</a> <a href="/tags/gradle-study/" style="font-size: 10px;">gradle_study</a> <a href="/tags/gradle-task/" style="font-size: 10px;">gradle_task</a> <a href="/tags/java-concurrent/" style="font-size: 10px;">java_concurrent</a> <a href="/tags/java-hash-index/" style="font-size: 10px;">java_hash_index</a> <a href="/tags/java-jvm/" style="font-size: 10px;">java_jvm</a> <a href="/tags/java-jvm-class-struct/" style="font-size: 10px;">java_jvm_class_struct</a> <a href="/tags/java-jvm-gc/" style="font-size: 10px;">java_jvm_gc</a> <a href="/tags/java-thread/" style="font-size: 10px;">java_thread</a> <a href="/tags/javascipt-object/" style="font-size: 10px;">javascipt_object</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/javascript-basic/" style="font-size: 10px;">javascript_basic</a> <a href="/tags/javascript-function/" style="font-size: 10px;">javascript_function</a> <a href="/tags/javascript-typescript/" style="font-size: 16.67px;">javascript_typescript</a> <a href="/tags/linux-cmd/" style="font-size: 13.33px;">linux_cmd</a> <a href="/tags/linux-reinstall/" style="font-size: 10px;">linux_reinstall</a> <a href="/tags/mysql-beego-orm/" style="font-size: 10px;">mysql_beego_orm</a> <a href="/tags/net-http-status/" style="font-size: 10px;">net_http_status</a> <a href="/tags/net-tls/" style="font-size: 10px;">net_tls</a> <a href="/tags/nginx-cache/" style="font-size: 10px;">nginx_cache</a> <a href="/tags/nginx-https/" style="font-size: 10px;">nginx_https</a> <a href="/tags/nginx-loader-balance/" style="font-size: 10px;">nginx_loader_balance</a> <a href="/tags/nginx-reverse-proxy/" style="font-size: 10px;">nginx_reverse-proxy</a> <a href="/tags/nginx-server/" style="font-size: 16.67px;">nginx_server</a> <a href="/tags/npm-cmd/" style="font-size: 10px;">npm_cmd</a> <a href="/tags/proto-buf/" style="font-size: 10px;">proto_buf</a> <a href="/tags/python-install/" style="font-size: 10px;">python_install</a> <a href="/tags/reflect/" style="font-size: 10px;">reflect</a> <a href="/tags/ssh-cmd/" style="font-size: 10px;">ssh_cmd</a> <a href="/tags/svg-basic/" style="font-size: 13.33px;">svg_basic</a> <a href="/tags/test/" style="font-size: 13.33px;">test</a> <a href="/tags/tool-svn/" style="font-size: 10px;">tool_svn</a>
     </div>
   </div>
 
@@ -540,7 +538,7 @@ message Person {
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/01/">January 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li></ul>
     </div>
   </div>
 
@@ -553,23 +551,23 @@ message Person {
       <ul>
         
           <li>
+            <a href="/2018/04/08/mysql-orm/">mysql-orm</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/13/android-application-cmake-config/">android_application_cmake_config</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/12/C-CMake/">C_CMake</a>
+          </li>
+        
+          <li>
             <a href="/2018/02/26/javascript-typescript-2/">javascript-typescript-2</a>
           </li>
         
           <li>
             <a href="/2018/02/22/javascript-typescript-1/">javascript-typescript-1</a>
-          </li>
-        
-          <li>
-            <a href="/2018/02/11/algorithm-basic/">algorithm-basic</a>
-          </li>
-        
-          <li>
-            <a href="/2018/02/05/protocol-buffer/">protocol_buffer</a>
-          </li>
-        
-          <li>
-            <a href="/2018/02/01/javascript-typescript/">javascript-typescript</a>
           </li>
         
       </ul>
