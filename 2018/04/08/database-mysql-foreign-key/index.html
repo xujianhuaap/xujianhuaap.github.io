@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: android_framework_launch_activity | Hexo</title>
+  <title>database-mysql-foreign-key | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/tags/android-framework-launch-activity/index.html">
+  <meta name="description" content="123456789101112131415161. example    create table t_name (	id int not null auto_increment,        name varchar(18) default &quot;john&quot;,        t1_id int foreign key t1(id) references t1(id)               o">
+<meta name="keywords" content="database_mysql_foreign_key">
+<meta property="og:type" content="article">
+<meta property="og:title" content="database-mysql-foreign-key">
+<meta property="og:url" content="http://yoursite.com/2018/04/08/database-mysql-foreign-key/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="123456789101112131415161. example    create table t_name (	id int not null auto_increment,        name varchar(18) default &quot;john&quot;,        t1_id int foreign key t1(id) references t1(id)               o">
+<meta property="og:updated_time" content="2018-04-08T15:05:14.971Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="database-mysql-foreign-key">
+<meta name="twitter:description" content="123456789101112131415161. example    create table t_name (	id int not null auto_increment,        name varchar(18) default &quot;john&quot;,        t1_id int foreign key t1(id) references t1(id)               o">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,58 +64,54 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/01/25/android-framework-launch-activity01/" class="archive-article-date">
-  <time datetime="2016-01-25T03:18:44.000Z" itemprop="datePublished">Jan 25</time>
+        <section id="main"><article id="post-database-mysql-foreign-key" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/08/database-mysql-foreign-key/" class="article-date">
+  <time datetime="2018-04-08T14:21:15.000Z" itemprop="datePublished">2018-04-08</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/25/android-framework-launch-activity01/">android-frameworks-launchactivity01</a>
+    <h1 class="article-title" itemprop="name">
+      database-mysql-foreign-key
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2016/01/12/android-framework-launch-activity/" class="archive-article-date">
-  <time datetime="2016-01-12T07:50:54.000Z" itemprop="datePublished">Jan 12</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/01/12/android-framework-launch-activity/">Activity 启动</a>
-    </h1>
-  
+        <figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>. example</span><br><span class="line">    create table t_name (</span><br><span class="line">	id int not null auto_increment,</span><br><span class="line">        name varchar(<span class="number">18</span>) default <span class="string">"john"</span>,</span><br><span class="line">        t1_id int foreign key t1(id) references t1(id)</span><br><span class="line">               on delete action,</span><br><span class="line">        primary key (id)</span><br><span class="line">   );</span><br><span class="line"><span class="number">2</span>. foreign key 对应的t1里面的字段必须与references 对应的</span><br><span class="line">字段一致。</span><br><span class="line">on delete 是表示当删除父表中的记录，子表会对对应的记录执行相应的action；</span><br><span class="line"><span class="number">1</span>&gt;CASCADE 父表与子表 相应删除相关的记录</span><br><span class="line"><span class="meta">2&gt; </span>set null 父表删除相关记录 并不删除相关子表的记录,但对应的字段为null;</span><br><span class="line"><span class="meta">3&gt; </span>no action or restrict 无法删除父表的记录</span><br><span class="line"></span><br><span class="line">on update 同上</span><br></pre></td></tr></table></figure>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/08/database-mysql-foreign-key/" data-id="cjfwf0gqe001zuxnm0zx9lbys" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database-mysql-foreign-key/">database_mysql_foreign_key</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/04/08/database-mysql-orm/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">mysql-orm</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         
