@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Hexo</title>
+  <title>mysql-orm | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="1234567891011121314151617181920211. type Student struct&amp;#123;       id  int64        teacher []*Teacher `orm:&quot;rel(m2m)&quot;`       father *Father `orm:&quot;rel(fk)&quot;`       wife *Wife `orm:&quot;rel(one)&quot;`   &amp;#125;">
+<meta name="keywords" content="database_mysql_beego_orm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql-orm">
+<meta property="og:url" content="http://yoursite.com/2018/04/08/database-mysql-orm/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1234567891011121314151617181920211. type Student struct&amp;#123;       id  int64        teacher []*Teacher `orm:&quot;rel(m2m)&quot;`       father *Father `orm:&quot;rel(fk)&quot;`       wife *Wife `orm:&quot;rel(one)&quot;`   &amp;#125;">
+<meta property="og:updated_time" content="2018-04-08T14:14:27.768Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="mysql-orm">
+<meta name="twitter:description" content="1234567891011121314151617181920211. type Student struct&amp;#123;       id  int64        teacher []*Teacher `orm:&quot;rel(m2m)&quot;`       father *Father `orm:&quot;rel(fk)&quot;`       wife *Wife `orm:&quot;rel(one)&quot;`   &amp;#125;">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,225 +64,55 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/01/24/java-hash-index/" class="archive-article-date">
-  <time datetime="2018-01-24T04:13:47.000Z" itemprop="datePublished">Jan 24</time>
+        <section id="main"><article id="post-database-mysql-orm" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/04/08/database-mysql-orm/" class="article-date">
+  <time datetime="2018-04-08T02:43:05.000Z" itemprop="datePublished">2018-04-08</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/24/java-hash-index/">java-hash-index</a>
+    <h1 class="article-title" itemprop="name">
+      mysql-orm
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">1.<span class="built_in"> type </span>Student struct&#123;</span><br><span class="line">       id  int64 </span><br><span class="line">       teacher []*Teacher `orm:<span class="string">"rel(m2m)"</span>`</span><br><span class="line">       father <span class="number">*Fa</span>ther `orm:<span class="string">"rel(fk)"</span>`</span><br><span class="line">       wife *Wife `orm:<span class="string">"rel(one)"</span>`</span><br><span class="line">   &#125;</span><br><span class="line">  <span class="built_in"> type </span>Teacher struct&#123;</span><br><span class="line">       id int64</span><br><span class="line">       student []*Student `orm:<span class="string">"reverse(many)"</span>`</span><br><span class="line">   &#125;</span><br><span class="line">  <span class="built_in"> type </span>Father struct&#123;</span><br><span class="line">       id int64</span><br><span class="line">       student []*Student `orm:<span class="string">"reverse(many)"</span>`</span><br><span class="line">   &#125;</span><br><span class="line">  <span class="built_in"> type </span>Wife struct&#123;</span><br><span class="line">       id int64</span><br><span class="line">       studnet *Student `orm:<span class="string">"reverse(one)"</span>`</span><br><span class="line">   &#125;</span><br><span class="line">2. 一对多 rel(fk) reverse(many)</span><br><span class="line">   一对一 rel(one) reverse(one)</span><br><span class="line">   多对多 rel(m2m) reverse(many)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/04/08/database-mysql-orm/" data-id="cjfqw4w0p001v9enmcj9igk77" class="article-share-link">Partager</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database-mysql-beego-orm/">database_mysql_beego_orm</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/13/android-application-cmake-config/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">android_application_cmake_config</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/01/19/android-threadlocal/" class="archive-article-date">
-  <time datetime="2018-01-19T09:04:39.000Z" itemprop="datePublished">Jan 19</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/19/android-threadlocal/">android-threadlocal</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/01/17/android-application-event-dispatch/" class="archive-article-date">
-  <time datetime="2018-01-17T09:12:47.000Z" itemprop="datePublished">Jan 17</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/17/android-application-event-dispatch/">android-event-dispatch</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/01/15/java-study-jvm-class/" class="archive-article-date">
-  <time datetime="2018-01-15T01:42:20.000Z" itemprop="datePublished">Jan 15</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/01/15/java-study-jvm-class/">java-study-class</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/12/29/svg-study-1/" class="archive-article-date">
-  <time datetime="2017-12-29T03:45:38.000Z" itemprop="datePublished">Dec 29</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/29/svg-study-1/">svg_study</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/12/13/svg-study/" class="archive-article-date">
-  <time datetime="2017-12-13T13:40:49.000Z" itemprop="datePublished">Dec 13</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/13/svg-study/">svg-study</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/12/08/net_tls/" class="archive-article-date">
-  <time datetime="2017-12-08T09:38:39.000Z" itemprop="datePublished">Dec 8</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/08/net_tls/">openSSl</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/12/06/linux-reinstall/" class="archive-article-date">
-  <time datetime="2017-12-06T07:36:38.000Z" itemprop="datePublished">Dec 6</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/06/linux-reinstall/">linux-reinstall</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/12/04/python-install/" class="archive-article-date">
-  <time datetime="2017-12-04T15:29:53.000Z" itemprop="datePublished">Dec 4</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/04/python-install/">Python-install</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2017/12/03/javascript-object/" class="archive-article-date">
-  <time datetime="2017-12-03T15:46:51.000Z" itemprop="datePublished">Dec 3</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/12/03/javascript-object/">JavaScript</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/archives/">&laquo; __('prev')</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/9/">9</a><a class="extend next" rel="next" href="/archives/page/3/">__('next') &raquo;</a>
-  </nav>
 </section>
         
           <aside id="sidebar">
